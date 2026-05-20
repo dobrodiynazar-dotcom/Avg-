@@ -3,13 +3,16 @@
 ## Meta
 - Last updated: 2026-05-20
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: memory-restoration-and-repo-sync
-- Current instruction: Do not start Milestone 4 until explicit approval.
+- Current phase: milestone-4-homepage-preview
+- Current instruction: Milestone 4 homepage preview implemented; secondary routes remain intentionally incomplete.
 
 ## 1. Current Project Memory
 Read this file first. It is the current operational memory for the repository.
 
-The project is not a fresh planning-only restart anymore. It already contains completed implementation work through Milestone 3, plus a restored planning layer that originally lived on remote GitHub history.
+The project is no longer a planning-only restart. It now contains:
+- completed implementation through Milestone 3,
+- merged planning-memory history,
+- a Milestone 4 homepage preview pass focused on composition, hierarchy, responsive polish, CTA structure, and restrained premium presentation.
 
 ## 2. Completed Milestones
 ### Milestone 1-2
@@ -35,6 +38,21 @@ The project is not a fresh planning-only restart anymore. It already contains co
   - typed content modules expanded
   - modular content-driven architecture established
 
+### Milestone 4
+- Status: implemented locally in the current working tree
+- Scope:
+  - first preview-ready homepage experience only
+  - no full secondary-route implementation
+  - no admin or CMS work
+- Outcome:
+  - homepage composition refined without changing the architecture
+  - hero copy, proof, stats, and contact preview moved into typed content
+  - section rhythm, spacing, and visual hierarchy improved
+  - mobile header/navigation and CTA behavior improved
+  - contact, pricing, coach, schedule, media, and FAQ presentation tightened
+  - text-encoding issues removed from the homepage/content path
+  - skip link and table-header semantics added
+
 ## 3. Repository Synchronization State
 ### Before restoration
 - Local repository had:
@@ -46,26 +64,25 @@ The project is not a fresh planning-only restart anymore. It already contains co
   - planning-document history
   - no milestone commits reachable from `origin/main`
 
-### Recovery strategy
-- Reconnect local repository to GitHub remote.
-- Fetch `origin/main`.
-- Merge unrelated histories safely.
-- Preserve both milestone history and planning-document history.
-- Use merged `main` as the source-of-truth branch.
+### Recovery result
+- Local and remote histories were preserved through merge-based recovery.
+- `main`, `master`, and `origin/main` were previously confirmed aligned at `11d05a2`.
+- The repository now contains both:
+  - the implemented codebase lineage
+  - the planning-memory lineage
 
 ### Current intent
-- After this restoration commit is pushed, GitHub `main` should contain:
-  - the current codebase,
-  - milestone history,
-  - planning documents,
-  - synchronized repository memory.
+- `main` remains the canonical branch.
+- Milestone 4 homepage-preview work should be committed and pushed on top of the synchronized repository state.
 
 ## 4. Current Project Maturity
-- Overall maturity: foundation-complete, pre-Milestone-4
-- Architecture maturity: strong foundation
-- Content maturity: placeholder-heavy
+- Overall maturity: foundation-complete with homepage-preview implementation
+- Architecture maturity: strong and preserved
+- Homepage maturity: preview-ready
+- Secondary-route maturity: placeholders by design
+- Content maturity: polished placeholder content, not final approved production copy
 - Integration maturity: not yet production-complete
-- Verification maturity: partial; build/test validation still limited
+- Verification maturity: partial
 
 ## 5. Current Architecture Snapshot
 - App shell in `src/app/layout.tsx`
@@ -79,57 +96,62 @@ The project is not a fresh planning-only restart anymore. It already contains co
 - Design tokens in `src/lib/design/tokens.ts`
 - Metadata helper in `src/lib/seo/metadata.ts`
 
-## 6. Pending Work Before Milestone 4
-1. Finish repository synchronization and push merged truth to GitHub `main`.
-2. Confirm planning memory layer reflects the actual Milestone 1-3 codebase.
-3. Review and approve the restored planning documents.
-4. Confirm milestone-entry scope for Milestone 4.
+Milestone 4 preserved this architecture instead of replacing it.
 
-Milestone 4 must not begin before those steps are complete and explicitly approved.
+## 6. What Changed In Milestone 4
+1. Homepage content became more visitor-facing while remaining easy to replace later.
+2. Hero section gained stronger hierarchy, tighter CTA priority, and structured preview support.
+3. Section cadence became less uniform through supporting/feature header sizing and restrained surface alternation.
+4. Mobile UX improved through:
+   - persistent mobile primary CTA in the header
+   - controlled mobile drawer navigation
+   - cleaner contact endpoint behavior
+5. Accessibility improved through:
+   - skip link
+   - stronger mobile-menu semantics
+   - FAQ icon assistive cleanup
+   - `scope="col"` on schedule table headers
+6. Known placeholder copy was cleaned to avoid implementation-heavy language on the homepage path.
 
-## 7. Pending Work After Milestone 4 Approval
-- Replace placeholders with real approved content.
-- Expand secondary routes beyond shared placeholders where required.
-- Add real contact data and maps integration.
-- Resolve UI/token issues discovered in the current foundation.
-- Run full lint/type/build verification after dependency installation.
-- Add targeted QA and testing coverage appropriate to the next milestone scope.
+## 7. Remaining Work After This Preview
+- Replace placeholder contacts with real production values.
+- Replace placeholder schedule and pricing with approved real data.
+- Add final academy copy in Ukrainian.
+- Add final media assets and map embed.
+- Decide which secondary routes should be implemented next.
+- Run full production verification once a package manager and dependencies are available locally.
+- Add CI and, if needed later, lightweight testing automation.
 
 ## 8. Known Risks
 | Risk | Impact | Status | Notes |
 |---|---|---|---|
-| Repository history split between local `master` and remote `main` | High | being resolved | Must preserve both histories without force-push |
-| Some Ukrainian strings appear mojibaked in source output | High | unresolved | Needs verification before content-heavy work |
-| `Button` uses undefined `--color-on-primary` token | Medium | unresolved | Foundation-level design-system issue |
-| Secondary routes are still placeholders | Medium | known | Expected pre-Milestone-4 state |
-| Final real content and assets not yet wired | High | known | Placeholder content remains in typed modules |
-| Contact links and metadata base are placeholders | Medium | known | Needs approved production values |
+| Final real content and assets not yet wired | High | known | Homepage is preview-ready, not launch-ready |
+| Contact links and metadata base are still preview placeholders | High | known | Must be replaced before public release |
+| Secondary routes are still placeholders | Medium | expected | Intentional scope limit for this milestone |
+| Full automated verification is blocked by local tool availability | High | unresolved | `npm` is not available on PATH and project dependencies are not installed locally |
+| No package lockfile is present | Medium | unchanged | Environment reproducibility still limited |
+| No CI workflow is present | Medium | unchanged | No automated build enforcement yet |
 
-## 9. Unresolved npm / Build Verification Limitations
-- Dependency installation has not yet been re-run as part of this memory/sync restoration pass.
-- `npm run lint`, `npm run typecheck`, and `npm run build` therefore remain unverified in this exact synchronized state until dependencies are installed locally.
-- No package lockfile is currently present in the repo snapshot.
-- No CI workflow is currently present in the checked-out implementation to enforce build checks automatically.
+## 9. Verification Reality
+- `npm` is not available on PATH in the current shell.
+- Project `node_modules` is absent in the current workspace snapshot.
+- Bundled workspace Node is available, but it does not include the project toolchain (`next`, `eslint`, `typescript`) as installable local dependencies for this repo.
+- As a result, `npm run lint`, `npm run typecheck`, and `npm run build` could not be executed in this environment during this pass.
 
-These are known limitations, not approval to start Milestone 4.
+This limitation is real and must remain visible until dependencies can be installed and the scripts rerun.
 
-## 10. Next Milestone Goals
-### Milestone 4 candidate goals once approved
-- turn the current foundation into real page implementations without redesigning the system
-- keep the Linear-inspired visual philosophy intact
-- preserve the modular content-driven architecture
-- improve mobile completion on real content
-- replace route placeholders with approved route-specific experiences where needed
+## 10. Immediate Next Actions
+1. Review the Milestone 4 homepage preview in the browser once dependencies and local dev runtime are available.
+2. Replace preview contact values and metadata base before any public launch.
+3. Decide the next approved route-expansion scope.
+4. Install dependencies and rerun lint, typecheck, and build.
 
-## 11. Immediate Next Actions
-1. Complete and verify branch synchronization.
-2. Push merged repository truth to GitHub `main`.
-3. Confirm clean working tree and aligned branch state.
-4. Pause and wait for user approval before Milestone 4.
-
-## 12. Handoff Rules
+## 11. Handoff Rules
 - Read `STATE.md` first.
 - Then read `REQ.md`, `CONTEXT.md`, `DESIGN.md`, `TDD.md`, and `agent.md`.
 - Do not restart the project.
 - Do not redesign the system.
-- Do not start Milestone 4 without explicit approval.
+- Preserve the Linear-inspired premium visual direction.
+- Preserve the modular content-driven architecture.
+- Treat mobile as a critical requirement.
+- Do not treat placeholder secondary routes as bugs unless the project scope changes.

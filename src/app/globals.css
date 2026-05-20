@@ -20,6 +20,7 @@
   --color-primary: #5e6ad2;
   --color-primary-hover: #828fff;
   --color-primary-focus: #5e69d1;
+  --color-on-primary: #f7f8f8;
   --color-brand-secure: #7a7fad;
   --color-inverse-canvas: #ffffff;
   --color-inverse-surface-1: #f3f4f6;
@@ -71,6 +72,7 @@ body {
   margin: 0;
   background: var(--page-bg);
   color: var(--page-fg);
+  overflow-x: hidden;
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.5;
@@ -172,7 +174,7 @@ canvas {
   }
 
   .section-frame {
-    padding-block: clamp(4rem, 8vw, var(--spacing-section));
+    padding-block: clamp(3.5rem, 7vw, var(--spacing-section));
   }
 
   .surface-1,

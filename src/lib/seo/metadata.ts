@@ -15,7 +15,8 @@ export function buildMetadata({
   path = "/",
 }: MetadataInput): Metadata {
   const siteName = academyInfo.name;
-  const resolvedTitle = title === siteConfig.defaultTitle ? title : `${title} | ${siteName}`;
+  const resolvedTitle =
+    title === siteConfig.defaultTitle ? title : `${title} | ${siteName}`;
   const metadataBase = new URL(siteConfig.metadataBaseUrl);
   const url = `${siteConfig.metadataBaseUrl}${path}`;
 
@@ -28,7 +29,13 @@ export function buildMetadata({
       canonical: path,
     },
     robots: siteConfig.seo.robots,
-    keywords: ["джіу-джитсу", "Brazilian Jiu-Jitsu", "Рівне", "спортивна академія"],
+    keywords: [
+      "джиу-джитсу",
+      "Brazilian Jiu-Jitsu",
+      "Рівне",
+      "спортивна академія",
+      "тренування BJJ",
+    ],
     openGraph: {
       title: resolvedTitle,
       description,

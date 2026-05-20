@@ -1,21 +1,22 @@
-import type { SectionIntro } from "@/types/content";
+import type { HighlightItem, SectionIntro } from "@/types/content";
 
 import { Card, Container, SectionHeader } from "@/components/ui";
 
 type AboutSectionProps = {
   intro: SectionIntro;
-  pillars: Array<{ title: string; description: string }>;
+  pillars: HighlightItem[];
 };
 
 export function AboutSection({ intro, pillars }: AboutSectionProps) {
   return (
-    <section id="about" className="section-frame">
-      <Container className="py-16 sm:py-20">
-        <div className="space-y-8">
+    <section className="section-frame">
+      <Container className="py-6 sm:py-8">
+        <div className="surface-panel space-y-8 p-6 sm:p-8 lg:p-10">
           <SectionHeader
-            eyebrow={intro.eyebrow}
-            title={intro.title}
             description={intro.description}
+            eyebrow={intro.eyebrow}
+            size="feature"
+            title={intro.title}
           />
           <div className="grid gap-4 md:grid-cols-3">
             {pillars.map((pillar) => (

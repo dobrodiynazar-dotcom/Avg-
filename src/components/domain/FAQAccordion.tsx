@@ -17,7 +17,10 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-medium tracking-[-0.01em] text-[var(--color-ink)]">
             <span>{item.question}</span>
-            <span className="text-[var(--color-ink-subtle)] transition-transform group-open:rotate-45">
+            <span
+              aria-hidden="true"
+              className="text-[var(--color-ink-subtle)] transition-transform group-open:rotate-45"
+            >
               +
             </span>
           </summary>

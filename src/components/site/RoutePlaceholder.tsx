@@ -24,8 +24,8 @@ export function RoutePlaceholder({ route }: RoutePlaceholderProps) {
               Статус
             </p>
             <p className="text-lg leading-8 text-[var(--color-ink-muted)]">
-              Базовий маршрут і секційна архітектура вже підготовлені. Повний контент з&apos;явиться
-              на профільному етапі.
+              Розділ уже має правильну основу та навігаційну точку. Повна версія з реальним
+              контентом з&apos;явиться на наступному етапі.
             </p>
           </div>
           <div className="space-y-4">

@@ -13,6 +13,11 @@ const aspectRatioClassMap: Record<MediaAsset["aspectRatio"], string> = {
   wide: "aspect-[16/9]",
 };
 
+const kindLabelMap: Record<MediaAsset["kind"], string> = {
+  photo: "Фото",
+  video: "Відео",
+};
+
 export function MediaCard({ asset }: MediaCardProps) {
   return (
     <Card className="flex h-full flex-col gap-4" padding="sm">
@@ -21,13 +26,14 @@ export function MediaCard({ asset }: MediaCardProps) {
       >
         <div className="flex h-full items-end rounded-[calc(var(--radius-lg)-2px)] border border-dashed border-[var(--color-hairline-strong)] p-4">
           <div className="space-y-2">
-            <span className="rounded-full border border-[var(--color-hairline-strong)] bg-[var(--color-surface-3)] px-2.5 py-1 text-[11px] uppercase tracking-[0.4px] text-[var(--color-ink-muted)]">
-              {asset.kind}
+            <span className="rounded-full border border-[var(--color-hairline-strong)] bg-[var(--color-surface-3)] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
+              {kindLabelMap[asset.kind]}
             </span>
-            <p className="text-sm text-[var(--color-ink-subtle)]">{asset.status}</p>
+            <p className="text-sm text-[var(--color-ink-subtle)]">{asset.statusLabel}</p>
           </div>
         </div>
       </div>
+
       <div className="space-y-2 px-1 pb-1">
         <h3 className="text-lg font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
           {asset.title}

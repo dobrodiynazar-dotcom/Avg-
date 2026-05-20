@@ -10,13 +10,14 @@ type CoachesSectionProps = {
 
 export function CoachesSection({ intro, coaches }: CoachesSectionProps) {
   return (
-    <section id="coaches" className="section-frame">
-      <Container className="py-16 sm:py-20">
+    <section className="section-frame">
+      <Container className="py-6 sm:py-8">
         <div className="space-y-8">
           <SectionHeader
-            eyebrow={intro.eyebrow}
-            title={intro.title}
             description={intro.description}
+            eyebrow={intro.eyebrow}
+            size="supporting"
+            title={intro.title}
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {coaches.map((coach) => (

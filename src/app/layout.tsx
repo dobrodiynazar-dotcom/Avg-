@@ -32,9 +32,17 @@ export default function RootLayout({
   return (
     <html className={`${inter.variable} ${jetbrainsMono.variable}`} lang="uk">
       <body className="min-h-screen bg-[var(--color-canvas)] text-[var(--color-ink)] antialiased">
+        <a
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-md)] focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-[var(--color-on-primary)]"
+          href="#main-content"
+        >
+          Перейти до основного вмісту
+        </a>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1" id="main-content">
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </body>

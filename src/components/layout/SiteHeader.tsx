@@ -1,22 +1,29 @@
 import Link from "next/link";
 
 import { MobileNav } from "@/components/layout/MobileNav";
+import { Button, Container } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
 import { contactChannels } from "@/content/site";
-import { Button, Container } from "@/components/ui";
+
+const primaryChannel = contactChannels[0];
+const secondaryChannel = contactChannels[1];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-hairline)]/80 bg-[color:color-mix(in_srgb,var(--color-canvas)_90%,transparent)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-hairline)]/80 bg-[color:color-mix(in_srgb,var(--color-canvas)_88%,transparent)] backdrop-blur-xl">
       <Container>
-        <div className="flex min-h-14 items-center justify-between gap-6">
+        <div className="flex min-h-15 items-center justify-between gap-3 sm:min-h-16 sm:gap-6">
           <Link
-            className="text-sm font-semibold tracking-[-0.02em] text-[var(--color-ink)]"
+            className="min-w-0 text-sm font-semibold tracking-[-0.03em] text-[var(--color-ink)] sm:text-[15px]"
             href="/"
           >
-            Avangard Jiu-Jitsu
+            <span className="block truncate">Avangard Jiu-Jitsu</span>
           </Link>
-          <nav className="hidden items-center gap-5 lg:flex">
+
+          <nav
+            aria-label="Основна навігація"
+            className="hidden items-center gap-5 md:flex"
+          >
             {primaryNavigation.map((item) => (
               <Link
                 key={item.key}
@@ -27,14 +34,45 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="hidden items-center gap-3 sm:flex">
-            <Button href={contactChannels[1]?.href ?? "#instagram"} variant="secondary">
-              Instagram
-            </Button>
-            <Button href={contactChannels[0]?.href ?? "#telegram"}>Telegram</Button>
-          </div>
-          <div className="sm:hidden">
-            <MobileNav />
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            {primaryChannel ? (
+              <Button
+                className="sm:hidden"
+                href={primaryChannel.href}
+                rel={primaryChannel.external ? "noreferrer" : undefined}
+                size="sm"
+                target={primaryChannel.external ? "_blank" : undefined}
+              >
+                Написати
+              </Button>
+            ) : null}
+
+            <div className="hidden items-center gap-3 md:flex">
+              {secondaryChannel ? (
+                <Button
+                  href={secondaryChannel.href}
+                  rel={secondaryChannel.external ? "noreferrer" : undefined}
+                  target={secondaryChannel.external ? "_blank" : undefined}
+                  variant="secondary"
+                >
+                  {secondaryChannel.label}
+                </Button>
+              ) : null}
+              {primaryChannel ? (
+                <Button
+                  href={primaryChannel.href}
+                  rel={primaryChannel.external ? "noreferrer" : undefined}
+                  target={primaryChannel.external ? "_blank" : undefined}
+                >
+                  {primaryChannel.label}
+                </Button>
+              ) : null}
+            </div>
+
+            <div className="md:hidden">
+              <MobileNav />
+            </div>
           </div>
         </div>
       </Container>

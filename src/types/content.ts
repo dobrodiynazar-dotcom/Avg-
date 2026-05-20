@@ -23,6 +23,7 @@ export type ContactChannel = {
   label: string;
   href: string;
   value: string;
+  ctaLabel?: string;
   description?: string;
   variant: CtaVariant;
   external?: boolean;
@@ -61,6 +62,25 @@ export type CoachProfile = {
   imageLabel: string;
 };
 
+export type HighlightItem = {
+  title: string;
+  description: string;
+};
+
+export type StatItem = {
+  value: string;
+  label: string;
+  detail?: string;
+};
+
+export type HeroPreview = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  points: string[];
+  mediaLabel: string;
+};
+
 export type PricingPlan = {
   id: string;
   name: string;
@@ -69,6 +89,8 @@ export type PricingPlan = {
   summary: string;
   features: string[];
   isFeatured?: boolean;
+  badgeLabel?: string;
+  ctaLabel?: string;
   note?: string;
 };
 
@@ -89,6 +111,7 @@ export type MediaAsset = {
   summary: string;
   aspectRatio: "square" | "portrait" | "landscape" | "wide";
   status: "planned" | "selected";
+  statusLabel: string;
 };
 
 export type FAQItem = {
@@ -101,4 +124,12 @@ export type SectionIntro = {
   eyebrow: string;
   title: string;
   description: string;
+};
+
+export type ContactPreview = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  details: string[];
+  placeholderLabel: string;
 };

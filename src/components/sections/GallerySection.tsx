@@ -10,13 +10,15 @@ type GallerySectionProps = {
 
 export function GallerySection({ intro, assets }: GallerySectionProps) {
   return (
-    <section id="gallery" className="section-frame">
-      <Container className="py-16 sm:py-20">
+    <section className="section-frame">
+      <Container className="py-6 sm:py-8">
         <div className="space-y-8">
           <SectionHeader
-            eyebrow={intro.eyebrow}
-            title={intro.title}
             description={intro.description}
+            eyebrow={intro.eyebrow}
+            eyebrowTone="muted"
+            size="supporting"
+            title={intro.title}
           />
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {assets.map((asset) => (
