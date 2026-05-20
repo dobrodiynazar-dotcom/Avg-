@@ -20,7 +20,11 @@ export function SiteFooter() {
           </div>
           <div className="grid grid-cols-2 gap-3 text-sm text-[var(--color-ink-subtle)] sm:grid-cols-4">
             {primaryNavigation.map((item) => (
-              <Link key={item.key} className="transition-colors hover:text-[var(--color-ink)]" href={item.href}>
+              <Link
+                key={item.key}
+                className="transition-colors hover:text-[var(--color-ink)]"
+                href={item.href}
+              >
                 {item.label}
               </Link>
             ))}

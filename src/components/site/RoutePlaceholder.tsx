@@ -24,15 +24,15 @@ export function RoutePlaceholder({ route }: RoutePlaceholderProps) {
               Статус
             </p>
             <p className="text-lg leading-8 text-[var(--color-ink-muted)]">
-              Базовий маршрут і дизайн-система підготовлені. Повний контент з&apos;явиться на
-              профільному етапі.
+              Базовий маршрут і секційна архітектура вже підготовлені. Повний контент з&apos;явиться
+              на профільному етапі.
             </p>
           </div>
           <div className="space-y-4">
             <p className="text-xs font-medium uppercase tracking-[0.4px] text-[var(--color-ink-subtle)]">
               Основні дії
             </p>
-            <CTAGroup items={contactChannels} />
+            <CTAGroup items={contactChannels.slice(0, 3)} />
           </div>
         </Card>
       </div>
