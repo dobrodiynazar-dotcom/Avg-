@@ -35,7 +35,7 @@ Do not create alternative planning files unless the user explicitly asks for the
 ## Architecture Preservation Rules
 - Do not restart the project.
 - Do not redesign the system.
-- Preserve the Linear-inspired dark premium design philosophy.
+- Treat `DESIGN.md` as the official visual/design source for future implementation work.
 - Preserve the modular content-driven architecture.
 - Preserve the reusable section and domain-component structure.
 - Avoid flashy MMA aesthetics, visual drift, and noisy redesigns.

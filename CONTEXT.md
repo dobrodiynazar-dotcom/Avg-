@@ -104,7 +104,7 @@ The secondary routes currently use a shared placeholder shell rather than page-s
 ## 9. Operating Constraints
 - Do not redesign the visual system.
 - Do not restart the project.
-- Preserve the Linear-inspired design language.
+- Preserve the architecture while treating `DESIGN.md` as the authoritative design-system layer.
 - Preserve the modular content-driven architecture.
 - Avoid flashy MMA aesthetics, red-heavy combat templates, grunge, flames, or visual drift.
 - Mobile usability remains a hard requirement.

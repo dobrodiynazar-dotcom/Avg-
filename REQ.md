@@ -43,7 +43,7 @@
 ### In scope
 - Next.js App Router website.
 - TypeScript and Tailwind CSS implementation.
-- Linear-inspired dark visual system adapted for a premium martial arts academy.
+- Visual system defined by `DESIGN.md` as the single source of truth for implementation work.
 - Reusable section architecture.
 - Reusable domain components.
 - Typed local content files for academy, navigation, coaches, pricing, schedule, media, FAQ, and contact channels.
@@ -64,7 +64,7 @@
 3. The site must render schedule, pricing, coaches, media, and FAQ from structured typed content.
 4. The site must remain maintainable through reusable UI primitives, domain components, and section composition.
 5. The site must support mobile navigation and readable mobile layouts as a first-class requirement.
-6. The site must preserve the established Linear-inspired design philosophy while adapting it to Avangard.
+6. The site must treat `DESIGN.md` as the official visual/design source for future implementation work.
 7. The site must allow real content and assets to replace placeholders without structural rewrites.
 
 ## 8. Non-Functional Requirements

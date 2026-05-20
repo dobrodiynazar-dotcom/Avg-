@@ -151,7 +151,7 @@ This limitation is real and must remain visible until dependencies can be instal
 - Then read `REQ.md`, `CONTEXT.md`, `DESIGN.md`, `TDD.md`, and `agent.md`.
 - Do not restart the project.
 - Do not redesign the system.
-- Preserve the Linear-inspired premium visual direction.
+- Treat `DESIGN.md` as the official visual/design source for future implementation work.
 - Preserve the modular content-driven architecture.
 - Treat mobile as a critical requirement.
 - Do not treat placeholder secondary routes as bugs unless the project scope changes.
