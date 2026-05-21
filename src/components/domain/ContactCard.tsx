@@ -10,12 +10,10 @@ export function ContactCard({ channel }: ContactCardProps) {
   return (
     <Card className="flex h-full flex-col justify-between gap-5" padding="md">
       <div className="space-y-3">
-        <p className="text-xs font-medium uppercase tracking-[0.16em] text-[var(--color-primary)]">
-          {channel.label}
-        </p>
+        <p className="text-xs font-medium text-[var(--color-primary)]">{channel.label}</p>
 
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+          <h3 className="text-lg font-semibold tracking-[-0.03rem] text-[var(--color-ink)]">
             {channel.value}
           </h3>
           {channel.description ? (
@@ -37,7 +35,7 @@ export function ContactCard({ channel }: ContactCardProps) {
           target={channel.external ? "_blank" : undefined}
           variant={channel.variant}
         >
-          {channel.ctaLabel ?? "Відкрити канал"}
+          {channel.ctaLabel ?? "Р’С–РґРєСЂРёС‚Рё РєР°РЅР°Р»"}
         </Button>
       </div>
     </Card>

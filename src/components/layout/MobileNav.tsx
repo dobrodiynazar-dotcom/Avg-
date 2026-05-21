@@ -36,12 +36,12 @@ export function MobileNav() {
       <button
         aria-controls="mobile-navigation-drawer"
         aria-expanded={isOpen}
-        aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-        className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-hairline)] bg-[var(--color-surface-1)] px-3 text-sm text-[var(--color-ink)] transition-colors hover:border-[var(--color-hairline-strong)]"
+        aria-label={isOpen ? "Р—Р°РєСЂРёС‚Рё РјРµРЅСЋ" : "Р’С–РґРєСЂРёС‚Рё РјРµРЅСЋ"}
+        className="flex min-h-11 min-w-11 items-center justify-center rounded-full bg-[var(--color-surface-2)] px-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:bg-[var(--color-surface-3)]"
         onClick={() => setIsOpen((current) => !current)}
         type="button"
       >
-        {isOpen ? "X" : "Меню"}
+        {isOpen ? "X" : "РњРµРЅСЋ"}
       </button>
 
       {isOpen ? (
@@ -53,23 +53,21 @@ export function MobileNav() {
       ) : null}
 
       <div
-        aria-label="Мобільне меню"
+        aria-label="РњРѕР±С–Р»СЊРЅРµ РјРµРЅСЋ"
         aria-modal="true"
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(24rem,100vw)] flex-col border-l border-[var(--color-hairline-strong)] bg-[var(--color-surface-1)] p-5 transition-transform duration-200 ${
-          isOpen
-            ? "translate-x-0"
-            : "pointer-events-none invisible translate-x-full"
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(24rem,100vw)] flex-col bg-[var(--color-canvas)] p-5 transition-transform duration-200 ${
+          isOpen ? "translate-x-0" : "pointer-events-none invisible translate-x-full"
         }`}
         id="mobile-navigation-drawer"
         role="dialog"
       >
         <div className="flex items-center justify-between gap-4">
           <p className="text-sm font-semibold tracking-[-0.02em] text-[var(--color-ink)]">
-            Навігація
+            РќР°РІС–РіР°С†С–СЏ
           </p>
           <button
-            aria-label="Закрити меню"
-            className="flex min-h-10 min-w-10 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-hairline)] text-[var(--color-ink-subtle)] transition-colors hover:text-[var(--color-ink)]"
+            aria-label="Р—Р°РєСЂРёС‚Рё РјРµРЅСЋ"
+            className="flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[var(--color-surface-2)] text-[var(--color-ink-subtle)] transition-colors hover:bg-[var(--color-surface-3)] hover:text-[var(--color-ink)]"
             onClick={() => setIsOpen(false)}
             type="button"
           >
@@ -77,11 +75,11 @@ export function MobileNav() {
           </button>
         </div>
 
-        <nav aria-label="Розділи сайту" className="mt-8 flex flex-col gap-2">
+        <nav aria-label="Р РѕР·РґС–Р»Рё СЃР°Р№С‚Сѓ" className="mt-8 flex flex-col gap-2">
           {primaryNavigation.map((item) => (
             <Link
               key={item.key}
-              className="rounded-[var(--radius-md)] px-3 py-3 text-base text-[var(--color-ink-muted)] transition-colors hover:bg-[var(--color-surface-2)] hover:text-[var(--color-ink)]"
+              className="rounded-[var(--radius-md)] bg-[var(--color-surface-1)] px-4 py-3 text-base font-medium text-[var(--color-ink-muted)] transition-colors hover:bg-[var(--color-surface-2)] hover:text-[var(--color-ink)]"
               href={item.href}
               onClick={() => setIsOpen(false)}
             >

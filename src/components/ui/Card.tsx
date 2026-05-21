@@ -13,11 +13,11 @@ type CardProps = ComponentPropsWithoutRef<"div"> & {
 
 const variantClassMap: Record<CardVariant, string> = {
   default:
-    "border border-[var(--color-hairline)] bg-[var(--color-surface-1)]",
+    "border border-[var(--color-hairline)] bg-[var(--color-surface-2)]",
   lifted:
-    "border border-[var(--color-hairline-strong)] bg-[var(--color-surface-2)]",
+    "border border-[var(--color-hairline)] bg-[var(--color-canvas)]",
   subtle:
-    "border border-[var(--color-hairline)]/80 bg-[color:color-mix(in_srgb,var(--color-surface-1)_76%,transparent)]",
+    "border border-[var(--color-hairline)] bg-[var(--color-surface-1)]",
 };
 
 const paddingClassMap: Record<CardPadding, string> = {
@@ -36,9 +36,8 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-[var(--radius-lg)]",
-        "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:rounded-t-[inherit] before:bg-white/8 before:content-['']",
         "relative overflow-hidden",
+        "rounded-[var(--radius-md)]",
         variantClassMap[variant],
         paddingClassMap[padding],
         className,

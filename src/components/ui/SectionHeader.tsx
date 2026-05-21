@@ -37,7 +37,8 @@ export function SectionHeader({
       {eyebrow ? (
         <p
           className={cn(
-            "text-[0.75rem] font-medium uppercase tracking-[0.18em]",
+            "inline-flex items-center gap-2 self-start rounded-full bg-[var(--color-surface-2)] px-3 py-1 text-[0.75rem] font-medium",
+            isCentered && "self-center",
             eyebrowTone === "accent"
               ? "text-[var(--color-primary)]"
               : "text-[var(--color-ink-subtle)]",
@@ -52,8 +53,8 @@ export function SectionHeader({
           className={cn(
             "text-balance font-semibold text-[var(--color-ink)]",
             isFeature
-              ? "text-[clamp(2rem,4vw,3.4rem)] leading-[1.08] tracking-[-0.05em]"
-              : "text-[clamp(1.625rem,3vw,2.35rem)] leading-[1.12] tracking-[-0.04em]",
+              ? "text-[clamp(1.9rem,4vw,2.75rem)] leading-[1.12] tracking-[-0.05rem]"
+              : "text-[clamp(1.45rem,3vw,2rem)] leading-[1.2] tracking-[-0.03rem]",
           )}
         >
           {title}
@@ -63,8 +64,8 @@ export function SectionHeader({
             className={cn(
               "text-pretty text-[var(--color-ink-muted)]",
               isFeature
-                ? "text-base leading-7 sm:text-lg sm:leading-8"
-                : "text-[0.97rem] leading-7 sm:text-base sm:leading-7",
+                ? "text-base leading-7 sm:text-[1rem] sm:leading-7"
+                : "text-[0.95rem] leading-7 sm:text-base sm:leading-7",
             )}
           >
             {description}

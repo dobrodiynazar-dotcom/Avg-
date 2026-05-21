@@ -1,7 +1,5 @@
 import type { MediaAsset } from "@/types/content";
 
-import { Card } from "@/components/ui";
-
 type MediaCardProps = {
   asset: MediaAsset;
 };
@@ -14,32 +12,32 @@ const aspectRatioClassMap: Record<MediaAsset["aspectRatio"], string> = {
 };
 
 const kindLabelMap: Record<MediaAsset["kind"], string> = {
-  photo: "Фото",
-  video: "Відео",
+  photo: "Р¤РѕС‚Рѕ",
+  video: "Р’С–РґРµРѕ",
 };
 
 export function MediaCard({ asset }: MediaCardProps) {
   return (
-    <Card className="flex h-full flex-col gap-4" padding="sm">
-      <div
-        className={`${aspectRatioClassMap[asset.aspectRatio]} rounded-[var(--radius-lg)] border border-[var(--color-hairline)] bg-[var(--color-surface-2)] p-4`}
-      >
-        <div className="flex h-full items-end rounded-[calc(var(--radius-lg)-2px)] border border-dashed border-[var(--color-hairline-strong)] p-4">
+    <article className="pin-card-shell mb-5 break-inside-avoid">
+      <div className={`${aspectRatioClassMap[asset.aspectRatio]} pin-image-fill`}>
+        <div className="relative z-10 flex h-full flex-col justify-between p-4">
+          <span className="w-fit rounded-full bg-[var(--color-canvas)] px-3 py-1 text-[11px] font-bold text-[var(--color-ink)]">
+            {kindLabelMap[asset.kind]}
+          </span>
           <div className="space-y-2">
-            <span className="rounded-full border border-[var(--color-hairline-strong)] bg-[var(--color-surface-3)] px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
-              {kindLabelMap[asset.kind]}
+            <span className="w-fit rounded-full bg-[rgb(255_255_255_/_0.76)] px-3 py-1 text-[11px] font-medium text-[var(--color-ink-subtle)]">
+              {asset.statusLabel}
             </span>
-            <p className="text-sm text-[var(--color-ink-subtle)]">{asset.statusLabel}</p>
           </div>
         </div>
       </div>
 
-      <div className="space-y-2 px-1 pb-1">
-        <h3 className="text-lg font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+      <div className="space-y-2 p-4">
+        <h3 className="text-lg font-semibold tracking-[-0.03rem] text-[var(--color-ink)]">
           {asset.title}
         </h3>
         <p className="text-sm leading-7 text-[var(--color-ink-muted)]">{asset.summary}</p>
       </div>
-    </Card>
+    </article>
   );
 }

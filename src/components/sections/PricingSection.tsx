@@ -14,7 +14,7 @@ type PricingSectionProps = {
 export function PricingSection({ intro, plans, actions }: PricingSectionProps) {
   return (
     <section className="section-frame">
-      <Container className="py-6 sm:py-8">
+      <Container className="py-2 sm:py-4">
         <div className="space-y-8">
           <SectionHeader
             actions={actions}

@@ -9,18 +9,16 @@ type PricingCardProps = {
 export function PricingCard({ plan }: PricingCardProps) {
   return (
     <Card
-      className="flex h-full flex-col gap-5"
+      className={`flex h-full flex-col gap-5 ${plan.isFeatured ? "rounded-[var(--radius-lg)]" : ""}`}
       padding="md"
       variant={plan.isFeatured ? "lifted" : "default"}
     >
       <div className="space-y-4">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-2">
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[var(--color-primary)]">
-              {plan.name}
-            </p>
+            <p className="text-xs font-medium text-[var(--color-primary)]">{plan.name}</p>
             <div className="space-y-1">
-              <h3 className="text-[1.7rem] font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
+              <h3 className="text-[1.7rem] font-semibold tracking-[-0.05rem] text-[var(--color-ink)]">
                 {plan.priceLabel}
               </h3>
               <p className="text-sm text-[var(--color-ink-subtle)]">{plan.periodLabel}</p>
@@ -28,7 +26,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           </div>
 
           {plan.badgeLabel ? (
-            <span className="rounded-full border border-[var(--color-hairline-strong)] bg-[var(--color-surface-3)] px-3 py-1 text-[11px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
+            <span className="rounded-full bg-[var(--color-surface-3)] px-3 py-1 text-[11px] font-bold text-[var(--color-ink-muted)]">
               {plan.badgeLabel}
             </span>
           ) : null}
@@ -41,7 +39,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         {plan.features.map((feature) => (
           <li
             key={feature}
-            className="rounded-[var(--radius-md)] border border-[var(--color-hairline)]/80 bg-[color:color-mix(in_srgb,var(--color-surface-2)_72%,transparent)] px-3 py-2"
+            className="rounded-[var(--radius-md)] bg-[var(--color-surface-1)] px-3 py-3"
           >
             {feature}
           </li>
@@ -53,7 +51,7 @@ export function PricingCard({ plan }: PricingCardProps) {
       ) : null}
 
       <Button className="w-full" href="#contact" variant={plan.isFeatured ? "primary" : "secondary"}>
-        {plan.ctaLabel ?? "Уточнити деталі"}
+        {plan.ctaLabel ?? "РЈС‚РѕС‡РЅРёС‚Рё РґРµС‚Р°Р»С–"}
       </Button>
     </Card>
   );

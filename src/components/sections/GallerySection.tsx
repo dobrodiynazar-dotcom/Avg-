@@ -10,8 +10,8 @@ type GallerySectionProps = {
 
 export function GallerySection({ intro, assets }: GallerySectionProps) {
   return (
-    <section className="section-frame">
-      <Container className="py-6 sm:py-8">
+    <section className="section-frame bg-[var(--color-surface-1)]">
+      <Container className="py-2 sm:py-4">
         <div className="space-y-8">
           <SectionHeader
             description={intro.description}
@@ -20,7 +20,7 @@ export function GallerySection({ intro, assets }: GallerySectionProps) {
             size="supporting"
             title={intro.title}
           />
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="columns-1 gap-5 sm:columns-2 xl:columns-3">
             {assets.map((asset) => (
               <MediaCard key={asset.id} asset={asset} />
             ))}

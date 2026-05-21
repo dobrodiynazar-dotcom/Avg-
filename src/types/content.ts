@@ -81,6 +81,15 @@ export type HeroPreview = {
   mediaLabel: string;
 };
 
+export type VisualTile = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  aspectRatio: "square" | "portrait" | "landscape";
+  tone?: "light" | "dark";
+};
+
 export type PricingPlan = {
   id: string;
   name: string;

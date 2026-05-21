@@ -13,17 +13,19 @@ type FAQSectionProps = {
 
 export function FAQSection({ intro, items, actions }: FAQSectionProps) {
   return (
-    <section className="section-frame border-y border-[var(--color-hairline)]/70 bg-[color:color-mix(in_srgb,var(--color-surface-1)_48%,transparent)]">
-      <Container className="py-6 sm:py-8">
-        <div className="space-y-8">
-          <SectionHeader
-            actions={actions}
-            description={intro.description}
-            eyebrow={intro.eyebrow}
-            eyebrowTone="muted"
-            size="supporting"
-            title={intro.title}
-          />
+    <section className="section-frame">
+      <Container className="py-2 sm:py-4">
+        <div className="grid gap-5 lg:grid-cols-[0.85fr,1.15fr]">
+          <div className="rounded-[var(--radius-lg)] bg-[var(--color-surface-2)] p-6 sm:p-8">
+            <SectionHeader
+              actions={actions}
+              description={intro.description}
+              eyebrow={intro.eyebrow}
+              eyebrowTone="muted"
+              size="supporting"
+              title={intro.title}
+            />
+          </div>
           <FAQAccordion items={items} />
         </div>
       </Container>

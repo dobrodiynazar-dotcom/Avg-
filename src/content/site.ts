@@ -6,6 +6,7 @@ import type {
   HighlightItem,
   SectionIntro,
   StatItem,
+  VisualTile,
 } from "@/types/content";
 
 export const academyInfo: AcademyInfo = {
@@ -176,3 +177,35 @@ export const contactSectionContent: {
     placeholderLabel: "Google Maps preview area",
   },
 };
+
+export const heroVisuals: VisualTile[] = [
+  {
+    id: "hero-mat",
+    label: "Mat space",
+    title: "РџСЂРѕСЃС‚С–СЂ Р·Р°Р»Сѓ",
+    description: "РњС–СЃС†Рµ РґР»СЏ РіРѕР»РѕРІРЅРѕРіРѕ С„РѕС‚Рѕ Р· РєРёР»РёРјРѕРј, СЃРІС–С‚Р»РѕРј С– С‡РёС‚РєРѕСЋ РіРµРѕРјРµС‚СЂС–С”СЋ.",
+    aspectRatio: "portrait",
+  },
+  {
+    id: "hero-class",
+    label: "Class rhythm",
+    title: "Р РёС‚Рј С‚СЂРµРЅСѓРІР°РЅРЅСЏ",
+    description: "Р—Р°РјС–РЅРЅРёР№ РІС–Р·СѓР°Р» РґР»СЏ РіСЂСѓРїРѕРІРѕРіРѕ РјРѕРјРµРЅС‚Сѓ Р±РµР· РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ chrome.",
+    aspectRatio: "square",
+  },
+  {
+    id: "hero-detail",
+    label: "Discipline",
+    title: "Р”РµС‚Р°Р»СЊ С‚Р° С„РѕРєСѓСЃ",
+    description: "РљРѕСЂРѕС‚РєРёР№ РєР°РґСЂ РґР»СЏ СЂСѓРє, РїРѕСЏСЃР° Р°Р±Рѕ С„СЂР°РіРјРµРЅС‚Р° С‚РµС…РЅС–РєРё.",
+    aspectRatio: "portrait",
+  },
+  {
+    id: "hero-team",
+    label: "Community",
+    title: "РљРѕРјР°РЅРґРЅРёР№ РЅР°СЃС‚СЂС–Р№",
+    description: "Р’С–Р·СѓР°Р» РґР»СЏ Р°С‚РјРѕСЃС„РµСЂРё, РїС–РґС‚СЂРёРјРєРё С‚Р° Р»СЋРґСЃСЊРєРѕРіРѕ РјР°СЃС€С‚Р°Р±Сѓ.",
+    aspectRatio: "landscape",
+    tone: "dark",
+  },
+];

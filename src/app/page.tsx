@@ -24,6 +24,7 @@ import {
   heroHighlights,
   heroPreview,
   heroStats,
+  heroVisuals,
 } from "@/content/site";
 
 export default function HomePage() {
@@ -39,6 +40,7 @@ export default function HomePage() {
         highlights={heroHighlights}
         preview={heroPreview}
         stats={heroStats}
+        visuals={heroVisuals}
       />
       <AboutSection intro={plannedSectionIntros.about} pillars={aboutPillars} />
       <CoachesSection intro={coachesIntro} coaches={coaches} />

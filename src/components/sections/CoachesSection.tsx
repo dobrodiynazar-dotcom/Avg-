@@ -11,7 +11,7 @@ type CoachesSectionProps = {
 export function CoachesSection({ intro, coaches }: CoachesSectionProps) {
   return (
     <section className="section-frame">
-      <Container className="py-6 sm:py-8">
+      <Container className="py-2 sm:py-4">
         <div className="space-y-8">
           <SectionHeader
             description={intro.description}
