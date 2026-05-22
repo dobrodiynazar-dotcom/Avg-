@@ -2,6 +2,7 @@ import type { MediaAsset, SectionIntro } from "@/types/content";
 
 import { MediaCard } from "@/components/domain";
 import { Container, SectionHeader } from "@/components/ui";
+import { mediaPreviewNote } from "@/content/media";
 
 type GallerySectionProps = {
   intro: SectionIntro;
@@ -21,7 +22,7 @@ export function GallerySection({ intro, assets }: GallerySectionProps) {
             title={intro.title}
           />
           <p className="max-w-[36rem] text-[0.875rem] leading-7 text-[var(--color-ink-muted)] lg:justify-self-end">
-            The gallery now reads as one directed visual feed: a lead frame first, then supporting cuts with lighter caption treatment.
+            {mediaPreviewNote}
           </p>
         </div>
 

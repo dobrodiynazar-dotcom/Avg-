@@ -30,10 +30,12 @@ export const contactChannels: ContactChannel[] = [
     href: "https://t.me/avangard_bjj_preview",
     value: "@avangard_bjj_preview",
     ctaLabel: "Написати в Telegram",
-    description: "Найшвидший канал для першого запиту, уточнення графіка та старту.",
+    description:
+      "Найшвидший канал для першого запиту, уточнення графіка та старту.",
     variant: "primary",
     external: true,
-    availability: "Тимчасовий контакт для превʼю. Перед запуском буде оновлений.",
+    availability:
+      "Тимчасовий контакт для прев'ю. Перед запуском буде оновлений.",
   },
   {
     key: "instagram",
@@ -41,10 +43,12 @@ export const contactChannels: ContactChannel[] = [
     href: "https://instagram.com/avangard.bjj.preview",
     value: "@avangard.bjj.preview",
     ctaLabel: "Переглянути Instagram",
-    description: "Актуальні анонси, короткі фрагменти тренувань та атмосфера залу.",
+    description:
+      "Актуальні анонси, короткі фрагменти тренувань та атмосфера залу.",
     variant: "secondary",
     external: true,
-    availability: "Тимчасовий контакт для превʼю. Перед запуском буде оновлений.",
+    availability:
+      "Тимчасовий контакт для прев'ю. Перед запуском буде оновлений.",
   },
   {
     key: "phone",
@@ -52,9 +56,11 @@ export const contactChannels: ContactChannel[] = [
     href: "tel:+380000000000",
     value: "+38 (000) 000 00 00",
     ctaLabel: "Подзвонити",
-    description: "Контакт для дзвінка, швидкого уточнення формату занять і деталей старту.",
+    description:
+      "Контакт для дзвінка, швидкого уточнення формату занять і деталей старту.",
     variant: "tertiary",
-    availability: "Номер тимчасовий для превʼю. Остаточний контакт буде додано перед запуском.",
+    availability:
+      "Номер тимчасовий для прев'ю. Остаточний контакт буде додано перед запуском.",
   },
   {
     key: "email",
@@ -65,7 +71,8 @@ export const contactChannels: ContactChannel[] = [
     description:
       "Резервний канал для детальніших питань, організаційних тем і партнерських звернень.",
     variant: "tertiary",
-    availability: "Тимчасовий контакт для превʼю. Перед публічним запуском буде оновлений.",
+    availability:
+      "Тимчасовий контакт для прев'ю. Перед публічним запуском буде оновлений.",
   },
 ];
 
@@ -95,9 +102,9 @@ export const heroHighlights: HighlightItem[] = [
 ];
 
 export const heroMeta = {
-  eyebrow: "Editorial Notes",
+  eyebrow: "Редакційна примітка",
   description:
-    "The opening sequence now behaves like one lead frame supported by proof and motion, not a stack of unrelated cards.",
+    "Початковий екран працює як один головний кадр із чітким ритмом між поясненням, CTA та візуальною підтримкою.",
 };
 
 export const heroStats: StatItem[] = [
@@ -165,14 +172,14 @@ export const contactSectionContent: {
   intro: {
     eyebrow: "Контакти",
     title:
-      "Фінальний блок завершує сторінку спокійно і практично: з прямими каналами звʼязку та місцем під карту.",
+      "Фінальний блок завершує сторінку спокійно і практично: з прямими каналами зв'язку та місцем під карту.",
     description:
       "Тут легко знайти канал для першого звернення, зрозуміти, де проходитимуть заняття, і без зайвого шуму перейти до наступного кроку.",
   },
   preview: {
     eyebrow: "Локація та наступний крок",
     title:
-      "Тут зʼявиться реальна адреса, карта та короткий сценарій того, що відбувається після першого повідомлення.",
+      "Тут з'явиться реальна адреса, карта та короткий сценарій того, що відбувається після першого повідомлення.",
     description:
       "Блок уже показує логіку майбутньої карти й коротких пояснень, які допомагають підготуватися до першого візиту.",
     details: [
@@ -180,37 +187,41 @@ export const contactSectionContent: {
       "Адреса, карта та фінальні контакти будуть додані перед публічним запуском.",
       "Уся контактна інформація подається коротко, щоб не перевантажувати мобільний екран.",
     ],
-    placeholderLabel: "Google Maps preview area",
+    placeholderLabel: "Зона прев'ю для карти Google Maps",
   },
 };
 
 export const heroVisuals: VisualTile[] = [
   {
     id: "hero-mat",
-    label: "Mat space",
-    title: "РџСЂРѕСЃС‚С–СЂ Р·Р°Р»Сѓ",
-    description: "РњС–СЃС†Рµ РґР»СЏ РіРѕР»РѕРІРЅРѕРіРѕ С„РѕС‚Рѕ Р· РєРёР»РёРјРѕРј, СЃРІС–С‚Р»РѕРј С– С‡РёС‚РєРѕСЋ РіРµРѕРјРµС‚СЂС–С”СЋ.",
+    label: "Простір залу",
+    title: "Простір залу",
+    description:
+      "Місце для головного фото з килимом, світлом і чіткою геометрією.",
     aspectRatio: "portrait",
   },
   {
     id: "hero-class",
-    label: "Class rhythm",
-    title: "Р РёС‚Рј С‚СЂРµРЅСѓРІР°РЅРЅСЏ",
-    description: "Р—Р°РјС–РЅРЅРёР№ РІС–Р·СѓР°Р» РґР»СЏ РіСЂСѓРїРѕРІРѕРіРѕ РјРѕРјРµРЅС‚Сѓ Р±РµР· РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ chrome.",
+    label: "Ритм занять",
+    title: "Ритм тренування",
+    description:
+      "Замінний візуал для групового моменту без перевантаження зайвими деталями.",
     aspectRatio: "square",
   },
   {
     id: "hero-detail",
-    label: "Discipline",
-    title: "Р”РµС‚Р°Р»СЊ С‚Р° С„РѕРєСѓСЃ",
-    description: "РљРѕСЂРѕС‚РєРёР№ РєР°РґСЂ РґР»СЏ СЂСѓРє, РїРѕСЏСЃР° Р°Р±Рѕ С„СЂР°РіРјРµРЅС‚Р° С‚РµС…РЅС–РєРё.",
+    label: "Дисципліна",
+    title: "Деталь та фокус",
+    description:
+      "Короткий кадр для рук, пояса або фрагмента техніки.",
     aspectRatio: "portrait",
   },
   {
     id: "hero-team",
-    label: "Community",
-    title: "РљРѕРјР°РЅРґРЅРёР№ РЅР°СЃС‚СЂС–Р№",
-    description: "Р’С–Р·СѓР°Р» РґР»СЏ Р°С‚РјРѕСЃС„РµСЂРё, РїС–РґС‚СЂРёРјРєРё С‚Р° Р»СЋРґСЃСЊРєРѕРіРѕ РјР°СЃС€С‚Р°Р±Сѓ.",
+    label: "Спільнота",
+    title: "Командний настрій",
+    description:
+      "Візуал для атмосфери, підтримки та людського масштабу.",
     aspectRatio: "landscape",
     tone: "dark",
   },
