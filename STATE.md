@@ -1,10 +1,10 @@
 # STATE.md
 
 ## Meta
-- Last updated: 2026-05-20
+- Last updated: 2026-05-22
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: milestone-4-homepage-preview
-- Current instruction: Milestone 4 homepage preview implemented; secondary routes remain intentionally incomplete.
+- Current phase: milestone-4-ferrari-homepage-redesign
+- Current instruction: Ferrari-based cinematic homepage redesign implemented; secondary routes remain intentionally incomplete.
 
 ## 1. Current Project Memory
 Read this file first. It is the current operational memory for the repository.
@@ -39,19 +39,19 @@ The project is no longer a planning-only restart. It now contains:
   - modular content-driven architecture established
 
 ### Milestone 4
-- Status: implemented locally in the current working tree
+- Status: Ferrari-based redesign implemented in the current working tree
 - Scope:
   - first preview-ready homepage experience only
   - no full secondary-route implementation
   - no admin or CMS work
 - Outcome:
-  - homepage composition refined without changing the architecture
-  - hero copy, proof, stats, and contact preview moved into typed content
-  - section rhythm, spacing, and visual hierarchy improved
-  - mobile header/navigation and CTA behavior improved
-  - contact, pricing, coach, schedule, media, and FAQ presentation tightened
-  - text-encoding issues removed from the homepage/content path
-  - skip link and table-header semantics added
+  - homepage presentation shifted from the previous rounded/card-heavy preview toward a Ferrari-inspired cinematic editorial direction
+  - hero composition rebuilt around a dominant full-bleed visual stage, sharper CTA treatment, and a cleaner proof rhythm
+  - typography hierarchy, section spacing, band contrast, and geometry were redesigned without changing the Next.js architecture
+  - gallery/feed presentation moved from masonry-card styling toward a more directed editorial sequence
+  - mobile header, drawer, CTA repetition, and section pacing were simplified and refined
+  - accessibility was strengthened through improved drawer focus handling, larger touch targets, and stronger schedule-table semantics
+  - typed content structure and reusable section/domain architecture were preserved
 
 ## 3. Repository Synchronization State
 ### Before restoration
@@ -78,11 +78,11 @@ The project is no longer a planning-only restart. It now contains:
 ## 4. Current Project Maturity
 - Overall maturity: foundation-complete with homepage-preview implementation
 - Architecture maturity: strong and preserved
-- Homepage maturity: preview-ready
+- Homepage maturity: cinematic redesign preview-ready
 - Secondary-route maturity: placeholders by design
 - Content maturity: polished placeholder content, not final approved production copy
 - Integration maturity: not yet production-complete
-- Verification maturity: partial
+- Verification maturity: lint, typecheck, and production webpack build passed locally
 
 ## 5. Current Architecture Snapshot
 - App shell in `src/app/layout.tsx`
@@ -99,23 +99,25 @@ The project is no longer a planning-only restart. It now contains:
 Milestone 4 preserved this architecture instead of replacing it.
 
 ## 6. What Changed In Milestone 4
-1. Homepage content became more visitor-facing while remaining easy to replace later.
-2. Hero section gained stronger hierarchy, tighter CTA priority, and structured preview support.
-3. Section cadence became less uniform through supporting/feature header sizing and restrained surface alternation.
-4. Mobile UX improved through:
-   - persistent mobile primary CTA in the header
-   - controlled mobile drawer navigation
-   - cleaner contact endpoint behavior
-5. Accessibility improved through:
-   - skip link
-   - stronger mobile-menu semantics
-   - FAQ icon assistive cleanup
-   - `scope="col"` on schedule table headers
-6. Known placeholder copy was cleaned to avoid implementation-heavy language on the homepage path.
+1. The homepage visual direction now follows the Ferrari-based `DESIGN.md` source of truth rather than the previous Pinterest-era presentation.
+2. The hero now behaves as a single cinematic lead moment instead of a stack of rounded promo cards.
+3. Section rhythm was rebuilt with sharper geometry, darker/lighter editorial band transitions, and more deliberate whitespace pacing.
+4. Buttons, navigation, headers, cards, and captions were restyled into a more disciplined luxury-athletic visual system.
+5. Mobile UX improved through:
+   - simplified hero density
+   - tighter CTA repetition control
+   - a more refined mobile drawer
+   - stronger tap-target sizing
+6. Accessibility improved through:
+   - drawer focus restore/trapping behavior
+   - improved schedule table semantics with caption and row headers
+   - reduced-motion handling
+7. Typed content remains editable through `src/content/*`; placeholder business content is still intentionally present until final approved copy/assets are provided.
 
 ## 7. Remaining Work After This Preview
 - Replace placeholder contacts with real production values.
 - Replace placeholder schedule and pricing with approved real data.
+- Replace placeholder media panels and preview copy with final photography/video and approved Ukrainian production copy.
 - Add final academy copy in Ukrainian.
 - Add final media assets and map embed.
 - Decide which secondary routes should be implemented next.

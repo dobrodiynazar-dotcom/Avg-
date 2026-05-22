@@ -22,7 +22,7 @@ export function CTAGroup({ items, className }: CTAGroupProps) {
             target={opensNewTab ? "_blank" : undefined}
             variant={item.variant}
           >
-            {item.label}
+            {item.ctaLabel ?? item.label}
           </Button>
         );
       })}

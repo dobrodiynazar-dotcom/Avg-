@@ -10,30 +10,29 @@ const secondaryChannel = contactChannels[1];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-hairline)] bg-[rgb(255_255_255_/_0.92)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[rgb(255_255_255_/_0.08)] bg-[rgb(24_24_24_/_0.82)] backdrop-blur-xl">
       <Container>
-        <div className="flex min-h-16 items-center justify-between gap-4">
-          <Link
-            className="min-w-0 text-[15px] font-bold tracking-[-0.02rem] text-[var(--color-ink)]"
-            href="/"
-          >
-            <span className="flex items-center gap-2">
+        <div className="flex min-h-18 items-center justify-between gap-4 py-3">
+          <Link className="min-w-0 text-[var(--color-ink)]" href="/">
+            <span className="flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="inline-block h-5 w-5 rounded-full bg-[var(--color-primary)]"
+                className="inline-block h-3 w-8 bg-[linear-gradient(180deg,#a00c01,#da291c_64%)]"
               />
-              <span className="truncate">{academyInfo.shortName}</span>
+              <span className="truncate text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)]">
+                {academyInfo.shortName}
+              </span>
             </span>
           </Link>
 
           <nav
-            aria-label="РћСЃРЅРѕРІРЅР° РЅР°РІС–РіР°С†С–СЏ"
-            className="hidden items-center gap-5 md:flex"
+            aria-label="Основна навігація"
+            className="hidden items-center gap-6 md:flex"
           >
             {primaryNavigation.slice(0, 5).map((item) => (
               <Link
                 key={item.key}
-                className="text-sm font-medium text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)]"
+                className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)]"
                 href={item.href}
               >
                 {item.label}
@@ -50,7 +49,7 @@ export function SiteHeader() {
                 size="sm"
                 target={primaryChannel.external ? "_blank" : undefined}
               >
-                РќР°РїРёСЃР°С‚Рё
+                {primaryChannel.label}
               </Button>
             ) : null}
 
@@ -61,7 +60,7 @@ export function SiteHeader() {
                   rel={secondaryChannel.external ? "noreferrer" : undefined}
                   size="md"
                   target={secondaryChannel.external ? "_blank" : undefined}
-                  variant="tertiary"
+                  variant="secondary"
                 >
                   {secondaryChannel.label}
                 </Button>

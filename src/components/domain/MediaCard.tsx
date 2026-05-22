@@ -2,6 +2,7 @@ import type { MediaAsset } from "@/types/content";
 
 type MediaCardProps = {
   asset: MediaAsset;
+  featured?: boolean;
 };
 
 const aspectRatioClassMap: Record<MediaAsset["aspectRatio"], string> = {
@@ -12,31 +13,45 @@ const aspectRatioClassMap: Record<MediaAsset["aspectRatio"], string> = {
 };
 
 const kindLabelMap: Record<MediaAsset["kind"], string> = {
-  photo: "Р¤РѕС‚Рѕ",
-  video: "Р’С–РґРµРѕ",
+  photo: "Фото",
+  video: "Відео",
 };
 
-export function MediaCard({ asset }: MediaCardProps) {
+export function MediaCard({ asset, featured = false }: MediaCardProps) {
   return (
-    <article className="pin-card-shell mb-5 break-inside-avoid">
-      <div className={`${aspectRatioClassMap[asset.aspectRatio]} pin-image-fill`}>
-        <div className="relative z-10 flex h-full flex-col justify-between p-4">
-          <span className="w-fit rounded-full bg-[var(--color-canvas)] px-3 py-1 text-[11px] font-bold text-[var(--color-ink)]">
-            {kindLabelMap[asset.kind]}
-          </span>
-          <div className="space-y-2">
-            <span className="w-fit rounded-full bg-[rgb(255_255_255_/_0.76)] px-3 py-1 text-[11px] font-medium text-[var(--color-ink-subtle)]">
+    <article
+      className={`${featured ? "md:col-span-2 xl:row-span-2" : ""}`}
+    >
+      <div
+        className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image ${
+          featured ? "min-h-[22rem] sm:min-h-[28rem]" : ""
+        } border border-[rgb(255_255_255_/_0.08)]`}
+      >
+        <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
+              {kindLabelMap[asset.kind]}
+            </span>
+            <span className="border border-[rgb(255_255_255_/_0.08)] bg-[rgb(24_24_24_/_0.32)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-subtle)] backdrop-blur-sm">
               {asset.statusLabel}
             </span>
           </div>
-        </div>
-      </div>
 
-      <div className="space-y-2 p-4">
-        <h3 className="text-lg font-semibold tracking-[-0.03rem] text-[var(--color-ink)]">
-          {asset.title}
-        </h3>
-        <p className="text-sm leading-7 text-[var(--color-ink-muted)]">{asset.summary}</p>
+          <div className="max-w-[24rem] space-y-3">
+            <h3
+              className={`text-[var(--color-ink)] ${
+                featured
+                  ? "text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-[1.08] tracking-[-0.05rem]"
+                  : "text-[1.2rem] font-semibold tracking-[-0.03rem]"
+              }`}
+            >
+              {asset.title}
+            </h3>
+            <p className="text-[0.8125rem] leading-6 text-[rgb(255_255_255_/_0.76)]">
+              {asset.summary}
+            </p>
+          </div>
+        </div>
       </div>
     </article>
   );

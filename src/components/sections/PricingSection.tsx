@@ -13,21 +13,19 @@ type PricingSectionProps = {
 
 export function PricingSection({ intro, plans, actions }: PricingSectionProps) {
   return (
-    <section className="section-frame">
-      <Container className="py-2 sm:py-4">
-        <div className="space-y-8">
-          <SectionHeader
-            actions={actions}
-            description={intro.description}
-            eyebrow={intro.eyebrow}
-            size="feature"
-            title={intro.title}
-          />
-          <div className="grid gap-5 lg:grid-cols-3">
-            {plans.map((plan) => (
-              <PricingCard key={plan.id} plan={plan} />
-            ))}
-          </div>
+    <section className="section-band-light section-frame border-b border-[var(--color-hairline-strong)]">
+      <Container className="space-y-10" size="wide">
+        <SectionHeader
+          actions={actions}
+          description={intro.description}
+          eyebrow={intro.eyebrow}
+          size="feature"
+          title={intro.title}
+        />
+        <div className="grid gap-5 lg:grid-cols-3">
+          {plans.map((plan) => (
+            <PricingCard key={plan.id} plan={plan} />
+          ))}
         </div>
       </Container>
     </section>

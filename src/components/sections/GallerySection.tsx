@@ -10,9 +10,9 @@ type GallerySectionProps = {
 
 export function GallerySection({ intro, assets }: GallerySectionProps) {
   return (
-    <section className="section-frame bg-[var(--color-surface-1)]">
-      <Container className="py-2 sm:py-4">
-        <div className="space-y-8">
+    <section className="section-frame border-b border-[rgb(255_255_255_/_0.08)]">
+      <Container className="space-y-10" size="wide">
+        <div className="grid gap-6 lg:grid-cols-[0.6fr,1.4fr] lg:items-end">
           <SectionHeader
             description={intro.description}
             eyebrow={intro.eyebrow}
@@ -20,11 +20,19 @@ export function GallerySection({ intro, assets }: GallerySectionProps) {
             size="supporting"
             title={intro.title}
           />
-          <div className="columns-1 gap-5 sm:columns-2 xl:columns-3">
-            {assets.map((asset) => (
-              <MediaCard key={asset.id} asset={asset} />
-            ))}
-          </div>
+          <p className="max-w-[36rem] text-[0.875rem] leading-7 text-[var(--color-ink-muted)] lg:justify-self-end">
+            The gallery now reads as one directed visual feed: a lead frame first, then supporting cuts with lighter caption treatment.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-[1.15fr,0.85fr,0.85fr]">
+          {assets.map((asset, index) => (
+            <MediaCard
+              key={asset.id}
+              asset={asset}
+              featured={index === 0}
+            />
+          ))}
         </div>
       </Container>
     </section>

@@ -29,10 +29,10 @@ import {
 
 export default function HomePage() {
   const heroChannels = contactChannels.slice(0, 2);
-  const utilityChannels = contactChannels.slice(0, 2);
+  const utilityChannels = contactChannels.slice(0, 1);
 
   return (
-    <div className="pb-8 sm:pb-12">
+    <div>
       <HeroSection
         academy={academyInfo}
         contactChannels={heroChannels}
