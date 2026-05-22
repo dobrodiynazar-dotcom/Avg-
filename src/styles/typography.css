@@ -1,0 +1,137 @@
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--color-ink);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.1rem;
+  }
+
+  h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.07rem;
+  }
+
+  h3 {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.0225rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-ink-muted);
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .text-display-xl,
+  .text-display-lg,
+  .text-display-md,
+  .text-headline,
+  .text-card-title,
+  .text-subhead,
+  .text-body-lg,
+  .text-body,
+  .text-body-sm,
+  .text-button,
+  .text-caption,
+  .text-eyebrow,
+  .text-mono {
+    color: inherit;
+  }
+
+  .text-display-xl {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.1rem;
+  }
+
+  .text-display-lg {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.07rem;
+  }
+
+  .text-display-md {
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.0225rem;
+  }
+
+  .text-headline,
+  .text-card-title {
+    font-size: 1.125rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .text-subhead {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: 0.0125rem;
+  }
+
+  .text-body-lg {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .text-body {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .text-button {
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.0875rem;
+    text-transform: uppercase;
+  }
+
+  .text-caption {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .text-eyebrow {
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+  }
+
+  .text-mono {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}

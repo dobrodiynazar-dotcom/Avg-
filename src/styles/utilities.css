@@ -1,0 +1,54 @@
+@layer utilities {
+  .shell-container {
+    width: min(100% - (var(--spacing-container-mobile) * 2), var(--size-container));
+    margin-inline: auto;
+  }
+
+  .section-stack {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .section-frame {
+    padding-block: clamp(4rem, 9vw, var(--spacing-section));
+  }
+
+  .section-band-light {
+    background-color: var(--color-inverse-canvas);
+    color: var(--color-inverse-ink);
+  }
+
+  .section-band-light h1,
+  .section-band-light h2,
+  .section-band-light h3,
+  .section-band-light h4,
+  .section-band-light h5,
+  .section-band-light h6 {
+    color: var(--color-inverse-ink);
+  }
+
+  .section-band-light p {
+    color: rgb(24 24 24 / 0.74);
+  }
+
+  .surface-card {
+    border: var(--surface-border);
+    background-color: var(--color-surface-2);
+  }
+
+  .surface-panel {
+    border: var(--surface-border-light);
+    background-color: var(--color-inverse-canvas);
+  }
+
+  .editorial-rule {
+    border-top: 1px solid currentColor;
+    opacity: 0.18;
+  }
+}
+
+@media (min-width: 48rem) {
+  .shell-container {
+    width: min(100% - (var(--spacing-container-desktop) * 2), var(--size-container));
+  }
+}

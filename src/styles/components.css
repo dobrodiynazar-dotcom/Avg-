@@ -1,0 +1,50 @@
+@layer utilities {
+  .cinema-hero-shell {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(36rem, 85vh, 52rem);
+    background-color: var(--color-canvas);
+  }
+
+  .cinema-image {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 78% 18%, rgb(255 255 255 / 0.18), transparent 0 18%),
+      radial-gradient(circle at 68% 22%, rgb(218 41 28 / 0.22), transparent 0 24%),
+      radial-gradient(circle at 25% 85%, rgb(255 255 255 / 0.06), transparent 0 28%),
+      linear-gradient(145deg, rgb(58 58 58 / 0.58), rgb(14 14 14 / 0.94)),
+      linear-gradient(180deg, #3c3c3c 0%, #030303 64%);
+  }
+
+  .cinema-image::after {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgb(24 24 24 / 0.1) 0%, rgb(24 24 24 / 0.68) 74%, rgb(24 24 24 / 0.92) 100%);
+    content: "";
+  }
+
+  .cinema-image-soft {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgb(160 12 1 / 0.52), rgb(218 41 28 / 0.22) 45%, transparent 100%),
+      radial-gradient(circle at top right, rgb(255 255 255 / 0.18), transparent 0 38%),
+      linear-gradient(160deg, rgb(48 48 48 / 0.95), rgb(18 18 18 / 0.98));
+  }
+
+  .cinema-image-dark {
+    background:
+      radial-gradient(circle at top, rgb(255 255 255 / 0.12), transparent 0 24%),
+      linear-gradient(180deg, rgb(218 41 28 / 0.08), transparent 40%),
+      linear-gradient(150deg, rgb(48 48 48 / 0.88), rgb(8 8 8 / 0.98));
+  }
+
+  .hero-stat-value {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.1rem;
+  }
+}

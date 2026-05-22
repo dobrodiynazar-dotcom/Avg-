@@ -1,0 +1,52 @@
+@theme inline {
+  --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+
+  --color-canvas: #181818;
+  --color-surface-1: #181818;
+  --color-surface-2: #303030;
+  --color-surface-3: #f7f7f7;
+  --color-surface-4: #ffffff;
+  --color-hairline: #303030;
+  --color-hairline-strong: #d2d2d2;
+  --color-hairline-tertiary: #ebebeb;
+  --color-ink: #ffffff;
+  --color-ink-muted: #969696;
+  --color-ink-subtle: #8f8f8f;
+  --color-ink-tertiary: #666666;
+  --color-primary: #da291c;
+  --color-primary-hover: #9d2211;
+  --color-primary-focus: #fff200;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-brand-secure: #f6e500;
+  --color-inverse-canvas: #ffffff;
+  --color-inverse-surface-1: #f7f7f7;
+  --color-inverse-surface-2: #ebebeb;
+  --color-inverse-ink: #181818;
+  --color-semantic-success: #03904a;
+  --color-semantic-overlay: rgb(24 24 24 / 0.72);
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 12px;
+  --radius-2xl: 12px;
+
+  --spacing-section: 6rem;
+  --spacing-section-compact: 4rem;
+  --spacing-container-mobile: 1rem;
+  --spacing-container-desktop: 2rem;
+  --size-container: 80rem;
+}
+
+:root {
+  color-scheme: dark;
+  --page-bg: var(--color-canvas);
+  --page-fg: var(--color-ink-muted);
+  --surface-edge-highlight: none;
+  --surface-border: 1px solid var(--color-hairline);
+  --surface-border-light: 1px solid var(--color-hairline-strong);
+  --focus-ring: 0 0 0 2px var(--color-canvas), 0 0 0 4px var(--color-primary-focus);
+}

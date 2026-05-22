@@ -94,6 +94,12 @@ export const heroHighlights: HighlightItem[] = [
   },
 ];
 
+export const heroMeta = {
+  eyebrow: "Editorial Notes",
+  description:
+    "The opening sequence now behaves like one lead frame supported by proof and motion, not a stack of unrelated cards.",
+};
+
 export const heroStats: StatItem[] = [
   {
     value: "3",

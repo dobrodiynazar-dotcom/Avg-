@@ -22,6 +22,7 @@ import {
   contactSectionContent,
   heroContent,
   heroHighlights,
+  heroMeta,
   heroPreview,
   heroStats,
   heroVisuals,
@@ -38,6 +39,7 @@ export default function HomePage() {
         contactChannels={heroChannels}
         content={heroContent}
         highlights={heroHighlights}
+        meta={heroMeta}
         preview={heroPreview}
         stats={heroStats}
         visuals={heroVisuals}
