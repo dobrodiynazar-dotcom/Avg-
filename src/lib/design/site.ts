@@ -4,12 +4,12 @@ export const siteConfig = {
   name: "Avangard Jiu-Jitsu Academy",
   shortName: "Avangard",
   locale: "uk-UA",
-  locationLabel: "Rivne, Ukraine",
+  locationLabel: "Рівне, Україна",
   metadataBaseUrl: "https://example.com",
   defaultTitle: "Avangard Jiu-Jitsu Academy",
   titleTemplate: "%s | Avangard Jiu-Jitsu Academy",
   description:
-    "Structured placeholder metadata for the Avangard Jiu-Jitsu Academy website pending final approved copy.",
+    "Avangard Jiu-Jitsu Academy у Рівному: актуальний розклад, ціни, контакти та перший крок до тренувань.",
   themeColor: designTokens.colors.canvas,
   container: {
     maxWidth: designTokens.layout.containerMax,

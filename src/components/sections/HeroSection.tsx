@@ -1,6 +1,7 @@
 import type {
   AcademyInfo,
   ContactChannel,
+  HeroBackgroundMedia,
   HeroPreview,
   HighlightItem,
   StatItem,
@@ -10,6 +11,7 @@ import type {
 import { Container } from "@/components/ui";
 
 import { HeroActions } from "@/components/sections/hero/HeroActions";
+import { HeroBackground } from "@/components/sections/hero/HeroBackground";
 import { HeroCopy } from "@/components/sections/hero/HeroCopy";
 import { HeroMediaFrame } from "@/components/sections/hero/HeroMediaFrame";
 import { HeroMeta } from "@/components/sections/hero/HeroMeta";
@@ -17,6 +19,7 @@ import { HeroStats } from "@/components/sections/hero/HeroStats";
 
 type HeroSectionProps = {
   academy: AcademyInfo;
+  backgroundMedia: HeroBackgroundMedia;
   contactChannels: ContactChannel[];
   content: {
     title: string;
@@ -34,6 +37,7 @@ type HeroSectionProps = {
 
 export function HeroSection({
   academy,
+  backgroundMedia,
   contactChannels,
   content,
   highlights,
@@ -45,7 +49,7 @@ export function HeroSection({
   return (
     <section className="border-b border-[rgb(255_255_255_/_0.08)]">
       <div className="cinema-hero-shell">
-        <div className="cinema-image absolute inset-0" />
+        <HeroBackground media={backgroundMedia} />
         <Container className="relative flex min-h-[inherit] flex-col justify-end py-10 sm:py-14 lg:py-18" size="wide">
           <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] lg:items-end">
             <div className="max-w-[42rem] space-y-6 sm:space-y-8">

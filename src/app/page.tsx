@@ -16,10 +16,12 @@ import { plannedSectionIntros } from "@/content/placeholders";
 import { pricingIntro, pricingPlans } from "@/content/pricing";
 import { scheduleIntro, scheduleSessions } from "@/content/schedule";
 import {
+  aboutFeatureMedia,
   aboutPillars,
   academyInfo,
   contactChannels,
   contactSectionContent,
+  heroBackgroundMedia,
   heroContent,
   heroHighlights,
   heroMeta,
@@ -36,6 +38,7 @@ export default function HomePage() {
     <div>
       <HeroSection
         academy={academyInfo}
+        backgroundMedia={heroBackgroundMedia}
         contactChannels={heroChannels}
         content={heroContent}
         highlights={heroHighlights}
@@ -44,7 +47,11 @@ export default function HomePage() {
         stats={heroStats}
         visuals={heroVisuals}
       />
-      <AboutSection intro={plannedSectionIntros.about} pillars={aboutPillars} />
+      <AboutSection
+        featureMedia={aboutFeatureMedia}
+        intro={plannedSectionIntros.about}
+        pillars={aboutPillars}
+      />
       <CoachesSection intro={coachesIntro} coaches={coaches} />
       <ScheduleSection
         actions={<CTAGroup items={utilityChannels} />}

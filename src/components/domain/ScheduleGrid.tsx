@@ -23,7 +23,7 @@ export function ScheduleGrid({ sessions }: ScheduleGridProps) {
             <div className="mt-4 grid gap-3 text-[0.8125rem] leading-6 text-[rgb(24_24_24_/_0.72)] sm:grid-cols-2">
               <div className="space-y-1">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">Дні</p>
-                <p>{session.days.join(" · ")}</p>
+                <p>{session.days.join(" В· ")}</p>
               </div>
               <div className="space-y-1">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">Час</p>
@@ -50,7 +50,7 @@ export function ScheduleGrid({ sessions }: ScheduleGridProps) {
 
       <div className="hidden overflow-hidden border border-[var(--color-hairline-strong)] bg-[var(--color-inverse-canvas)] lg:block">
         <table className="w-full border-collapse">
-          <caption className="sr-only">Попередній розклад тренувань Avangard Jiu-Jitsu</caption>
+          <caption className="sr-only">Розклад тренувань Avangard Jiu-Jitsu</caption>
           <thead className="border-b border-[var(--color-hairline-strong)]">
             <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">
               <th className="px-5 py-4" scope="col">
@@ -80,7 +80,7 @@ export function ScheduleGrid({ sessions }: ScheduleGridProps) {
                   {session.group}
                 </th>
                 <td className="px-5 py-4">{session.audience}</td>
-                <td className="px-5 py-4">{session.days.join(" · ")}</td>
+                <td className="px-5 py-4">{session.days.join(" В· ")}</td>
                 <td className="px-5 py-4">{session.timeLabel}</td>
                 <td className="px-5 py-4">
                   <div className="space-y-1">

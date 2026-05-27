@@ -60,6 +60,7 @@ export type CoachProfile = {
   achievements: string[];
   focusAreas: string[];
   imageLabel: string;
+  imageSrc?: string;
 };
 
 export type HighlightItem = {
@@ -88,6 +89,19 @@ export type VisualTile = {
   description: string;
   aspectRatio: "square" | "portrait" | "landscape";
   tone?: "light" | "dark";
+};
+
+export type HeroBackgroundMedia = {
+  videoSrc: string;
+  posterSrc: string;
+  label: string;
+};
+
+export type FeatureMediaPanel = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  imageSrc: string;
 };
 
 export type PricingPlan = {
@@ -121,6 +135,7 @@ export type MediaAsset = {
   aspectRatio: "square" | "portrait" | "landscape" | "wide";
   status: "planned" | "selected";
   statusLabel: string;
+  imageSrc?: string;
 };
 
 export type FAQItem = {

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { MediaAsset } from "@/types/content";
 
 type MediaCardProps = {
@@ -19,14 +21,26 @@ const kindLabelMap: Record<MediaAsset["kind"], string> = {
 
 export function MediaCard({ asset, featured = false }: MediaCardProps) {
   return (
-    <article
-      className={`${featured ? "md:col-span-2 xl:row-span-2" : ""}`}
-    >
+    <article className={`${featured ? "md:col-span-2 xl:row-span-2" : ""}`}>
       <div
-        className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image ${
+        className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image relative ${
           featured ? "min-h-[22rem] sm:min-h-[28rem]" : ""
         } border border-[rgb(255_255_255_/_0.08)]`}
       >
+        {asset.imageSrc ? (
+          <Image
+            alt=""
+            className="object-cover"
+            fill
+            sizes={
+              featured
+                ? "(min-width: 1280px) 50vw, 100vw"
+                : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+            }
+            src={asset.imageSrc}
+          />
+        ) : null}
+
         <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
