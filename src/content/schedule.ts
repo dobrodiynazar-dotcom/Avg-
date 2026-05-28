@@ -7,7 +7,8 @@ import type {
 export const schedulePreviewContent = {
   title: "Вікові групи",
   ctaHref: "/schedule",
-  ctaLabel: "Переглянути повний розклад тренувань",
+  ctaLabel: "Переглянути повний\nрозклад тренувань",
+  backgroundImageSrc: "/media/gallery/groups-background.jpg",
 };
 
 export const schedulePreviewGroups: SchedulePreviewGroup[] = [
