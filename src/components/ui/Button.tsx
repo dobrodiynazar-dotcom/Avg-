@@ -26,7 +26,7 @@ export type ButtonProps = LinkProps | NativeButtonProps;
 
 const variantClassMap: Record<ButtonVariant, string> = {
   primary:
-    "border border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-on-primary)] hover:bg-[var(--color-primary-hover)] hover:border-[var(--color-primary-hover)]",
+    "border border-[var(--color-primary)] bg-[var(--color-primary)] !text-white visited:!text-white hover:border-[var(--color-primary-hover)] hover:bg-[var(--color-primary-hover)] hover:!text-white focus:!text-white active:!text-white",
   secondary:
     "border border-[rgb(255_255_255_/_0.3)] bg-transparent text-[var(--color-ink)] hover:border-[var(--color-ink)] hover:bg-[rgb(255_255_255_/_0.04)]",
   tertiary:

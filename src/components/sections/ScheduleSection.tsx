@@ -15,7 +15,7 @@ export function ScheduleSection({ intro, sessions, actions }: ScheduleSectionPro
   return (
     <section className="section-band-light section-frame border-b border-[var(--color-hairline-strong)]">
       <Container className="grid gap-8 lg:grid-cols-[0.7fr,1.3fr] lg:items-start" size="wide">
-        <div className="space-y-6 lg:sticky lg:top-24">
+        <div className="space-y-6">
           <SectionHeader
             actions={actions}
             description={intro.description}
@@ -25,7 +25,7 @@ export function ScheduleSection({ intro, sessions, actions }: ScheduleSectionPro
           />
         </div>
 
-        <div className="surface-panel p-4 sm:p-5">
+        <div className="pt-2">
           <ScheduleGrid sessions={sessions} />
         </div>
       </Container>

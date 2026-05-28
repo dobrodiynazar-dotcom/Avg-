@@ -18,7 +18,6 @@ import { scheduleIntro, scheduleSessions } from "@/content/schedule";
 import {
   aboutFeatureMedia,
   aboutPillars,
-  academyInfo,
   contactChannels,
   contactSectionContent,
   heroBackgroundMedia,
@@ -34,7 +33,6 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection
-        academy={academyInfo}
         backgroundMedia={heroBackgroundMedia}
         contactChannels={heroChannels}
         content={heroContent}

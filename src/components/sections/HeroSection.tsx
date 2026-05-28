@@ -1,5 +1,4 @@
 import type {
-  AcademyInfo,
   ContactChannel,
   HeroBackgroundMedia,
   HighlightItem,
@@ -13,7 +12,6 @@ import { HeroCopy } from "@/components/sections/hero/HeroCopy";
 import { HeroMeta } from "@/components/sections/hero/HeroMeta";
 
 type HeroSectionProps = {
-  academy: AcademyInfo;
   backgroundMedia: HeroBackgroundMedia;
   contactChannels: ContactChannel[];
   content: {
@@ -30,7 +28,6 @@ type HeroSectionProps = {
 };
 
 export function HeroSection({
-  academy,
   backgroundMedia,
   contactChannels,
   content,
@@ -56,8 +53,6 @@ export function HeroSection({
         >
           <div className="mx-auto flex w-full max-w-[52rem] flex-col items-center gap-8 text-center">
             <HeroCopy
-              heroLabel={academy.heroLabel}
-              locationLabel={academy.locationLabel}
               titleLead={content.titleLead}
               subtitle={content.subtitle}
               supportingText={content.supportingText}

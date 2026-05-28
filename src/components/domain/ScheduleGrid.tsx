@@ -1,100 +1,112 @@
 import type { ScheduleSession } from "@/types/content";
 
+import { Card } from "@/components/ui";
+
 type ScheduleGridProps = {
   sessions: ScheduleSession[];
 };
 
+type GroupedSchedule = {
+  group: string;
+  sessions: ScheduleSession[];
+};
+
 export function ScheduleGrid({ sessions }: ScheduleGridProps) {
+  const groupedSessions = sessions.reduce<GroupedSchedule[]>((groups, session) => {
+    const existingGroup = groups.find((group) => group.group === session.group);
+
+    if (existingGroup) {
+      existingGroup.sessions.push(session);
+      return groups;
+    }
+
+    groups.push({
+      group: session.group,
+      sessions: [session],
+    });
+
+    return groups;
+  }, []);
+
   return (
-    <>
-      <div className="grid gap-4 lg:hidden">
-        {sessions.map((session) => (
-          <article
-            key={session.id}
-            className="border border-[var(--color-hairline-strong)] bg-[var(--color-inverse-canvas)] px-4 py-4 text-[var(--color-inverse-ink)]"
-          >
-            <div className="space-y-2">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[rgb(24_24_24_/_0.58)]">{session.group}</p>
-              <h3 className="text-[1.1rem] font-semibold tracking-[-0.03rem] text-[var(--color-inverse-ink)]">
-                {session.audience}
-              </h3>
+    <div
+      aria-label="Розклад тренувань Avangard Jiu-Jitsu"
+      className="grid gap-4 md:grid-cols-2 xl:gap-5"
+    >
+      {groupedSessions.map((group) => (
+        <Card
+          key={group.group}
+          className="border-t-2 border-t-[var(--color-primary)]"
+          padding="md"
+          variant="lifted"
+        >
+          <article className="flex h-full flex-col gap-6">
+            <div className="space-y-3">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[rgb(24_24_24_/_0.52)]">
+                Група
+              </p>
+              <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--color-hairline-strong)] pb-4">
+                <h3 className="text-[clamp(1.5rem,2vw,2rem)] font-medium tracking-[-0.05rem] text-[var(--color-inverse-ink)]">
+                  {group.group}
+                </h3>
+                <p className="text-[0.75rem] uppercase tracking-[0.12em] text-[rgb(24_24_24_/_0.52)]">
+                  {group.sessions.length === 1
+                    ? "Окремий формат"
+                    : `${group.sessions.length} формати`}
+                </p>
+              </div>
             </div>
 
-            <div className="mt-4 grid gap-3 text-[0.8125rem] leading-6 text-[rgb(24_24_24_/_0.72)] sm:grid-cols-2">
-              <div className="space-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">Дні</p>
-                <p>{session.days.join(" В· ")}</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">Час</p>
-                <p>{session.timeLabel}</p>
-              </div>
-              <div className="space-y-1 sm:col-span-2">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">
-                  Локація
-                </p>
-                <p>{session.locationLabel}</p>
-              </div>
-              {session.note ? (
-                <div className="space-y-1 sm:col-span-2">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">
-                    Примітка
-                  </p>
-                  <p className="text-[rgb(24_24_24_/_0.58)]">{session.note}</p>
-                </div>
-              ) : null}
+            <div className="space-y-4">
+              {group.sessions.map((session, index) => (
+                <section
+                  key={session.id}
+                  aria-label={`${group.group}: ${session.audience}`}
+                  className={`space-y-4 ${
+                    index > 0
+                      ? "border-t border-[var(--color-hairline-tertiary)] pt-4"
+                      : ""
+                  }`}
+                >
+                  <div className="space-y-1">
+                    <p className="text-[0.95rem] font-semibold leading-6 text-[var(--color-inverse-ink)]">
+                      {session.audience}
+                    </p>
+                    <p className="text-[0.8125rem] leading-6 text-[rgb(24_24_24_/_0.56)]">
+                      {session.locationLabel}
+                    </p>
+                  </div>
+
+                  <dl className="grid gap-3 sm:grid-cols-2">
+                    <div className="space-y-1">
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.48)]">
+                        Дні
+                      </dt>
+                      <dd className="text-[0.875rem] leading-6 text-[rgb(24_24_24_/_0.76)]">
+                        {session.days.join(" · ")}
+                      </dd>
+                    </div>
+                    <div className="space-y-1">
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.48)]">
+                        Час
+                      </dt>
+                      <dd className="text-[0.875rem] leading-6 text-[rgb(24_24_24_/_0.76)]">
+                        {session.timeLabel}
+                      </dd>
+                    </div>
+                  </dl>
+
+                  {session.note ? (
+                    <p className="border-l border-[var(--color-primary)] pl-4 text-[0.8125rem] leading-6 text-[rgb(24_24_24_/_0.6)]">
+                      {session.note}
+                    </p>
+                  ) : null}
+                </section>
+              ))}
             </div>
           </article>
-        ))}
-      </div>
-
-      <div className="hidden overflow-hidden border border-[var(--color-hairline-strong)] bg-[var(--color-inverse-canvas)] lg:block">
-        <table className="w-full border-collapse">
-          <caption className="sr-only">Розклад тренувань Avangard Jiu-Jitsu</caption>
-          <thead className="border-b border-[var(--color-hairline-strong)]">
-            <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-[rgb(24_24_24_/_0.52)]">
-              <th className="px-5 py-4" scope="col">
-                Група
-              </th>
-              <th className="px-5 py-4" scope="col">
-                Формат
-              </th>
-              <th className="px-5 py-4" scope="col">
-                Дні
-              </th>
-              <th className="px-5 py-4" scope="col">
-                Час
-              </th>
-              <th className="px-5 py-4" scope="col">
-                Локація
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {sessions.map((session) => (
-              <tr
-                key={session.id}
-                className="border-t border-[var(--color-hairline-tertiary)] text-[0.875rem] text-[rgb(24_24_24_/_0.72)]"
-              >
-                <th className="px-5 py-4 text-left font-semibold text-[var(--color-inverse-ink)]" scope="row">
-                  {session.group}
-                </th>
-                <td className="px-5 py-4">{session.audience}</td>
-                <td className="px-5 py-4">{session.days.join(" В· ")}</td>
-                <td className="px-5 py-4">{session.timeLabel}</td>
-                <td className="px-5 py-4">
-                  <div className="space-y-1">
-                    <p>{session.locationLabel}</p>
-                    {session.note ? (
-                      <p className="text-[0.75rem] text-[rgb(24_24_24_/_0.56)]">{session.note}</p>
-                    ) : null}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+        </Card>
+      ))}
+    </div>
   );
 }

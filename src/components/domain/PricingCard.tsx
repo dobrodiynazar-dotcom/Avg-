@@ -53,7 +53,11 @@ export function PricingCard({ plan }: PricingCardProps) {
         <p className="text-[0.75rem] leading-6 text-[rgb(24_24_24_/_0.56)]">{plan.note}</p>
       ) : null}
 
-      <Button className="w-full" href="#contact" variant={plan.isFeatured ? "primary" : "inverse"}>
+      <Button
+        className={plan.isFeatured ? "w-full !text-[var(--color-canvas)] hover:!text-[var(--color-canvas)] focus:!text-[var(--color-canvas)] active:!text-[var(--color-canvas)]" : "w-full"}
+        href="#contact"
+        variant={plan.isFeatured ? "primary" : "inverse"}
+      >
         {plan.ctaLabel ?? "Уточнити деталі"}
       </Button>
     </Card>
