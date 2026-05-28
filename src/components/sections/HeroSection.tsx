@@ -51,7 +51,7 @@ export function HeroSection({
       <div className="cinema-hero-shell">
         <HeroBackground media={backgroundMedia} />
         <Container
-          className="relative flex min-h-[34rem] items-center justify-center py-20 sm:min-h-[38rem] sm:py-24 md:min-h-[42rem] lg:min-h-[46rem] lg:py-28"
+          className="relative flex min-h-[max(42rem,100svh)] items-center justify-center py-24 sm:py-28"
           size="wide"
         >
           <div className="mx-auto flex w-full max-w-[52rem] flex-col items-center gap-8 text-center">
