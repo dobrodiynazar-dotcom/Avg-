@@ -42,7 +42,7 @@ const sizeClassMap: Record<ButtonSize, string> = {
 };
 
 const baseClassName =
-  "inline-flex items-center justify-center whitespace-nowrap border text-center font-bold uppercase tracking-[0.12em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-focus)] disabled:pointer-events-none disabled:opacity-60";
+  "inline-flex items-center justify-center whitespace-nowrap rounded-[var(--radius-button)] border text-center font-bold uppercase tracking-[0.12em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-focus)] disabled:pointer-events-none disabled:opacity-60";
 
 export function Button(props: ButtonProps) {
   const {

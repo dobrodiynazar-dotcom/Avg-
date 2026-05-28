@@ -23,7 +23,7 @@ export function MediaCard({ asset, featured = false }: MediaCardProps) {
   return (
     <article className={`${featured ? "md:col-span-2 xl:row-span-2" : ""}`}>
       <div
-        className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image relative ${
+        className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image relative overflow-hidden rounded-[var(--radius-card-lg)] ${
           featured ? "min-h-[22rem] sm:min-h-[28rem]" : ""
         } border border-[rgb(255_255_255_/_0.08)]`}
       >
@@ -43,10 +43,10 @@ export function MediaCard({ asset, featured = false }: MediaCardProps) {
 
         <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
+            <span className="rounded-[var(--radius-badge)] border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
               {kindLabelMap[asset.kind]}
             </span>
-            <span className="border border-[rgb(255_255_255_/_0.08)] bg-[rgb(24_24_24_/_0.32)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-subtle)] backdrop-blur-sm">
+            <span className="rounded-[var(--radius-badge)] border border-[rgb(255_255_255_/_0.08)] bg-[rgb(24_24_24_/_0.32)] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-subtle)] backdrop-blur-sm">
               {asset.statusLabel}
             </span>
           </div>

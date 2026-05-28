@@ -36,7 +36,7 @@ export function AboutSection({ featureMedia, intro, pillars }: AboutSectionProps
           </div>
         </article>
 
-        <article className="cinema-image-soft relative min-h-[24rem] overflow-hidden border border-[rgb(255_255_255_/_0.08)]">
+        <article className="cinema-image-soft relative min-h-[24rem] overflow-hidden rounded-[var(--radius-card-lg)] border border-[rgb(255_255_255_/_0.08)]">
           <Image
             alt=""
             className="object-cover"
@@ -46,7 +46,7 @@ export function AboutSection({ featureMedia, intro, pillars }: AboutSectionProps
           />
 
           <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8">
-            <div className="w-fit border border-[rgb(255_255_255_/_0.16)] bg-[rgb(24_24_24_/_0.4)] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink)] backdrop-blur-sm">
+            <div className="w-fit rounded-[var(--radius-badge)] border border-[rgb(255_255_255_/_0.16)] bg-[rgb(24_24_24_/_0.4)] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink)] backdrop-blur-sm">
               {featureMedia.eyebrow}
             </div>
 

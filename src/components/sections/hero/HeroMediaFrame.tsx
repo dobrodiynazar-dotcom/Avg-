@@ -7,7 +7,7 @@ type HeroMediaFrameProps = {
 
 export function HeroMediaFrame({ preview, visuals }: HeroMediaFrameProps) {
   return (
-    <div className="self-end border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.74)] p-5 backdrop-blur-sm sm:p-6 lg:max-w-[30rem]">
+    <div className="self-end rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.74)] p-5 backdrop-blur-sm sm:p-6 lg:max-w-[30rem]">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-primary)]">
         {preview.eyebrow}
       </p>

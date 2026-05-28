@@ -8,7 +8,7 @@ type CoachCardProps = {
 
 export function CoachCard({ coach }: CoachCardProps) {
   return (
-    <article className="border border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)]">
+    <article className="overflow-hidden rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)]">
       <div className="cinema-image-soft relative aspect-[4/5] overflow-hidden">
         {coach.imageSrc ? (
           <Image
@@ -21,7 +21,7 @@ export function CoachCard({ coach }: CoachCardProps) {
         ) : null}
 
         <div className="relative z-10 flex h-full items-end p-5">
-          <div className="border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
+          <div className="rounded-[var(--radius-badge)] border border-[rgb(255_255_255_/_0.12)] bg-[rgb(24_24_24_/_0.46)] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] backdrop-blur-sm">
             {coach.imageLabel}
           </div>
         </div>

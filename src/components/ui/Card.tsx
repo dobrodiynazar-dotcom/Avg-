@@ -34,7 +34,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "relative overflow-hidden",
+        "relative overflow-hidden rounded-[var(--radius-card-sm)]",
         variantClassMap[variant],
         paddingClassMap[padding],
         className,
