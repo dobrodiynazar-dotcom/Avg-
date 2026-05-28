@@ -5,7 +5,6 @@ import {
   FAQSection,
   GallerySection,
   HeroSection,
-  PricingSection,
   SchedulePreviewSection,
 } from "@/components/sections";
 import { CTAGroup } from "@/components/ui";
@@ -13,7 +12,6 @@ import { coaches, coachesIntro } from "@/content/coaches";
 import { faqItems, faqIntro } from "@/content/faq";
 import { mediaAssets, mediaIntro } from "@/content/media";
 import { plannedSectionIntros } from "@/content/placeholders";
-import { pricingIntro, pricingPlans } from "@/content/pricing";
 import { schedulePreviewContent, schedulePreviewGroups } from "@/content/schedule";
 import {
   aboutFeatureMedia,
@@ -48,11 +46,6 @@ export default function HomePage() {
       <SchedulePreviewSection
         content={schedulePreviewContent}
         groups={schedulePreviewGroups}
-      />
-      <PricingSection
-        actions={<CTAGroup items={utilityChannels} />}
-        intro={pricingIntro}
-        plans={pricingPlans}
       />
       <GallerySection intro={mediaIntro} assets={mediaAssets} />
       <FAQSection
