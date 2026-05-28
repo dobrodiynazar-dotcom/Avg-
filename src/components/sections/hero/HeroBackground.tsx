@@ -11,7 +11,7 @@ export function HeroBackground({ media }: HeroBackgroundProps) {
     <div aria-hidden="true" className="absolute inset-0">
       <Image
         alt=""
-        className="object-cover md:hidden"
+        className="object-cover object-center"
         fill
         priority
         sizes="100vw"
@@ -19,7 +19,7 @@ export function HeroBackground({ media }: HeroBackgroundProps) {
       />
       <video
         autoPlay
-        className="hidden h-full w-full object-cover md:block"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         loop
         muted
         playsInline
@@ -28,8 +28,8 @@ export function HeroBackground({ media }: HeroBackgroundProps) {
       >
         <source src={media.videoSrc} type="video/mp4" />
       </video>
-      <div className="cinema-image absolute inset-0" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(24_24_24_/_0.12)_0%,rgb(24_24_24_/_0.58)_58%,rgb(24_24_24_/_0.9)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgb(255_255_255_/_0.08),transparent_0_24%),linear-gradient(180deg,rgb(10_10_10_/_0.26)_0%,rgb(10_10_10_/_0.48)_38%,rgb(10_10_10_/_0.72)_70%,rgb(10_10_10_/_0.9)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[28%] bg-[linear-gradient(180deg,transparent_0%,rgb(12_12_12_/_0.86)_100%)]" />
       <span className="sr-only">{media.label}</span>
     </div>
   );

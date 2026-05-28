@@ -25,13 +25,10 @@ import {
   heroContent,
   heroHighlights,
   heroMeta,
-  heroPreview,
-  heroStats,
-  heroVisuals,
 } from "@/content/site";
 
 export default function HomePage() {
-  const heroChannels = contactChannels.slice(0, 2);
+  const heroChannels = contactChannels.slice(0, 1);
   const utilityChannels = contactChannels.slice(0, 1);
 
   return (
@@ -43,9 +40,6 @@ export default function HomePage() {
         content={heroContent}
         highlights={heroHighlights}
         meta={heroMeta}
-        preview={heroPreview}
-        stats={heroStats}
-        visuals={heroVisuals}
       />
       <AboutSection
         featureMedia={aboutFeatureMedia}
