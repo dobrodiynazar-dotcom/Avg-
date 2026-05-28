@@ -1,4 +1,33 @@
-import type { ScheduleSession, SectionIntro } from "@/types/content";
+import type {
+  SchedulePreviewGroup,
+  ScheduleSession,
+  SectionIntro,
+} from "@/types/content";
+
+export const schedulePreviewContent = {
+  title: "Вікові групи",
+  ctaHref: "/schedule",
+  ctaLabel: "Переглянути повний розклад тренувань",
+};
+
+export const schedulePreviewGroups: SchedulePreviewGroup[] = [
+  {
+    id: "kids-4-7",
+    label: "Діти 4–7 років",
+  },
+  {
+    id: "kids-8-11",
+    label: "Діти 8–11 років",
+  },
+  {
+    id: "juniors",
+    label: "Юніори",
+  },
+  {
+    id: "adults",
+    label: "Дорослі",
+  },
+];
 
 export const scheduleIntro: SectionIntro = {
   eyebrow: "Розклад",

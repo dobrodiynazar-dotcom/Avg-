@@ -127,6 +127,11 @@ export type ScheduleSession = {
   note?: string;
 };
 
+export type SchedulePreviewGroup = {
+  id: string;
+  label: string;
+};
+
 export type MediaAsset = {
   id: string;
   title: string;
