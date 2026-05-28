@@ -27,11 +27,11 @@
   --color-semantic-success: #03904a;
   --color-semantic-overlay: rgb(24 24 24 / 0.72);
 
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 10px;
+  --radius-xs: 3px;
+  --radius-sm: 7px;
+  --radius-md: 9px;
   --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-xl: 15px;
   --radius-2xl: 18px;
 
   --radius-button: var(--radius-md);
