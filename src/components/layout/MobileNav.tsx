@@ -90,7 +90,7 @@ export function MobileNav() {
       {isOpen ? (
         <div
           aria-hidden="true"
-          className="fixed inset-0 z-40 bg-[rgb(4_6_8_/_0.72)] backdrop-blur-sm"
+          className="fixed inset-0 z-40 bg-[rgb(3_5_8_/_0.82)] backdrop-blur-xl supports-[backdrop-filter]:bg-[rgb(3_5_8_/_0.68)]"
           onClick={() => setIsOpen(false)}
         />
       ) : null}
@@ -98,7 +98,7 @@ export function MobileNav() {
       <div
         aria-label="Мобільне меню"
         aria-modal="true"
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(26rem,100vw)] flex-col border-l border-[rgb(255_255_255_/_0.12)] bg-[rgb(10_12_16_/_0.9)] px-5 py-6 text-[var(--color-ink)] shadow-[-24px_0_80px_rgb(0_0_0_/_0.38)] backdrop-blur-xl transition-transform duration-200 ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(26rem,100vw)] flex-col border-l border-[rgb(255_255_255_/_0.14)] bg-[rgb(8_10_14_/_0.96)] px-5 py-6 text-[var(--color-ink)] shadow-[-28px_0_96px_rgb(0_0_0_/_0.5)] backdrop-blur-2xl transition-transform duration-200 ${
           isOpen ? "translate-x-0" : "pointer-events-none invisible translate-x-full"
         }`}
         id="mobile-navigation-drawer"
