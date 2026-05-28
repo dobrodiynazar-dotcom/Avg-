@@ -90,7 +90,7 @@ export function MobileNav() {
       {isOpen ? (
         <div
           aria-hidden="true"
-          className="fixed inset-0 z-40 bg-[rgb(3_5_8_/_0.82)] backdrop-blur-xl supports-[backdrop-filter]:bg-[rgb(3_5_8_/_0.68)]"
+          className="fixed inset-0 z-40 bg-[rgb(6_8_10_/_0.72)] backdrop-blur-2xl supports-[backdrop-filter]:bg-[rgb(6_8_10_/_0.34)]"
           onClick={() => setIsOpen(false)}
         />
       ) : null}

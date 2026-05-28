@@ -19,7 +19,7 @@ export function SchedulePreviewSection({
   groups,
 }: SchedulePreviewSectionProps) {
   return (
-    <section className="section-frame relative isolate overflow-hidden border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-inverse-canvas)] text-white">
+    <section className="section-frame relative isolate overflow-hidden bg-[var(--color-inverse-canvas)] text-white">
       <div className="absolute inset-0">
         <Image
           alt=""

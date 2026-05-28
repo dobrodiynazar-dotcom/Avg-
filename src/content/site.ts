@@ -77,7 +77,7 @@ export const contactChannels: ContactChannel[] = [
 ];
 
 export const heroContent = {
-  titleLead: "AVANGARD JIU JITSU",
+  titleLead: "AVANGARD JIU-JITSU",
   subtitle:
     "Джиу-джитсу — спортивне єдиноборство, яке підходить дорослим, підліткам і дітям.",
   supportingText:
