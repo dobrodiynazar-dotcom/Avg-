@@ -23,7 +23,6 @@ type HeroSectionProps = {
   contactChannels: ContactChannel[];
   content: {
     title: string;
-    description: string;
   };
   highlights: HighlightItem[];
   meta: {
@@ -54,7 +53,6 @@ export function HeroSection({
           <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] lg:items-end">
             <div className="max-w-[42rem] space-y-6 sm:space-y-8">
               <HeroCopy
-                description={content.description}
                 heroLabel={academy.heroLabel}
                 locationLabel={academy.locationLabel}
                 title={content.title}
