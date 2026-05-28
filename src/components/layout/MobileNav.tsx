@@ -63,18 +63,34 @@ export function MobileNav() {
         aria-controls="mobile-navigation-drawer"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Закрити меню" : "Відкрити меню"}
-        className="flex min-h-11 min-w-11 items-center justify-center border border-[rgb(255_255_255_/_0.16)] bg-transparent px-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] transition-colors hover:border-[var(--color-ink)]"
+        className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.16)] bg-[rgb(255_255_255_/_0.02)] px-3 text-[var(--color-ink)] transition-colors hover:border-[rgb(255_255_255_/_0.32)] hover:bg-[rgb(255_255_255_/_0.05)]"
         onClick={() => setIsOpen((current) => !current)}
         ref={triggerRef}
         type="button"
       >
-        {isOpen ? "Close" : "Menu"}
+        <span aria-hidden="true" className="flex h-4 w-5 flex-col justify-between">
+          <span
+            className={`block h-[1.5px] w-full origin-center rounded-full bg-current transition-transform duration-200 ${
+              isOpen ? "translate-y-[7px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-[1.5px] w-full rounded-full bg-current transition-opacity duration-200 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`block h-[1.5px] w-full origin-center rounded-full bg-current transition-transform duration-200 ${
+              isOpen ? "-translate-y-[7px] -rotate-45" : ""
+            }`}
+          />
+        </span>
       </button>
 
       {isOpen ? (
         <div
           aria-hidden="true"
-          className="fixed inset-0 z-40 bg-[var(--color-semantic-overlay)]"
+          className="fixed inset-0 z-40 bg-[rgb(4_6_8_/_0.72)] backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       ) : null}
@@ -82,7 +98,7 @@ export function MobileNav() {
       <div
         aria-label="Мобільне меню"
         aria-modal="true"
-        className={`fixed inset-y-0 right-0 z-50 flex w-[min(26rem,100vw)] flex-col bg-[var(--color-canvas)] px-5 py-6 transition-transform duration-200 ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[min(26rem,100vw)] flex-col border-l border-[rgb(255_255_255_/_0.12)] bg-[rgb(10_12_16_/_0.9)] px-5 py-6 text-[var(--color-ink)] shadow-[-24px_0_80px_rgb(0_0_0_/_0.38)] backdrop-blur-xl transition-transform duration-200 ${
           isOpen ? "translate-x-0" : "pointer-events-none invisible translate-x-full"
         }`}
         id="mobile-navigation-drawer"
@@ -90,12 +106,12 @@ export function MobileNav() {
         role="dialog"
       >
         <div className="flex items-center justify-between gap-4 border-b border-[rgb(255_255_255_/_0.08)] pb-5">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
-            Navigation
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[rgb(255_255_255_/_0.56)]">
+            Навігація
           </p>
           <button
             aria-label="Закрити меню"
-            className="flex min-h-11 min-w-11 items-center justify-center border border-[rgb(255_255_255_/_0.16)] text-[var(--color-ink-subtle)] transition-colors hover:border-[var(--color-ink)] hover:text-[var(--color-ink)]"
+            className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.14)] bg-[rgb(255_255_255_/_0.02)] text-[rgb(255_255_255_/_0.72)] transition-colors hover:border-[rgb(255_255_255_/_0.28)] hover:bg-[rgb(255_255_255_/_0.05)] hover:text-[var(--color-ink)]"
             onClick={() => setIsOpen(false)}
             type="button"
           >
@@ -103,11 +119,14 @@ export function MobileNav() {
           </button>
         </div>
 
-        <nav aria-label="Розділи сайту" className="mt-6 flex flex-col border-b border-[rgb(255_255_255_/_0.08)] pb-6">
+        <nav
+          aria-label="Розділи сайту"
+          className="mt-6 flex flex-col border-b border-[rgb(255_255_255_/_0.08)] pb-6"
+        >
           {primaryNavigation.map((item) => (
             <Link
               key={item.key}
-              className="border-t border-[rgb(255_255_255_/_0.08)] py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)] first:border-t-0"
+              className="border-t border-[rgb(255_255_255_/_0.08)] py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-[rgb(255_255_255_/_0.9)] transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white first:border-t-0"
               href={item.href}
               onClick={() => setIsOpen(false)}
             >
