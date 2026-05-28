@@ -94,64 +94,75 @@ export function MobileNav() {
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[rgb(6_8_10_/_0.58)] backdrop-blur-3xl supports-[backdrop-filter]:bg-[rgb(6_8_10_/_0.28)]"
+          className="absolute inset-0 bg-[rgb(6_8_10_/_0.38)]"
           onClick={() => setIsOpen(false)}
         />
 
         <div
           aria-label="Мобільне меню"
           aria-modal="true"
-          className={`absolute inset-y-0 right-0 flex w-[min(26rem,100vw)] flex-col border-l border-[rgb(255_255_255_/_0.14)] bg-[rgb(8_10_14_/_0.985)] px-5 py-6 text-[var(--color-ink)] shadow-[-28px_0_96px_rgb(0_0_0_/_0.54)] transition-transform duration-200 ${
+          className={`absolute inset-y-0 right-0 flex w-[min(26rem,100vw)] flex-col overflow-hidden border-l border-[rgb(255_255_255_/_0.18)] bg-[rgb(10_12_16_/_0.94)] text-[var(--color-ink)] shadow-[-32px_0_120px_rgb(0_0_0_/_0.58)] ring-1 ring-[rgb(255_255_255_/_0.06)] transition-transform duration-200 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
           id="mobile-navigation-drawer"
           ref={drawerRef}
           role="dialog"
         >
-          <div className="flex items-center justify-between gap-4 border-b border-[rgb(255_255_255_/_0.08)] pb-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[rgb(255_255_255_/_0.56)]">
-              Навігація
-            </p>
-            <button
-              aria-label="Закрити меню"
-              className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.14)] bg-[rgb(255_255_255_/_0.02)] text-[rgb(255_255_255_/_0.72)] transition-colors hover:border-[rgb(255_255_255_/_0.28)] hover:bg-[rgb(255_255_255_/_0.05)] hover:text-[var(--color-ink)]"
-              onClick={() => setIsOpen(false)}
-              type="button"
-            >
-              X
-            </button>
-          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(255_255_255_/_0.08)_0%,rgb(255_255_255_/_0.02)_22%,rgb(0_0_0_/_0.1)_100%)] backdrop-blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgb(255_255_255_/_0.08),transparent_34%)]"
+          />
 
-          <nav
-            aria-label="Розділи сайту"
-            className="mt-6 flex flex-col border-b border-[rgb(255_255_255_/_0.08)] pb-6"
-          >
-            {primaryNavigation.map((item) => (
-              <Link
-                key={item.key}
-                className="border-t border-[rgb(255_255_255_/_0.08)] py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-[rgb(255_255_255_/_0.94)] transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white first:border-t-0"
-                href={item.href}
+          <div className="relative z-10 flex h-full flex-col px-5 py-6">
+            <div className="flex items-center justify-between gap-4 border-b border-[rgb(255_255_255_/_0.1)] pb-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[rgb(255_255_255_/_0.6)]">
+                Навігація
+              </p>
+              <button
+                aria-label="Закрити меню"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.14)] bg-[rgb(255_255_255_/_0.03)] text-[rgb(255_255_255_/_0.76)] transition-colors hover:border-[rgb(255_255_255_/_0.3)] hover:bg-[rgb(255_255_255_/_0.06)] hover:text-white"
                 onClick={() => setIsOpen(false)}
+                type="button"
               >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+                X
+              </button>
+            </div>
 
-          <div className="mt-auto space-y-3 pt-6">
-            {contactChannels.slice(0, 3).map((channel) => (
-              <Button
-                key={channel.key}
-                className="w-full"
-                href={channel.href}
-                rel={channel.external ? "noreferrer" : undefined}
-                size="md"
-                target={channel.external ? "_blank" : undefined}
-                variant={channel.variant}
-              >
-                {channel.ctaLabel ?? channel.label}
-              </Button>
-            ))}
+            <nav
+              aria-label="Розділи сайту"
+              className="mt-6 flex flex-col border-b border-[rgb(255_255_255_/_0.1)] pb-6"
+            >
+              {primaryNavigation.map((item) => (
+                <Link
+                  key={item.key}
+                  className="border-t border-[rgb(255_255_255_/_0.1)] py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:text-[rgb(255_255_255_/_0.92)] focus-visible:outline-none focus-visible:text-[rgb(255_255_255_/_0.92)] first:border-t-0"
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="mt-auto space-y-3 pt-6">
+              {contactChannels.slice(0, 3).map((channel) => (
+                <Button
+                  key={channel.key}
+                  className="w-full"
+                  href={channel.href}
+                  rel={channel.external ? "noreferrer" : undefined}
+                  size="md"
+                  target={channel.external ? "_blank" : undefined}
+                  variant={channel.variant}
+                >
+                  {channel.ctaLabel ?? channel.label}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
