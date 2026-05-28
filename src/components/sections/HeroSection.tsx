@@ -22,7 +22,8 @@ type HeroSectionProps = {
   backgroundMedia: HeroBackgroundMedia;
   contactChannels: ContactChannel[];
   content: {
-    title: string;
+    titleLead: string;
+    titleLines: string[];
   };
   highlights: HighlightItem[];
   meta: {
@@ -55,7 +56,8 @@ export function HeroSection({
               <HeroCopy
                 heroLabel={academy.heroLabel}
                 locationLabel={academy.locationLabel}
-                title={content.title}
+                titleLead={content.titleLead}
+                titleLines={content.titleLines}
               />
               <HeroActions contactChannels={contactChannels} />
               <HeroStats stats={stats} />
