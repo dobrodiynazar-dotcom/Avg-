@@ -35,8 +35,8 @@ export function PricingPageSection({
         size="wide"
       >
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 lg:gap-10">
-          <div className="space-y-6 text-center">
-            <h1 className="text-balance text-[clamp(2.8rem,7vw,5.6rem)] font-medium leading-[0.92] tracking-[-0.075em] text-white">
+          <div className="space-y-6">
+            <h1 className="max-w-[10ch] text-balance text-[clamp(2.8rem,7vw,5.6rem)] font-medium leading-[0.92] tracking-[-0.075em] text-white">
               {content.title}
             </h1>
           </div>
@@ -61,30 +61,31 @@ export function PricingPageSection({
                     </div>
 
                     <div className="mt-auto pt-8">
-                      <p className="text-[clamp(2rem,4vw,3.3rem)] font-medium leading-none tracking-[-0.06em] text-white">
-                        {plan.priceLabel}
-                        <span className="ml-1 text-[0.8em] text-white/86">
-                          {plan.periodLabel}
+                      <p className="text-[clamp(2rem,4vw,3.3rem)] font-medium leading-none tracking-[-0.06em]">
+                        <span className="mr-2 text-[0.62em] text-white/52">₴</span>
+                        <span className="text-white">{plan.priceLabel}</span>
+                        <span className="ml-2 text-[0.62em] text-white/52">
+                          /{plan.periodLabel}
                         </span>
                       </p>
                     </div>
                   </article>
                 ))}
               </div>
-
-              <div className="mt-8 flex justify-center border-t border-[rgb(255_255_255_/_0.08)] pt-8">
-                <Button
-                  className="max-w-[28rem] border-[var(--color-primary)] bg-[rgb(0_0_0_/_0.12)] px-8 py-4 text-center text-[0.88rem] leading-[1.45] !text-white hover:bg-[rgb(255_255_255_/_0.04)]"
-                  href={content.ctaHref}
-                  rel={content.ctaExternal ? "noreferrer" : undefined}
-                  size="lg"
-                  target={content.ctaExternal ? "_blank" : undefined}
-                  variant="secondary"
-                >
-                  {content.ctaLabel}
-                </Button>
-              </div>
             </div>
+          </div>
+
+          <div className="flex justify-center">
+            <Button
+              className="max-w-[24rem] border-[var(--color-primary)] bg-[rgb(0_0_0_/_0.12)] px-8 py-4 text-center text-[0.88rem] leading-[1.45] !text-white hover:bg-[rgb(255_255_255_/_0.04)]"
+              href={content.ctaHref}
+              rel={content.ctaExternal ? "noreferrer" : undefined}
+              size="lg"
+              target={content.ctaExternal ? "_blank" : undefined}
+              variant="secondary"
+            >
+              {content.ctaLabel}
+            </Button>
           </div>
         </div>
       </Container>
