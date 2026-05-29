@@ -17,7 +17,7 @@ import {
   aboutFeatureMedia,
   aboutPillars,
   contactChannels,
-  contactSectionContent,
+  homepageLocationSection,
   heroBackgroundMedia,
   heroContent,
   heroHighlights,
@@ -53,9 +53,7 @@ export default function HomePage() {
         intro={faqIntro}
         items={faqItems}
       />
-      <ContactSection
-        preview={contactSectionContent.preview}
-      />
+      <ContactSection content={homepageLocationSection} />
     </div>
   );
 }

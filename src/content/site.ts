@@ -6,6 +6,7 @@ import type {
   HeroBackgroundMedia,
   HeroPreview,
   HighlightItem,
+  LocationSectionContent,
   SectionIntro,
   StatItem,
   VisualTile,
@@ -226,3 +227,28 @@ export const heroVisuals: VisualTile[] = [
     aspectRatio: "portrait",
   },
 ];
+
+export const homepageLocationSection: LocationSectionContent = {
+  title: "Де проходять тренування",
+  mapButtonLabel: "Переглянути на карті",
+  locations: [
+    {
+      id: "location-1",
+      title: "Локація 1",
+      addressLines: ["вул. Вишиванка, 37,", "Рівне, 33017"],
+      mapHref:
+        "https://maps.google.com/maps?vet=10CAAQoqAOahcKEwiwm6Gnxt-UAxUAAAAAHQAAAAAQBQ..i&pvq=Cg0vZy8xMXZ6ZDI1Y3JuIiAKGmF2YW5nYXJkIGppdSBqaXRzdSBhY2FkZW15EAIYAw&lqi=CiVhdmFuZ2FyZCBqaXUgaml0c3UgYWNhZGVteSDRgNGW0LLQvdC1SPTdisH5uoCACFo5EAAQARACEAMYABgBGAIYAxgEIiVhdmFuZ2FyZCBqaXUgaml0c3UgYWNhZGVteSDRgNGW0LLQvdC1kgELc3BvcnRzX2NsdWI&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=at&sa=X&ftid=0x472f130028f61709:0xee5c389c88290e28",
+      mapEmbedSrc:
+        "https://maps.google.com/maps?q=%D0%B2%D1%83%D0%BB.%20%D0%92%D0%B8%D1%88%D0%B8%D0%B2%D0%B0%D0%BD%D0%BA%D0%B0%2C%2037%2C%20%D0%A0%D1%96%D0%B2%D0%BD%D0%B5%2C%2033017&z=16&output=embed",
+    },
+    {
+      id: "location-2",
+      title: "Локація 2",
+      addressLines: ["проспект Миру, 19,", "Рівне, 33000"],
+      mapHref:
+        "https://maps.google.com/maps?vet=10CAAQoqAOahcKEwiwm6Gnxt-UAxUAAAAAHQAAAAAQFQ..i&pvq=Cg0vZy8xMXprajRnZDVfIiAKGmF2YW5nYXJkIGppdSBqaXRzdSBhY2FkZW15EAIYAw&lqi=CiVhdmFuZ2FyZCBqaXUgaml0c3UgYWNhZGVteSDRgNGW0LLQvdC1SL_hnILGvoCACFo5EAAQARACEAMYABgBGAIYAxgEIiVhdmFuZ2FyZCBqaXUgaml0c3UgYWNhZGVteSDRgNGW0LLQvdC1kgELc3BvcnRzX2NsdWI&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=at&sa=X&ftid=0x472f6da0e7095e8b:0x6b351701ac76627a",
+      mapEmbedSrc:
+        "https://maps.google.com/maps?q=%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9C%D0%B8%D1%80%D1%83%2C%2019%2C%20%D0%A0%D1%96%D0%B2%D0%BD%D0%B5%2C%2033000&z=16&output=embed",
+    },
+  ],
+};

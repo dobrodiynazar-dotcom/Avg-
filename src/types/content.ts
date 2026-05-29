@@ -194,3 +194,17 @@ export type ContactPreview = {
   details: string[];
   placeholderLabel: string;
 };
+
+export type LocationItem = {
+  id: string;
+  title: string;
+  addressLines: string[];
+  mapHref: string;
+  mapEmbedSrc: string;
+};
+
+export type LocationSectionContent = {
+  title: string;
+  mapButtonLabel: string;
+  locations: LocationItem[];
+};
