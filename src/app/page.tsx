@@ -54,8 +54,6 @@ export default function HomePage() {
         items={faqItems}
       />
       <ContactSection
-        channels={contactChannels}
-        intro={contactSectionContent.intro}
         preview={contactSectionContent.preview}
       />
     </div>
