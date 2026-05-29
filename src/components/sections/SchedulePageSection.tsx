@@ -39,15 +39,15 @@ export function SchedulePageSection({
         <Image
           alt=""
           aria-hidden="true"
-          className="object-cover object-center"
+          className="object-cover object-[center_24%] sm:object-[center_20%] lg:object-[center_18%]"
           fill
           priority
           sizes="100vw"
           src={content.backgroundImageSrc}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(4_6_8_/_0.62)_0%,rgb(4_6_8_/_0.78)_26%,rgb(4_6_8_/_0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(4_6_8_/_0.78)_0%,rgb(4_6_8_/_0.82)_32%,rgb(4_6_8_/_0.88)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgb(255_255_255_/_0.1),transparent_34%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(8_8_8_/_0.34)_0%,transparent_35%,transparent_65%,rgb(8_8_8_/_0.18)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(8_8_8_/_0.38)_0%,transparent_32%,transparent_68%,rgb(8_8_8_/_0.24)_100%)]" />
       </div>
 
       <Container className="relative z-10 flex min-h-screen items-start py-28 sm:py-32 lg:py-36" size="wide">
