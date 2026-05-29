@@ -231,6 +231,7 @@ export const heroVisuals: VisualTile[] = [
 export const homepageLocationSection: LocationSectionContent = {
   title: "Де проходять тренування",
   mapButtonLabel: "Переглянути на карті",
+  backgroundImageSrc: "/media/location/location-section-background.jpg",
   locations: [
     {
       id: "location-1",

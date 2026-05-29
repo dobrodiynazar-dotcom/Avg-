@@ -206,5 +206,6 @@ export type LocationItem = {
 export type LocationSectionContent = {
   title: string;
   mapButtonLabel: string;
+  backgroundImageSrc: string;
   locations: LocationItem[];
 };
