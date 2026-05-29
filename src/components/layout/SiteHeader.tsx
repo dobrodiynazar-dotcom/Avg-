@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandMark } from "@/components/brand/BrandMark";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Button, Container } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
@@ -15,10 +16,7 @@ export function SiteHeader() {
         <div className="flex min-h-18 items-center justify-between gap-4 py-3">
           <Link className="min-w-0 text-[var(--color-ink)]" href="/">
             <span className="flex items-center gap-3">
-              <span
-                aria-hidden="true"
-                className="inline-block h-3 w-8 bg-[linear-gradient(180deg,#a00c01,#da291c_64%)]"
-              />
+              <BrandMark className="inline-flex h-7 w-7 shrink-0 items-center justify-center" />
               <span className="truncate text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)]">
                 {academyInfo.shortName}
               </span>
