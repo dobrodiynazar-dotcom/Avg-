@@ -132,6 +132,30 @@ export type SchedulePreviewGroup = {
   label: string;
 };
 
+export type ScheduleEntry = {
+  id: string;
+  time: string;
+  group: string;
+};
+
+export type ScheduleDay = {
+  id: string;
+  label: string;
+  entries: ScheduleEntry[];
+};
+
+export type ScheduleLocationSchedule = {
+  id: string;
+  label: string;
+  days: ScheduleDay[];
+};
+
+export type SchedulePageContent = {
+  title: string;
+  backgroundImageSrc: string;
+  defaultLocationId: string;
+};
+
 export type MediaAsset = {
   id: string;
   title: string;
