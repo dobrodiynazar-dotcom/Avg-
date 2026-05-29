@@ -1,11 +1,14 @@
+import { PricingPageSection } from "@/components/sections/PricingPageSection";
+import { pricingPageContent, pricingPlans } from "@/content/pricing";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { RoutePlaceholder } from "@/components/site/RoutePlaceholder";
 
 export const metadata = buildMetadata({
-  title: "Ціни",
+  title: "Абонементи",
   path: "/pricing",
 });
 
 export default function PricingPage() {
-  return <RoutePlaceholder route="pricing" />;
+  return (
+    <PricingPageSection content={pricingPageContent} plans={pricingPlans} />
+  );
 }

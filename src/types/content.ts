@@ -117,6 +117,14 @@ export type PricingPlan = {
   note?: string;
 };
 
+export type PricingPageContent = {
+  title: string;
+  backgroundImageSrc: string;
+  ctaLabel: string;
+  ctaHref: string;
+  ctaExternal?: boolean;
+};
+
 export type ScheduleSession = {
   id: string;
   group: string;
