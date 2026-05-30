@@ -89,7 +89,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-6">
           <div className="flex justify-center lg:justify-start">
             <Link
-              className="inline-flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.15em] text-[#FFFFFF] transition-colors duration-200 hover:text-[var(--color-primary)]"
+              className="inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-[rgb(255_255_255_/_0.96)] transition-colors duration-200 hover:text-[var(--color-primary)]"
               href="/"
             >
               <BrandMark className="inline-flex h-7 w-7 shrink-0 items-center justify-center" />
