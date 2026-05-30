@@ -13,7 +13,7 @@ export function BrandMark({ className }: BrandMarkProps) {
         className="h-full w-full object-contain"
         height={48}
         priority={false}
-        src="/brand/avangard-valknut-20260530.png"
+        src="/brand/avangard-valknut.png"
         width={48}
       />
     </span>
