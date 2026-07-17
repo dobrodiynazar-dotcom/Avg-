@@ -27,7 +27,7 @@ export function SiteHeader() {
             aria-label="Основна навігація"
             className="hidden items-center gap-6 md:flex"
           >
-            {primaryNavigation.slice(0, 5).map((item) => (
+            {primaryNavigation.map((item) => (
               <Link
                 key={item.key}
                 className="text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)]"

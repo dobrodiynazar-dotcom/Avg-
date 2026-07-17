@@ -2,15 +2,8 @@ import Link from "next/link";
 
 import { BrandMark } from "@/components/brand/BrandMark";
 import { Container } from "@/components/ui";
+import { primaryNavigation } from "@/content/navigation";
 import { academyInfo, contactChannels } from "@/content/site";
-
-const footerNavigation = [
-  { key: "about", label: "Академія", href: "/about" },
-  { key: "coaches", label: "Тренери", href: "/coaches" },
-  { key: "schedule", label: "Розклад", href: "/schedule" },
-  { key: "pricing", label: "Абонементи", href: "/pricing" },
-  { key: "gallery", label: "Медіа", href: "/gallery" },
-] as const;
 
 const footerContactKeys = ["telegram", "instagram", "email", "phone"] as const;
 
@@ -33,14 +26,7 @@ function ContactIcon({ channelKey }: { channelKey: (typeof footerContactKeys)[nu
     case "instagram":
       return (
         <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
-          <rect
-            height="14"
-            rx="4"
-            strokeWidth="1.65"
-            width="14"
-            x="5"
-            y="5"
-          />
+          <rect height="14" rx="4" strokeWidth="1.65" width="14" x="5" y="5" />
           <circle cx="12" cy="12" r="3.4" strokeWidth="1.65" />
           <circle cx="16.7" cy="7.3" fill="currentColor" r="0.95" stroke="none" />
         </svg>
@@ -48,14 +34,7 @@ function ContactIcon({ channelKey }: { channelKey: (typeof footerContactKeys)[nu
     case "email":
       return (
         <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24">
-          <rect
-            height="12"
-            rx="2.6"
-            strokeWidth="1.65"
-            width="18"
-            x="3"
-            y="6"
-          />
+          <rect height="12" rx="2.6" strokeWidth="1.65" width="18" x="3" y="6" />
           <path
             d="m4.5 7.5 6.58 5.13a1.5 1.5 0 0 0 1.84 0L19.5 7.5"
             strokeLinecap="round"
@@ -98,10 +77,10 @@ export function SiteFooter() {
           </div>
 
           <nav
-            aria-label="Навігація в footer"
+            aria-label="Навігація у footer"
             className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-center text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-muted)]"
           >
-            {footerNavigation.map((item) => (
+            {primaryNavigation.map((item) => (
               <Link
                 key={item.key}
                 className="transition-all duration-200 hover:-translate-y-0.5 hover:text-[var(--color-primary)]"

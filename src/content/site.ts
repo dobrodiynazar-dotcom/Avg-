@@ -1,15 +1,10 @@
 import type {
   AcademyInfo,
   ContactChannel,
-  ContactPreview,
   FeatureMediaPanel,
   HeroBackgroundMedia,
-  HeroPreview,
   HighlightItem,
   LocationSectionContent,
-  SectionIntro,
-  StatItem,
-  VisualTile,
 } from "@/types/content";
 
 export const academyInfo: AcademyInfo = {
@@ -84,8 +79,6 @@ export const heroContent = {
   supportingText:
     "Попередній досвід, вік і фізична підготовка не є перешкодою для старту.",
   ctaLabel: "Записатися на тренування",
-  description:
-    "Avangard поєднує реальний тренувальний процес, чіткий розклад на двох локаціях і прямий контакт без перевантаження зайвим шумом.",
 };
 
 export const heroHighlights: HighlightItem[] = [
@@ -97,51 +90,19 @@ export const heroHighlights: HighlightItem[] = [
   {
     title: "4 формати груп",
     description:
-      "Окремі напрями для 4-7 років, 8-11 років, юніорів і дорослих із реальним розкладом.",
+      "Окремі напрями для 4–7 років, 8–11 років, юніорів і дорослих із реальним розкладом.",
   },
   {
     title: "Прямий запис",
     description:
-      "Telegram, Instagram, телефон та email уже підключені як реальні канали зв'язку.",
+      "Telegram, Instagram, телефон та email уже підключені як реальні канали звʼязку.",
   },
 ];
 
 export const heroMeta = {
   eyebrow: "Реальна основа",
   description:
-    "Перший екран тепер спирається не на плейсхолдери, а на реальний розклад, реальні контакти та живий тренувальний візуал.",
-};
-
-export const heroStats: StatItem[] = [
-  {
-    value: "2",
-    label: "локації",
-    detail: "Проспект Миру, 19 та Вишиванка, 37 у Рівному.",
-  },
-  {
-    value: "4",
-    label: "групи",
-    detail: "4-7 років, 8-11 років, юніори та дорослі.",
-  },
-  {
-    value: "3",
-    label: "ціни",
-    detail: "Окремі варіанти для дорослих, дитячих/середніх і сімейного формату.",
-  },
-];
-
-export const heroPreview: HeroPreview = {
-  eyebrow: "Перший крок",
-  title:
-    "Перший контакт став практичним: побачити розклад, обрати свою групу й одразу написати в академію.",
-  description:
-    "Замість абстрактного прев'ю блок тепер підтримує реальні дані: контактні канали, локації й живу тренувальну атмосферу.",
-  points: [
-    "Реальний розклад уже інтегрований у домашню сторінку.",
-    "Контакти ведуть у справжні канали академії.",
-    "Відео й фото з залу підтримують преміальну кінематографічну подачу.",
-  ],
-  mediaLabel: "Короткий герой-ролик з реального тренувального процесу Avangard",
+    "Перший екран уже спирається на реальний розклад, живе тренувальне відео та прямий шлях до першого контакту.",
 };
 
 export const aboutPillars: HighlightItem[] = [
@@ -153,7 +114,7 @@ export const aboutPillars: HighlightItem[] = [
   {
     title: "Реальна атмосфера",
     description:
-      "Фото й відео походять із справжнього тренувального процесу та підтримують стриманий кінематографічний тон.",
+      "Фото й відео походять зі справжнього тренувального процесу та підтримують стриманий кінематографічний тон.",
   },
   {
     title: "Прямий доступ",
@@ -169,64 +130,6 @@ export const aboutFeatureMedia: FeatureMediaPanel = {
     "Живі кадри із залу замінили абстрактну заглушку, але сама секційна структура залишилася незмінною.",
   imageSrc: "/media/gym/gym-01.jpg",
 };
-
-export const footerContent = {
-  summary:
-    "Avangard Jiu-Jitsu Academy у Рівному вже показує реальні контакти, актуальний розклад і базову логіку першого запису.",
-};
-
-export const contactSectionContent: {
-  intro: SectionIntro;
-  preview: ContactPreview;
-} = {
-  intro: {
-    eyebrow: "Контакти",
-    title:
-      "Фінальний блок тепер веде не в прев'ю, а в реальні канали зв'язку та справжні локації академії.",
-    description:
-      "Тут можна швидко вибрати зручний спосіб звернення й одразу побачити, де проходять тренування.",
-  },
-  preview: {
-    eyebrow: "Локації академії",
-    title:
-      "Avangard працює на двох адресах у Рівному, а конкретна локація залежить від вікової групи та формату занять.",
-    description:
-      "Основні заняття проходять на Вишиванці, 37, а частина дитячих груп також працює на Проспекті Миру, 19.",
-    details: [
-      "м. Рівне, вул. Вишиванка, 37 (4 поверх)",
-      "м. Рівне, проспект Миру, 19",
-      "Точну групу та час найшвидше уточнити через Telegram або телефон.",
-    ],
-    placeholderLabel: "Дві локації Avangard у Рівному",
-  },
-};
-
-export const heroVisuals: VisualTile[] = [
-  {
-    id: "hero-gym",
-    label: "Локація",
-    title: "Простір залу",
-    description:
-      "Світло, мат і графіка залу дають правильну дисципліновану основу для першого враження.",
-    aspectRatio: "portrait",
-  },
-  {
-    id: "hero-motion",
-    label: "Рух",
-    title: "Ритм тренування",
-    description:
-      "Короткий герой-ролик працює як преміальний вступ до реального процесу на килимі.",
-    aspectRatio: "square",
-  },
-  {
-    id: "hero-contact",
-    label: "Контакт",
-    title: "Прямий запис",
-    description:
-      "Після першого перегляду одразу видно, куди писати й як швидко потрапити у свою групу.",
-    aspectRatio: "portrait",
-  },
-];
 
 export const homepageLocationSection: LocationSectionContent = {
   title: "Де проходять тренування",

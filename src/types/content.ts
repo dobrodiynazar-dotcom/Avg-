@@ -44,11 +44,11 @@ export type AcademyInfo = {
 };
 
 export type PagePlaceholder = {
-  key: RouteKey;
+  key: "about" | "coaches" | "gallery" | "contact" | "faq";
   title: string;
   eyebrow: string;
   summary: string;
-  status: "planned" | "foundation-ready";
+  status: "placeholder" | "foundation-ready";
 };
 
 export type CoachProfile = {
@@ -66,29 +66,6 @@ export type CoachProfile = {
 export type HighlightItem = {
   title: string;
   description: string;
-};
-
-export type StatItem = {
-  value: string;
-  label: string;
-  detail?: string;
-};
-
-export type HeroPreview = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  points: string[];
-  mediaLabel: string;
-};
-
-export type VisualTile = {
-  id: string;
-  label: string;
-  title: string;
-  description: string;
-  aspectRatio: "square" | "portrait" | "landscape";
-  tone?: "light" | "dark";
 };
 
 export type HeroBackgroundMedia = {
@@ -123,16 +100,6 @@ export type PricingPageContent = {
   ctaLabel: string;
   ctaHref: string;
   ctaExternal?: boolean;
-};
-
-export type ScheduleSession = {
-  id: string;
-  group: string;
-  audience: string;
-  days: string[];
-  timeLabel: string;
-  locationLabel: string;
-  note?: string;
 };
 
 export type SchedulePreviewGroup = {
@@ -185,14 +152,6 @@ export type SectionIntro = {
   eyebrow: string;
   title: string;
   description: string;
-};
-
-export type ContactPreview = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  details: string[];
-  placeholderLabel: string;
 };
 
 export type LocationItem = {

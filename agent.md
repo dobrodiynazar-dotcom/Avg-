@@ -1,12 +1,10 @@
-# agent.md
-
 ## Mission
 Operate this repository as a stable AI-agent workflow for the Avangard Jiu-Jitsu Academy website.
 
-The current project already includes Milestone 1-3 implementation. The agent's job is to preserve, extend, and document that work without restarting the system or drifting from the design direction.
+The repository already contains real implemented user-facing work. The job of the next agent is to preserve, extend, and document that work without drifting from the approved design and architecture.
 
-## Read Order
-Always read files in this order before making implementation decisions:
+## Required Read Order
+Read these files before editing:
 1. `STATE.md`
 2. `REQ.md`
 3. `CONTEXT.md`
@@ -14,56 +12,55 @@ Always read files in this order before making implementation decisions:
 5. `TDD.md`
 6. `agent.md`
 
-`STATE.md` is the first-stop memory layer and must reflect current reality.
-
-## Hard Stop Rule
-Do not start Milestone 4 or any equivalent next implementation phase without explicit user approval.
-
-Restoring docs, synchronizing branches, auditing architecture, and updating repository memory are allowed before that approval. New feature implementation is not.
-
-## Source of Truth Rule
-The repository memory layer consists only of:
-- `REQ.md`
-- `CONTEXT.md`
-- `DESIGN.md`
-- `STATE.md`
-- `TDD.md`
-- `agent.md`
-
-Do not create alternative planning files unless the user explicitly asks for them.
-
-## Architecture Preservation Rules
+## Primary Rules
 - Do not restart the project.
-- Do not redesign the system.
-- Treat `DESIGN.md` as the official visual/design source for future implementation work.
-- Preserve the modular content-driven architecture.
-- Preserve the reusable section and domain-component structure.
-- Avoid flashy MMA aesthetics, visual drift, and noisy redesigns.
-- Treat mobile as a critical product requirement.
-
-## Repository Synchronization Rules
-- Preserve milestone history.
-- Preserve planning-document history.
-- Prefer merge-based recovery over destructive rewriting.
-- Do not force-push unless absolutely necessary and explained first.
-- Keep GitHub `main` as the intended canonical branch after synchronization.
+- Do not redesign the website from scratch.
+- Preserve the current Ferrari-inspired cinematic direction.
+- Preserve the softened premium sports-academy adaptation.
+- Preserve the content-driven architecture.
+- Preserve the existing route structure unless explicitly asked to change it.
 
 ## Content Rules
-- User-facing site language is Ukrainian.
-- Planning documents may use English for clarity.
-- Keep placeholders structured and explicit until final content is approved.
-- Prefer typed content modules over hard-coded repeated strings inside pages.
+- Treat `src/content/*` as the business-content source of truth.
+- Prefer editing typed content modules over hard-coding strings in components.
+- Do not reintroduce outdated placeholder copy into already implemented homepage sections.
 
-## Working Loop After Milestone 4 Approval
-1. Read the memory documents in the required order.
-2. Update `STATE.md` with current milestone and risks.
-3. Implement only within the established architecture.
-4. Run the appropriate quality checks.
-5. Update planning memory if requirements, architecture, design rules, or testing rules changed.
+## Route Rules
+- Real routes currently are `/`, `/schedule`, and `/pricing`.
+- Placeholder routes currently are `/about`, `/coaches`, `/gallery`, `/contact`, and `/faq`.
+- Do not remove placeholder routes unless they are being intentionally replaced with real implementations.
 
-## Quality Rules
-Do not consider work complete unless:
-- relevant checks pass or known limitations are documented,
-- mobile impact is reviewed,
-- major risks are reflected in `STATE.md`,
-- the repository remains understandable to a new agent with no extra context.
+## Navigation Rules
+Primary navigation must remain:
+1. `Академія`
+2. `Тренери`
+3. `Розклад`
+4. `Ціни`
+5. `Медіа`
+
+Do not reintroduce `Контакти` or `FAQ` into the visible primary navigation unless explicitly requested.
+
+## Mobile / UX Rules
+- Treat mobile navigation as regression-sensitive.
+- Preserve focus trap, focus restore, Escape close, and overlay close behavior if editing `MobileNav`.
+- Preserve current hero video behavior.
+
+## Verification Rules
+Before committing:
+- run `npm run lint`
+- run `npm run typecheck`
+- run `npm run build`
+- run `npm audit --omit=dev`
+
+If Turbopack cannot build inside the sandbox, rerun the build outside the sandbox and report that honestly.
+
+## Git Rules
+- Inspect `git status` before editing.
+- Make scoped commits.
+- Push only after verification succeeds.
+- Do not revert unrelated user changes.
+
+## Recommended Next Work
+1. Build the real `/about` page.
+2. Finalize coach biographies and replace the `/coaches` placeholder route.
+3. Replace `https://example.com` metadata base when the real production domain is known.

@@ -8,10 +8,10 @@ import {
   SchedulePreviewSection,
 } from "@/components/sections";
 import { CTAGroup } from "@/components/ui";
+import { aboutIntro } from "@/content/about";
 import { coaches, coachesIntro } from "@/content/coaches";
 import { faqItems, faqIntro } from "@/content/faq";
 import { mediaAssets, mediaIntro } from "@/content/media";
-import { plannedSectionIntros } from "@/content/placeholders";
 import { schedulePreviewContent, schedulePreviewGroups } from "@/content/schedule";
 import {
   aboutFeatureMedia,
@@ -39,7 +39,7 @@ export default function HomePage() {
       />
       <AboutSection
         featureMedia={aboutFeatureMedia}
-        intro={plannedSectionIntros.about}
+        intro={aboutIntro}
         pillars={aboutPillars}
       />
       <CoachesSection intro={coachesIntro} coaches={coaches} />

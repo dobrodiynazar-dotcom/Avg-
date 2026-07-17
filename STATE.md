@@ -1,159 +1,160 @@
 # STATE.md
 
 ## Meta
-- Last updated: 2026-05-22
+- Last updated: 2026-07-17
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: milestone-4-ferrari-homepage-redesign
-- Current instruction: Ferrari-based cinematic homepage redesign implemented; secondary routes remain intentionally incomplete.
+- Current phase: repository-stabilized-for-handoff
+- Canonical branch: `main`
 
-## 1. Current Project Memory
-Read this file first. It is the current operational memory for the repository.
+## 1. Current Project State
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat.
 
-The project is no longer a planning-only restart. It now contains:
-- completed implementation through Milestone 3,
-- merged planning-memory history,
-- a Milestone 4 homepage preview pass focused on composition, hierarchy, responsive polish, CTA structure, and restrained premium presentation.
+It is no longer a foundation-only or preview-only codebase.
 
-## 2. Completed Milestones
-### Milestone 1-2
-- Commit: `b9dec5aa72591d35242a53e8de6aaaa841c50024`
-- Short hash: `b9dec5a`
-- Title: `Set up Milestone 1-2 site foundation`
-- Outcome:
-  - Next.js App Router foundation created
-  - TypeScript configured
-  - Tailwind CSS configured
-  - global layout and shell created
-  - design tokens and utility primitives created
-  - route placeholder pattern created
+## 2. Implemented
+### Homepage
+- Real homepage is implemented in `src/app/page.tsx`.
+- Homepage sections are:
+  1. hero video
+  2. academy/about
+  3. coaches
+  4. `Вікові групи`
+  5. media
+  6. FAQ
+  7. location switcher
 
-### Milestone 3
-- Commit: `ee02151079ff0d6676fa53b8388b3ea3a4283375`
-- Short hash: `ee02151`
-- Title: `Add reusable site sections and domain content architecture`
-- Outcome:
-  - homepage converted to section composition
-  - reusable section components added
-  - reusable domain components added
-  - typed content modules expanded
-  - modular content-driven architecture established
+### Hero Media
+- Real hero video is integrated from `public/media/hero/avangard-hero.mp4`.
+- Poster fallback is integrated from `public/media/hero/avangard-hero-poster.jpg`.
+- Hero uses autoplay, muted, loop, and `playsInline`.
 
-### Milestone 4
-- Status: Ferrari-based redesign implemented in the current working tree
-- Scope:
-  - first preview-ready homepage experience only
-  - no full secondary-route implementation
-  - no admin or CMS work
-- Outcome:
-  - homepage presentation shifted from the previous rounded/card-heavy preview toward a Ferrari-inspired cinematic editorial direction
-  - hero composition rebuilt around a dominant full-bleed visual stage, sharper CTA treatment, and a cleaner proof rhythm
-  - typography hierarchy, section spacing, band contrast, and geometry were redesigned without changing the Next.js architecture
-  - gallery/feed presentation moved from masonry-card styling toward a more directed editorial sequence
-  - mobile header, drawer, CTA repetition, and section pacing were simplified and refined
-  - accessibility was strengthened through improved drawer focus handling, larger touch targets, and stronger schedule-table semantics
-  - typed content structure and reusable section/domain architecture were preserved
+### Schedule
+- `/schedule` is a real implemented route.
+- It uses location switching between `Проспект Миру 19` and `Вишиванка 37`.
+- It renders weekday-based schedule cards and mobile day blocks from `src/content/schedule.ts`.
 
-## 3. Repository Synchronization State
-### Before restoration
-- Local repository had:
-  - branch `master`
-  - two milestone commits
-  - no configured remote
-- Remote GitHub repository had:
-  - branch `main`
-  - planning-document history
-  - no milestone commits reachable from `origin/main`
+### Pricing / Subscriptions
+- `/pricing` is a real implemented route.
+- It renders three subscription plans from `src/content/pricing.ts`.
 
-### Recovery result
-- Local and remote histories were preserved through merge-based recovery.
-- `main`, `master`, and `origin/main` were previously confirmed aligned at `11d05a2`.
-- The repository now contains both:
-  - the implemented codebase lineage
-  - the planning-memory lineage
+### Locations / Maps
+- Homepage location section is real and content-driven.
+- It includes a two-location switcher and embedded Google Maps iframes.
+- Business location data lives in `src/content/site.ts`.
 
-### Current intent
-- `main` remains the canonical branch.
-- Milestone 4 homepage-preview work should be committed and pushed on top of the synchronized repository state.
+### Footer
+- Footer is implemented as a lightweight brand, navigation, and icon-contacts footer.
+- Footer contact icons are active for Telegram, Instagram, Email, and Phone.
 
-## 4. Current Project Maturity
-- Overall maturity: foundation-complete with homepage-preview implementation
-- Architecture maturity: strong and preserved
-- Homepage maturity: cinematic redesign preview-ready
-- Secondary-route maturity: placeholders by design
-- Content maturity: polished placeholder content, not final approved production copy
-- Integration maturity: not yet production-complete
-- Verification maturity: lint, typecheck, and production webpack build passed locally
+### Branding
+- Header and footer use the shared `BrandMark` component.
+- Current official logo asset:
+  - `public/brand/avangard-valknut-20260530.png`
 
-## 5. Current Architecture Snapshot
-- App shell in `src/app/layout.tsx`
-- Homepage composition in `src/app/page.tsx`
-- Shared route placeholders in `src/components/site/RoutePlaceholder.tsx`
-- UI primitives in `src/components/ui/*`
-- Layout components in `src/components/layout/*`
-- Domain components in `src/components/domain/*`
-- Section components in `src/components/sections/*`
-- Typed content in `src/content/*`
-- Design tokens in `src/lib/design/tokens.ts`
-- Metadata helper in `src/lib/seo/metadata.ts`
+### Real Content Integration
+- Real schedule data is integrated.
+- Real pricing data is integrated.
+- Real location data and real contact channels are integrated.
+- Real homepage media and branding assets are integrated.
 
-Milestone 4 preserved this architecture instead of replacing it.
+## 3. Placeholder / Incomplete Areas
+Still placeholder routes:
+- `/about`
+- `/coaches`
+- `/gallery`
+- `/contact`
+- `/faq`
 
-## 6. What Changed In Milestone 4
-1. The homepage visual direction now follows the Ferrari-based `DESIGN.md` source of truth rather than the previous Pinterest-era presentation.
-2. The hero now behaves as a single cinematic lead moment instead of a stack of rounded promo cards.
-3. Section rhythm was rebuilt with sharper geometry, darker/lighter editorial band transitions, and more deliberate whitespace pacing.
-4. Buttons, navigation, headers, cards, and captions were restyled into a more disciplined luxury-athletic visual system.
-5. Mobile UX improved through:
-   - simplified hero density
-   - tighter CTA repetition control
-   - a more refined mobile drawer
-   - stronger tap-target sizing
-6. Accessibility improved through:
-   - drawer focus restore/trapping behavior
-   - improved schedule table semantics with caption and row headers
-   - reduced-motion handling
-7. Typed content remains editable through `src/content/*`; placeholder business content is still intentionally present until final approved copy/assets are provided.
+These routes intentionally still use `src/components/site/RoutePlaceholder.tsx`.
 
-## 7. Remaining Work After This Preview
-- Replace placeholder contacts with real production values.
-- Replace placeholder schedule and pricing with approved real data.
-- Replace placeholder media panels and preview copy with final photography/video and approved Ukrainian production copy.
-- Add final academy copy in Ukrainian.
-- Add final media assets and map embed.
-- Decide which secondary routes should be implemented next.
-- Run full production verification once a package manager and dependencies are available locally.
-- Add CI and, if needed later, lightweight testing automation.
+## 4. Current Content Architecture
+Business-content source of truth:
+- `src/content/about.ts`
+- `src/content/site.ts`
+- `src/content/navigation.ts`
+- `src/content/coaches.ts`
+- `src/content/schedule.ts`
+- `src/content/pricing.ts`
+- `src/content/media.ts`
+- `src/content/faq.ts`
+- `src/content/placeholders.ts`
 
-## 8. Known Risks
-| Risk | Impact | Status | Notes |
-|---|---|---|---|
-| Final real content and assets not yet wired | High | known | Homepage is preview-ready, not launch-ready |
-| Contact links and metadata base are still preview placeholders | High | known | Must be replaced before public release |
-| Secondary routes are still placeholders | Medium | expected | Intentional scope limit for this milestone |
-| Full automated verification is blocked by local tool availability | High | unresolved | `npm` is not available on PATH and project dependencies are not installed locally |
-| No package lockfile is present | Medium | unchanged | Environment reproducibility still limited |
-| No CI workflow is present | Medium | unchanged | No automated build enforcement yet |
+Rule:
+- do not hardcode business content inside UI components when content belongs in `src/content/*`.
 
-## 9. Verification Reality
-- `npm` is not available on PATH in the current shell.
-- Project `node_modules` is absent in the current workspace snapshot.
-- Bundled workspace Node is available, but it does not include the project toolchain (`next`, `eslint`, `typescript`) as installable local dependencies for this repo.
-- As a result, `npm run lint`, `npm run typecheck`, and `npm run build` could not be executed in this environment during this pass.
+## 5. Current Navigation
+Visible primary navigation is intentionally limited to these five items:
+1. `Академія`
+2. `Тренери`
+3. `Розклад`
+4. `Ціни`
+5. `Медіа`
 
-This limitation is real and must remain visible until dependencies can be installed and the scripts rerun.
+Destinations:
+- `Академія` -> `/about`
+- `Тренери` -> `/coaches`
+- `Розклад` -> `/schedule`
+- `Ціни` -> `/pricing`
+- `Медіа` -> `/gallery`
 
-## 10. Immediate Next Actions
-1. Review the Milestone 4 homepage preview in the browser once dependencies and local dev runtime are available.
-2. Replace preview contact values and metadata base before any public launch.
-3. Decide the next approved route-expansion scope.
-4. Install dependencies and rerun lint, typecheck, and build.
+## 6. Current Design Decisions
+- Preserve the Ferrari-inspired cinematic direction.
+- Preserve the softened premium sports-academy adaptation.
+- Preserve the current radius system from `src/styles/tokens.css`.
+- Preserve the current footer concept and homepage section order.
+- Preserve current schedule and pricing page structures.
 
-## 11. Handoff Rules
-- Read `STATE.md` first.
-- Then read `REQ.md`, `CONTEXT.md`, `DESIGN.md`, `TDD.md`, and `agent.md`.
-- Do not restart the project.
-- Do not redesign the system.
-- Treat `DESIGN.md` as the official visual/design source for future implementation work.
-- Preserve the modular content-driven architecture.
-- Treat mobile as a critical requirement.
-- Do not treat placeholder secondary routes as bugs unless the project scope changes.
+## 7. Still Pending / Known Issues
+- `/about`, `/coaches`, `/gallery`, `/contact`, `/faq` still need real page implementations.
+- Coaches homepage section still uses provisional coach profiles until final biographies are approved.
+- `https://example.com` still remains in `src/lib/design/site.ts` as `metadataBaseUrl`.
+- Mobile navigation should still be treated as a regression-sensitive area whenever touched.
+- Media/logo optimization may still be worth revisiting later if the asset set changes again.
+- No CI workflow is currently present.
+- `npm audit --omit=dev` should be rerun whenever dependencies change.
+
+## 8. Verification Reality
+Required checks for change work:
+- `npm run lint`
+- `npm run typecheck`
+- `npm run build`
+- `npm audit --omit=dev`
+
+Known environment limitation:
+- `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.
+- In that case, rerun the build outside the sandbox and report that honestly.
+
+## 9. New Codex Chat Handoff
+### Read order
+1. `STATE.md`
+2. `REQ.md`
+3. `CONTEXT.md`
+4. `DESIGN.md`
+5. `TDD.md`
+6. `agent.md`
+
+### Instructions for the next agent
+1. Inspect the current branch before editing.
+2. Preserve the current design and architecture.
+3. Treat `src/content/*` as the business-content source.
+4. Avoid restoring removed homepage sections.
+5. Avoid reintroducing outdated placeholder copy into real implemented sections.
+6. Run verification before committing.
+7. Make scoped commits.
+8. Push only after successful verification.
+9. Report environment limitations honestly.
+
+### Current maturity
+- Homepage: implemented and content-driven
+- Schedule page: implemented
+- Pricing page: implemented
+- Secondary routes: partially placeholder
+
+### Recommended next task
+- Build the real `/about` page first, then replace the `/coaches` placeholder after final trainer biographies are approved.
+
+### Known technical debt
+- placeholder secondary routes still exist;
+- metadata base URL still uses `example.com`;
+- no CI workflow;
+- some content modules still hold provisional copy even though the sections themselves are real.

@@ -1,25 +1,71 @@
 # Avangard Jiu-Jitsu Academy
 
-This repository contains both the implemented website foundation and the permanent planning-memory layer for future work.
+Official website repository for Avangard Jiu-Jitsu Academy in Rivne, Ukraine.
 
-## Memory Layer
-- `STATE.md` - current project memory, milestone state, risks, and next actions
-- `REQ.md` - product goals, scope, and milestone entry conditions
-- `CONTEXT.md` - technical architecture and repository constraints
-- `DESIGN.md` - visual system and guardrails
-- `TDD.md` - quality and verification strategy
-- `agent.md` - operating rules for future contributors and AI agents
+This repository is the current source of truth for both:
+- the implemented Next.js site;
+- the project memory and handoff layer used by future Codex chats.
 
-## Current Status
-- Milestone 1-2 foundation completed in `b9dec5a`
-- Milestone 3 reusable section/content architecture completed in `ee02151`
-- Secondary routes are still placeholders by design
-- Milestone 4 must not begin until explicitly approved
+## Read First
+Before making changes, read these files in order:
+1. `STATE.md`
+2. `REQ.md`
+3. `CONTEXT.md`
+4. `DESIGN.md`
+5. `TDD.md`
+6. `agent.md`
 
-## Stack
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Linear-inspired design system
-- Typed local content modules
-- Reusable domain and section components
+## Current Implemented State
+- Homepage is implemented and uses real media, real schedule data, real pricing data, real contact channels, and a homepage location switcher with embedded Google Maps.
+- Hero uses a real autoplaying background video with poster fallback.
+- `/schedule` is a real page with a location switcher and per-day schedule cards.
+- `/pricing` is a real subscriptions page with three plans and a single CTA.
+- Header and footer branding use the current Valknut asset from `public/brand/`.
+- Footer is a minimal navigation plus icon-contacts footer.
+
+## Routes
+Implemented routes:
+- `/`
+- `/schedule`
+- `/pricing`
+
+Placeholder routes:
+- `/about`
+- `/coaches`
+- `/gallery`
+- `/contact`
+- `/faq`
+
+## Primary Navigation
+Visible primary navigation is limited to:
+1. `Академія`
+2. `Тренери`
+3. `Розклад`
+4. `Ціни`
+5. `Медіа`
+
+## Content Architecture
+Business content lives in `src/content/*`.
+
+Important content modules:
+- `src/content/site.ts`
+- `src/content/about.ts`
+- `src/content/schedule.ts`
+- `src/content/pricing.ts`
+- `src/content/coaches.ts`
+- `src/content/media.ts`
+- `src/content/faq.ts`
+- `src/content/navigation.ts`
+
+## Design Direction
+- Ferrari-inspired cinematic editorial direction
+- softened for a premium sports-academy feel
+- dark premium surfaces, restrained red accent, subtle rounded corners
+- do not redesign the site from scratch
+
+## Verification
+Standard checks:
+- `npm run lint`
+- `npm run typecheck`
+- `npm run build`
+- `npm audit --omit=dev`

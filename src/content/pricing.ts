@@ -1,4 +1,4 @@
-import type { PricingPageContent, PricingPlan, SectionIntro } from "@/types/content";
+import type { PricingPageContent, PricingPlan } from "@/types/content";
 
 import { contactChannels } from "@/content/site";
 
@@ -10,13 +10,6 @@ export const pricingPageContent: PricingPageContent = {
   ctaLabel: "Записатися на тренування",
   ctaHref: primaryChannel?.href ?? "/contact",
   ctaExternal: primaryChannel?.external ?? false,
-};
-
-export const pricingIntro: SectionIntro = {
-  eyebrow: "Абонементи",
-  title: "Абонементи для різних форматів занять в академії.",
-  description:
-    "Сторінка зберігає просту структуру: три реальні формати, чітка вартість за місяць і один прямий запис на тренування.",
 };
 
 export const pricingPlans: PricingPlan[] = [
