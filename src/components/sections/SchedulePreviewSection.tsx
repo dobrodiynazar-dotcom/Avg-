@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { SchedulePreviewGroup } from "@/types/content";
 
 import { Button, Container } from "@/components/ui";
+import { cn } from "@/lib/utils/cn";
 
 type SchedulePreviewSectionProps = {
   content: {
@@ -19,7 +20,7 @@ export function SchedulePreviewSection({
   groups,
 }: SchedulePreviewSectionProps) {
   return (
-    <section className="section-frame relative isolate overflow-hidden bg-[var(--color-inverse-canvas)] text-white">
+    <section className="relative isolate overflow-hidden bg-[var(--color-inverse-canvas)] py-12 text-white sm:py-14 lg:py-16">
       <div className="absolute inset-0">
         <Image
           alt=""
@@ -35,19 +36,25 @@ export function SchedulePreviewSection({
       </div>
 
       <Container size="wide" className="relative z-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-2 py-16 text-center sm:gap-10 sm:py-20 lg:gap-12 lg:py-24">
-          <h2 className="max-w-[12ch] text-balance text-[clamp(2.7rem,5.8vw,5rem)] font-medium leading-[0.94] tracking-[-0.08em] text-white">
+        <div className="mx-auto flex max-w-[56rem] flex-col items-center gap-6 text-center sm:gap-7 lg:gap-8">
+          <h2 className="max-w-[12ch] text-balance text-[clamp(2.05rem,4.2vw,3.35rem)] font-medium leading-[1] tracking-[-0.055em] text-white">
             {content.title}
           </h2>
 
-          <div className="grid w-full gap-4 sm:gap-5 lg:grid-cols-2 lg:gap-6">
+          <div className="grid w-full gap-3 sm:grid-cols-2 sm:gap-4 lg:gap-5">
             {groups.map((group) => (
               <div
                 key={group.id}
                 aria-label={group.label}
-                className="flex min-h-40 items-center justify-center rounded-[var(--radius-card-lg)] border border-[rgb(255_255_255_/_0.24)] bg-[rgb(255_255_255_/_0.08)] px-6 py-10 text-center shadow-[0_20px_60px_rgb(0_0_0_/_0.18)] backdrop-blur-md sm:min-h-44 sm:px-8"
+                className="flex min-h-28 items-center justify-center rounded-[var(--radius-card-lg)] border border-[rgb(255_255_255_/_0.24)] bg-[rgb(255_255_255_/_0.08)] px-5 py-7 text-center shadow-[0_16px_44px_rgb(0_0_0_/_0.16)] backdrop-blur-md sm:min-h-32 sm:px-6 sm:py-8 lg:min-h-36"
               >
-                <h3 className="text-balance text-[clamp(1.75rem,3vw,3rem)] font-medium leading-[1.04] tracking-[-0.06em] text-white">
+                <h3
+                  className={cn(
+                    "mx-auto max-w-[12rem] text-balance text-center text-[clamp(1.2rem,1.85vw,1.72rem)] font-medium leading-[1.2] tracking-[0.01em] text-white",
+                    group.id === "kids-8-11" &&
+                      "max-w-none whitespace-nowrap text-[clamp(1.05rem,4.2vw,1.58rem)] sm:text-[clamp(1.2rem,1.85vw,1.72rem)]",
+                  )}
+                >
                   {group.label}
                 </h3>
               </div>
@@ -55,7 +62,7 @@ export function SchedulePreviewSection({
           </div>
 
           <Button
-            className="min-h-0 max-w-[18rem] whitespace-pre-line border-[var(--color-primary)] bg-[rgb(0_0_0_/_0.12)] px-8 py-4 text-[0.88rem] leading-[1.45] !text-white hover:bg-[rgb(255_255_255_/_0.04)] sm:max-w-[19.5rem]"
+            className="min-h-0 max-w-[17rem] whitespace-pre-line border-[var(--color-primary)] bg-[rgb(0_0_0_/_0.12)] px-7 py-3.5 text-[0.82rem] leading-[1.4] !text-white hover:bg-[rgb(255_255_255_/_0.04)] sm:max-w-[18rem]"
             href={content.ctaHref}
             size="lg"
             variant="secondary"
