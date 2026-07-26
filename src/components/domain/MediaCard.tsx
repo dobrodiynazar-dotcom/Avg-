@@ -16,7 +16,11 @@ const aspectRatioClassMap: Record<MediaAsset["aspectRatio"], string> = {
 
 export function MediaCard({ asset, featured = false }: MediaCardProps) {
   return (
-    <article className={`${featured ? "md:col-span-2 xl:row-span-2" : ""}`}>
+    <article
+      className={`${
+        featured ? "md:col-span-2 xl:row-span-2" : ""
+      }`}
+    >
       <div
         className={`${aspectRatioClassMap[asset.aspectRatio]} cinema-image relative overflow-hidden rounded-[var(--radius-card-lg)] ${
           featured ? "min-h-[17rem] sm:min-h-[21rem] lg:min-h-[23rem]" : ""
@@ -33,6 +37,7 @@ export function MediaCard({ asset, featured = false }: MediaCardProps) {
                 : "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
             }
             src={asset.imageSrc}
+            style={{ objectPosition: asset.objectPosition }}
           />
         ) : null}
       </div>

@@ -1,5 +1,6 @@
 import type {
   AcademyInfo,
+  AcademyStatementContent,
   ContactChannel,
   FeatureMediaPanel,
   HeroBackgroundMedia,
@@ -85,17 +86,17 @@ export const heroHighlights: HighlightItem[] = [
   {
     title: "2 локації",
     description:
-      "Тренування проходять на Проспекті Миру, 19 та на Вишиванці, 37 залежно від групи.",
+      "Тренування проходять на вул. Проспект Миру, 19 та на вул. Вишиванка, 37.",
   },
   {
-    title: "4 формати груп",
+    title: "4 вікові групи",
     description:
-      "Окремі напрями для 4–7 років, 8–11 років, юніорів і дорослих із реальним розкладом.",
+      "Окремі напрями для дітей 4–7 років, 8–11 років, юніорів і дорослих.",
   },
   {
-    title: "Прямий запис",
+    title: "Турніри та збори",
     description:
-      "Telegram, Instagram, телефон та email уже підключені як реальні канали звʼязку.",
+      "Регулярна участь у всеукраїнських та міжнародних змаганнях і тренувальних зборах.",
   },
 ];
 
@@ -129,6 +130,13 @@ export const aboutFeatureMedia: FeatureMediaPanel = {
   description:
     "Живі кадри із залу замінили абстрактну заглушку, але сама секційна структура залишилася незмінною.",
   imageSrc: "/media/gym/gym-01.jpg",
+};
+
+export const academyStatement: AcademyStatementContent = {
+  paragraphs: [
+    "Академія Avangard Jiu-Jitsu функціонує в Рівному з 2009 року.",
+    "В нашій команді разом тренуються призери міжнародних та всеукраїнських чемпіонатів і новачки-аматори. Люди різного віку і професій.",
+  ],
 };
 
 export const homepageLocationSection: LocationSectionContent = {

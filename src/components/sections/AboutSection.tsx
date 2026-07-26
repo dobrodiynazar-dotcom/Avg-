@@ -1,65 +1,60 @@
-import Image from "next/image";
+import type {
+  AcademyStatementContent,
+  HighlightItem,
+} from "@/types/content";
 
-import type { FeatureMediaPanel, HighlightItem, SectionIntro } from "@/types/content";
-
-import { Container, SectionHeader } from "@/components/ui";
+import { Container } from "@/components/ui";
 
 type AboutSectionProps = {
-  featureMedia: FeatureMediaPanel;
-  intro: SectionIntro;
-  pillars: HighlightItem[];
+  highlights: HighlightItem[];
+  statement: AcademyStatementContent;
 };
 
-export function AboutSection({ featureMedia, intro, pillars }: AboutSectionProps) {
+export function AboutSection({
+  highlights,
+  statement,
+}: AboutSectionProps) {
+  const [headline, description] = statement.paragraphs;
+
   return (
-    <section className="section-frame border-b border-[rgb(255_255_255_/_0.08)]">
-      <Container className="grid gap-8 lg:grid-cols-[0.9fr,1.1fr] lg:items-stretch" size="wide">
-        <article className="space-y-8">
-          <SectionHeader
-            description={intro.description}
-            eyebrow={intro.eyebrow}
-            size="feature"
-            title={intro.title}
-          />
+    <section className="relative overflow-hidden border-b border-[rgb(255_255_255_/_0.08)] py-10 sm:py-11 lg:py-12">
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-0 h-px w-[min(18rem,52vw)] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgb(218_41_28_/_0.72),transparent)]"
+      />
+      <Container className="space-y-8 sm:space-y-9" size="wide">
+        <div className="max-w-[50rem] text-left">
+          <h2 className="max-w-[24ch] text-balance text-[clamp(1.65rem,3vw,2.1rem)] font-medium leading-[1.08] tracking-[-0.035rem] text-[var(--color-ink)]">
+            {headline}
+          </h2>
+          {description ? (
+            <p className="mt-4 max-w-[34rem] text-balance text-[clamp(0.875rem,1.1vw,0.96rem)] font-medium leading-[1.55] text-[var(--color-ink-muted)]">
+              {description}
+            </p>
+          ) : null}
+        </div>
 
-          <div className="space-y-5">
-            {pillars.map((pillar) => (
-              <div key={pillar.title} className="border-t border-[rgb(255_255_255_/_0.12)] pt-4">
-                <p className="text-[0.95rem] font-semibold uppercase tracking-[0.06em] text-[var(--color-ink)]">
-                  {pillar.title}
-                </p>
-                <p className="mt-3 max-w-[32rem] text-[0.875rem] leading-7 text-[var(--color-ink-muted)]">
-                  {pillar.description}
-                </p>
+        <div className="mx-auto grid max-w-[72rem] gap-7 text-center md:grid-cols-3 md:gap-10 lg:gap-16">
+          {highlights.map((highlight) => (
+            <article
+              key={highlight.title}
+              className="group mx-auto w-full max-w-[20rem] space-y-3 pt-4"
+            >
+              <div
+                aria-hidden="true"
+                className="relative h-px w-full bg-[rgb(255_255_255_/_0.18)]"
+              >
+                <span className="absolute left-1/2 top-0 h-px w-10 -translate-x-1/2 bg-[rgb(218_41_28_/_0.62)] opacity-70 transition-all duration-300 group-hover:w-16 group-hover:opacity-100 motion-reduce:transition-none" />
               </div>
-            ))}
-          </div>
-        </article>
-
-        <article className="cinema-image-soft relative min-h-[24rem] overflow-hidden rounded-[var(--radius-card-lg)] border border-[rgb(255_255_255_/_0.08)]">
-          <Image
-            alt=""
-            className="object-cover"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            src={featureMedia.imageSrc}
-          />
-
-          <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8">
-            <div className="w-fit rounded-[var(--radius-badge)] border border-[rgb(255_255_255_/_0.16)] bg-[rgb(24_24_24_/_0.4)] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink)] backdrop-blur-sm">
-              {featureMedia.eyebrow}
-            </div>
-
-            <div className="max-w-[18rem] space-y-3">
-              <p className="text-[1.5rem] font-medium leading-[1.1] tracking-[-0.04rem] text-[var(--color-ink)]">
-                {featureMedia.title}
+              <h2 className="text-balance text-[clamp(1.1rem,1.45vw,1.35rem)] font-medium leading-[1.12] tracking-[-0.02rem] text-[var(--color-ink)]">
+                {highlight.title}
+              </h2>
+              <p className="text-[0.78rem] leading-5 text-[var(--color-ink-muted)]">
+                {highlight.description}
               </p>
-              <p className="text-[0.8125rem] leading-6 text-[rgb(255_255_255_/_0.74)]">
-                {featureMedia.description}
-              </p>
-            </div>
-          </div>
-        </article>
+            </article>
+          ))}
+        </div>
       </Container>
     </section>
   );

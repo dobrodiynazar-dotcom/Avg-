@@ -81,6 +81,10 @@ export type FeatureMediaPanel = {
   imageSrc: string;
 };
 
+export type AcademyStatementContent = {
+  paragraphs: string[];
+};
+
 export type PricingPlan = {
   id: string;
   name: string;
@@ -140,6 +144,7 @@ export type MediaAsset = {
   status: "planned" | "selected";
   statusLabel: string;
   imageSrc?: string;
+  objectPosition?: string;
 };
 
 export type FAQItem = {

@@ -1,7 +1,7 @@
 import type { MediaAsset, SectionIntro } from "@/types/content";
 
 export const mediaIntro: SectionIntro = {
-  eyebrow: "",
+  eyebrow: "Атмосфера залу",
   title:
     "Тут закінчується зона комфорту й починається справжній розвиток. Ми виховуємо не лише спортсменів — ми виховуємо характер, дисципліну та повагу.",
   description: "",
@@ -10,32 +10,24 @@ export const mediaIntro: SectionIntro = {
 export const mediaAssets: MediaAsset[] = [
   {
     id: "gallery-feature",
-    title: "Контроль і тиск",
+    title: "Тренування в залі",
     kind: "photo",
     summary: "Тренувальний момент Avangard Jiu-Jitsu.",
-    aspectRatio: "portrait",
+    aspectRatio: "wide",
     status: "selected",
     statusLabel: "Реальне фото",
-    imageSrc: "/media/gallery/gallery-feature-01.jpg",
+    imageSrc: "/media/gallery/avangard-atmosphere-logo.webp",
+    objectPosition: "center center",
   },
   {
     id: "gallery-technique",
-    title: "Техніка в роботі",
+    title: "Боротьба в роботі",
     kind: "photo",
     summary: "Тренувальний момент Avangard Jiu-Jitsu.",
-    aspectRatio: "portrait",
+    aspectRatio: "wide",
     status: "selected",
     statusLabel: "Реальне фото",
-    imageSrc: "/media/gallery/gallery-02.jpg",
-  },
-  {
-    id: "gallery-motion",
-    title: "Рух і ритм",
-    kind: "photo",
-    summary: "Тренувальний момент Avangard Jiu-Jitsu.",
-    aspectRatio: "portrait",
-    status: "selected",
-    statusLabel: "Реальне фото",
-    imageSrc: "/media/gallery/gallery-03.jpg",
+    imageSrc: "/media/gallery/avangard-atmosphere-grappling.jpg",
+    objectPosition: "center center",
   },
 ];

@@ -1,7 +1,6 @@
 import type {
   ContactChannel,
   HeroBackgroundMedia,
-  HighlightItem,
 } from "@/types/content";
 
 import { Container } from "@/components/ui";
@@ -9,7 +8,6 @@ import { Container } from "@/components/ui";
 import { HeroActions } from "@/components/sections/hero/HeroActions";
 import { HeroBackground } from "@/components/sections/hero/HeroBackground";
 import { HeroCopy } from "@/components/sections/hero/HeroCopy";
-import { HeroMeta } from "@/components/sections/hero/HeroMeta";
 
 type HeroSectionProps = {
   backgroundMedia: HeroBackgroundMedia;
@@ -20,19 +18,12 @@ type HeroSectionProps = {
     supportingText: string;
     ctaLabel?: string;
   };
-  highlights: HighlightItem[];
-  meta: {
-    eyebrow: string;
-    description: string;
-  };
 };
 
 export function HeroSection({
   backgroundMedia,
   contactChannels,
   content,
-  highlights,
-  meta,
 }: HeroSectionProps) {
   const primaryChannel = contactChannels[0]
     ? [
@@ -64,12 +55,6 @@ export function HeroSection({
           </div>
         </Container>
       </div>
-
-      <HeroMeta
-        description={meta.description}
-        eyebrow={meta.eyebrow}
-        highlights={highlights}
-      />
     </section>
   );
 }
