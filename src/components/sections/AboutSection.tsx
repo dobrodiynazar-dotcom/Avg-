@@ -28,7 +28,7 @@ export function AboutSection({
             {headline}
           </h2>
           {description ? (
-            <p className="mt-4 max-w-[34rem] text-balance text-[clamp(0.875rem,1.1vw,0.96rem)] font-medium leading-[1.55] text-[var(--color-ink-muted)]">
+            <p className="mx-auto mt-4 max-w-[34rem] text-center text-balance text-[clamp(0.875rem,1.1vw,0.96rem)] font-medium leading-[1.55] text-[var(--color-ink-muted)]">
               {description}
             </p>
           ) : null}
