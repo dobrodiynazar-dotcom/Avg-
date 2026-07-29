@@ -23,8 +23,8 @@ export function AboutSection({
         className="absolute left-1/2 top-0 h-px w-[min(18rem,52vw)] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgb(218_41_28_/_0.72),transparent)]"
       />
       <Container className="space-y-8 sm:space-y-9" size="wide">
-        <div className="max-w-[50rem] text-left">
-          <h2 className="max-w-[24ch] text-balance text-[clamp(1.65rem,3vw,2.1rem)] font-medium leading-[1.08] tracking-[-0.035rem] text-[var(--color-ink)]">
+        <div className="mx-auto max-w-[50rem] text-left">
+          <h2 className="mx-auto max-w-[24ch] text-center text-balance text-[clamp(1.65rem,3vw,2.1rem)] font-medium leading-[1.08] tracking-[-0.035rem] text-[var(--color-ink)]">
             {headline}
           </h2>
           {description ? (
