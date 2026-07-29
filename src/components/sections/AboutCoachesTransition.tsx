@@ -8,7 +8,7 @@ type AboutCoachesTransitionProps = {
 
 export function AboutCoachesTransition({ image }: AboutCoachesTransitionProps) {
   return (
-    <div className="relative h-[clamp(13rem,28vw,23.75rem)] overflow-hidden border-b border-[rgb(255_255_255_/_0.08)]">
+    <div className="relative h-[clamp(15rem,32vw,27rem)] overflow-hidden border-b border-[rgb(255_255_255_/_0.08)]">
       <Image
         alt={image.alt}
         className="h-full w-full object-cover object-[center_42%] opacity-90 saturate-[0.9]"
