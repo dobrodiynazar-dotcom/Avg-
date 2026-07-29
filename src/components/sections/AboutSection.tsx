@@ -17,12 +17,12 @@ export function AboutSection({
   const [headline, description] = statement.paragraphs;
 
   return (
-    <section className="relative overflow-hidden border-b border-[rgb(255_255_255_/_0.08)] py-10 sm:py-11 lg:py-12">
+    <section className="relative overflow-hidden border-b border-[rgb(255_255_255_/_0.08)] py-12 sm:py-14 lg:py-16">
       <div
         aria-hidden="true"
         className="absolute left-1/2 top-0 h-px w-[min(18rem,52vw)] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgb(218_41_28_/_0.72),transparent)]"
       />
-      <Container className="space-y-8 sm:space-y-9" size="wide">
+      <Container className="space-y-9 sm:space-y-11" size="wide">
         <div className="mx-auto max-w-[50rem] text-left">
           <h2 className="mx-auto max-w-[24ch] text-center text-balance text-[clamp(1.65rem,3vw,2.1rem)] font-medium leading-[1.08] tracking-[-0.035rem] text-[var(--color-ink)]">
             {headline}

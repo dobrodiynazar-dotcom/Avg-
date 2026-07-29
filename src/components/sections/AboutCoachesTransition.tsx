@@ -8,10 +8,10 @@ type AboutCoachesTransitionProps = {
 
 export function AboutCoachesTransition({ image }: AboutCoachesTransitionProps) {
   return (
-    <div className="relative h-[clamp(15rem,32vw,27rem)] overflow-hidden border-b border-[rgb(255_255_255_/_0.08)]">
+    <div className="group relative h-[clamp(18rem,45vw,39rem)] overflow-hidden border-b border-[rgb(255_255_255_/_0.08)]">
       <Image
         alt={image.alt}
-        className="h-full w-full object-cover object-[center_42%] opacity-90 saturate-[0.9]"
+        className="h-full w-full object-cover object-bottom opacity-90 saturate-[0.9] transition-transform duration-[600ms] ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         height={image.height}
         sizes="100vw"
         src={image.src}
