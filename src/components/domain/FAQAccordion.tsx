@@ -24,7 +24,9 @@ export function FAQAccordion({ items, className }: FAQAccordionProps) {
               +
             </span>
           </summary>
-          <p className="pt-4 text-[0.8125rem] leading-7 text-[var(--color-ink-muted)]">{item.answer}</p>
+          <p className="whitespace-pre-line pt-3.5 text-[0.8125rem] leading-6 text-[var(--color-ink-muted)]">
+            {item.answer}
+          </p>
         </details>
       ))}
     </div>

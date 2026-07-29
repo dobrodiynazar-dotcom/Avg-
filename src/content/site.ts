@@ -90,9 +90,8 @@ export const heroHighlights: HighlightItem[] = [
       "Тренування проходять на вул. Проспект Миру, 19 та на вул. Вишиванка, 37.",
   },
   {
-    title: "4 вікові групи",
-    description:
-      "Окремі напрями для дітей 4–7 років, 8–11 років, юніорів і дорослих.",
+    title: "Джиу-джитсу для ветеранів",
+    description: "Реабілітація через джиу-джитсу для військових та ветеранів.",
   },
   {
     title: "Турніри та збори",
@@ -100,8 +99,9 @@ export const heroHighlights: HighlightItem[] = [
       "Регулярна участь у всеукраїнських та міжнародних змаганнях і тренувальних зборах.",
   },
   {
-    title: "Джиу-джитсу для ветеранів",
-    description: "Реабілітація через джиу-джитсу для військових та ветеранів.",
+    title: "4 вікові групи",
+    description:
+      "Окремі напрями для дітей 4–7 років, 8–11 років, юніорів і дорослих.",
   },
 ];
 
@@ -138,10 +138,10 @@ export const aboutFeatureMedia: FeatureMediaPanel = {
 };
 
 export const aboutCoachesTransitionImage: TransitionImageContent = {
-  src: "/media/gym/about-coaches-transition.webp",
-  alt: "Команда Avangard Jiu-Jitsu з медалями після змагань у спортивному залі",
-  width: 1200,
-  height: 900,
+  src: "/media/gym/about-coaches-transition-competition.jpg",
+  alt: "Двоє спортсменів Avangard Jiu-Jitsu борються у стійці на змагальному татамі",
+  width: 1280,
+  height: 852,
 };
 
 export const academyStatement: AcademyStatementContent = {
