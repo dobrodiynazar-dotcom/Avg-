@@ -7,7 +7,7 @@ type CoachCardProps = {
 };
 
 export function CoachCard({ coach }: CoachCardProps) {
-  const details = [coach.role, coach.summary].filter(Boolean);
+  const supportingInfo = coach.supportingInfo ?? [coach.summary].filter(Boolean);
 
   return (
     <article className="group mx-auto flex w-full max-w-[21rem] flex-col items-center text-center">
@@ -24,32 +24,33 @@ export function CoachCard({ coach }: CoachCardProps) {
         ) : null}
       </div>
 
-      <div className="mt-5 space-y-3">
-        <div className="space-y-2">
-          <h3 className="text-[1.2rem] font-semibold leading-[1.15] tracking-[-0.02rem] text-[var(--color-ink)] sm:text-[1.32rem]">
+      <div className="mt-5 space-y-4">
+        <div className="space-y-2.5">
+          <h3 className="text-[1.2rem] font-bold leading-[1.15] tracking-[-0.02rem] text-[var(--color-ink)] sm:text-[1.32rem]">
             {coach.name}
           </h3>
           <div className="mx-auto h-px w-10 bg-[var(--color-primary)] opacity-70" />
         </div>
 
-        <div className="space-y-1.5">
-          {details.map((detail, index) => (
-            <p
-              key={detail}
-              className={
-                index === 0
-                  ? "text-[0.86rem] font-medium leading-6 text-[rgb(255_255_255_/_0.86)]"
-                  : "text-[0.8rem] leading-6 text-[var(--color-ink-muted)]"
-              }
-            >
-              {detail}
-            </p>
-          ))}
+        <div className="space-y-2.5">
+          <p className="text-[0.88rem] font-medium leading-6 text-[rgb(255_255_255_/_0.9)]">
+            {coach.role}
+          </p>
+          <div className="space-y-1.5">
+            {supportingInfo.map((detail) => (
+              <p key={detail} className="text-[0.78rem] leading-[1.7] text-[var(--color-ink-muted)]">
+                {detail}
+              </p>
+            ))}
+          </div>
         </div>
 
-        <p className="mx-auto inline-flex rounded-[var(--radius-badge)] border border-[rgb(218_41_28_/_0.42)] px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[rgb(255_255_255_/_0.86)]">
-          {coach.rank}
-        </p>
+        <div className="inline-flex flex-col items-center gap-1.5">
+          <p className="text-[1rem] font-bold leading-tight text-[var(--color-ink)] sm:text-[1.08rem]">
+            {coach.rank}
+          </p>
+          <div className="h-px w-full bg-[var(--color-primary)] opacity-75" />
+        </div>
       </div>
     </article>
   );

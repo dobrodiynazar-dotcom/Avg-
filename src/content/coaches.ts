@@ -2,8 +2,7 @@ import type { CoachProfile, SectionIntro } from "@/types/content";
 
 export const coachesIntro: SectionIntro = {
   eyebrow: "Тренерський склад",
-  title:
-    "Ваш розвиток супроводжують тренери з багаторічним досвідом, які поєднують професіоналізм, дисципліну та індивідуальний підхід.",
+  title: "Ваш розвиток супроводжують тренери з багаторічним досвідом",
   description: "",
 };
 
@@ -14,6 +13,7 @@ export const coaches: CoachProfile[] = [
     role: "Засновниця AVANGARD JIU JITSU",
     rank: "Чорний пояс",
     summary: "Тренер дитячих, підліткових і дорослих груп",
+    supportingInfo: ["Тренер дитячих, підліткових і дорослих груп", "У джиу-джитсу з 2009 року"],
     achievements: [],
     focusAreas: [],
     imageLabel: "",
@@ -24,9 +24,10 @@ export const coaches: CoachProfile[] = [
   {
     id: "andrii-lisnichuk",
     name: "Андрій Ліснічук",
-    role: "У джиу-джитсу з 2012 року",
-    rank: "Коричневий пояс з джиу-джитсу",
-    summary: "Співзасновник AVANGARD JIU JITSU",
+    role: "Співзасновник AVANGARD JIU JITSU",
+    rank: "Коричневий пояс",
+    summary: "Тренер дорослих та ветеранів",
+    supportingInfo: ["Тренер дорослих та ветеранів", "У джиу-джитсу з 2012 року"],
     achievements: [],
     focusAreas: [],
     imageLabel: "",
@@ -37,9 +38,10 @@ export const coaches: CoachProfile[] = [
   {
     id: "volodymyr-tkachuk",
     name: "Володимир Ткачук",
-    role: "У джиу-джитсу з 2019 року",
-    rank: "Пурпурний пояс з джиу-джитсу",
-    summary: "",
+    role: "Тренер дитячих і підліткових груп",
+    rank: "Пурпурний пояс",
+    summary: "У джиу-джитсу з 2019 року",
+    supportingInfo: ["У джиу-джитсу з 2019 року"],
     achievements: [],
     focusAreas: [],
     imageLabel: "",

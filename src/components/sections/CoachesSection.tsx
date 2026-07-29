@@ -11,14 +11,14 @@ type CoachesSectionProps = {
 export function CoachesSection({ intro, coaches }: CoachesSectionProps) {
   return (
     <section className="section-frame border-b border-[rgb(255_255_255_/_0.08)]">
-      <Container className="space-y-9" size="wide">
+      <Container size="wide">
         <SectionHeader
           eyebrow={intro.eyebrow}
           className="max-w-[48rem]"
           size="supporting"
           title={intro.title}
         />
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
           {coaches.map((coach) => (
             <div
               key={coach.id}
@@ -28,7 +28,7 @@ export function CoachesSection({ intro, coaches }: CoachesSectionProps) {
             </div>
           ))}
         </div>
-        <div className="flex justify-center">
+        <div className="mt-9 flex justify-center">
           <Button
             aria-label="Перейти до повної інформації про тренерів"
             href="/coaches"

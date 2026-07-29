@@ -57,6 +57,7 @@ export type CoachProfile = {
   role: string;
   rank: string;
   summary: string;
+  supportingInfo?: string[];
   achievements: string[];
   focusAreas: string[];
   imageLabel: string;
