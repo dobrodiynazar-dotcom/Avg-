@@ -84,6 +84,13 @@ export type FeatureMediaPanel = {
   imageSrc: string;
 };
 
+export type TransitionImageContent = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type AcademyStatementContent = {
   paragraphs: string[];
 };

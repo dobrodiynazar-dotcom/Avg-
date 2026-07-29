@@ -34,7 +34,7 @@ export function AboutSection({
           ) : null}
         </div>
 
-        <div className="mx-auto grid max-w-[72rem] gap-7 text-center md:grid-cols-3 md:gap-10 lg:gap-16">
+        <div className="mx-auto grid max-w-[76rem] gap-7 text-center md:grid-cols-2 md:gap-9 xl:grid-cols-4 xl:gap-10">
           {highlights.map((highlight) => (
             <article
               key={highlight.title}

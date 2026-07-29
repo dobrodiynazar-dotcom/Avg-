@@ -6,6 +6,7 @@ import type {
   HeroBackgroundMedia,
   HighlightItem,
   LocationSectionContent,
+  TransitionImageContent,
 } from "@/types/content";
 
 export const academyInfo: AcademyInfo = {
@@ -98,6 +99,10 @@ export const heroHighlights: HighlightItem[] = [
     description:
       "Регулярна участь у всеукраїнських та міжнародних змаганнях і тренувальних зборах.",
   },
+  {
+    title: "Джиу-джитсу для ветеранів",
+    description: "Реабілітація через джиу-джитсу для військових та ветеранів.",
+  },
 ];
 
 export const heroMeta = {
@@ -130,6 +135,13 @@ export const aboutFeatureMedia: FeatureMediaPanel = {
   description:
     "Живі кадри із залу замінили абстрактну заглушку, але сама секційна структура залишилася незмінною.",
   imageSrc: "/media/gym/gym-01.jpg",
+};
+
+export const aboutCoachesTransitionImage: TransitionImageContent = {
+  src: "/media/gym/about-coaches-transition.webp",
+  alt: "Команда Avangard Jiu-Jitsu з медалями після змагань у спортивному залі",
+  width: 1200,
+  height: 900,
 };
 
 export const academyStatement: AcademyStatementContent = {

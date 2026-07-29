@@ -1,5 +1,6 @@
 import {
   AboutSection,
+  AboutCoachesTransition,
   CoachesSection,
   ContactSection,
   FAQSection,
@@ -14,6 +15,7 @@ import { mediaAssets, mediaIntro } from "@/content/media";
 import { schedulePreviewContent, schedulePreviewGroups } from "@/content/schedule";
 import {
   academyStatement,
+  aboutCoachesTransitionImage,
   contactChannels,
   homepageLocationSection,
   heroBackgroundMedia,
@@ -36,6 +38,7 @@ export default function HomePage() {
         highlights={heroHighlights}
         statement={academyStatement}
       />
+      <AboutCoachesTransition image={aboutCoachesTransitionImage} />
       <CoachesSection intro={coachesIntro} coaches={coaches} />
       <SchedulePreviewSection
         content={schedulePreviewContent}
