@@ -61,6 +61,8 @@ export type CoachProfile = {
   focusAreas: string[];
   imageLabel: string;
   imageSrc?: string;
+  imageAlt?: string;
+  imageObjectPosition?: string;
 };
 
 export type HighlightItem = {
