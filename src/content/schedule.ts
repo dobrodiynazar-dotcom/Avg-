@@ -32,22 +32,36 @@ export const scheduleLocationSchedules: ScheduleLocationSchedule[] = [
       {
         id: "monday",
         label: "Понеділок",
-        entries: [{ id: "pm19-mon-kids-8-11", time: "16:00", group: "Діти 8–11" }],
+        entries: [
+          { id: "pm19-mon-kids-8-11", time: "16:30", group: "Діти 8–11" },
+          { id: "pm19-mon-veterans", time: "18:30", group: "Ветерани" },
+        ],
       },
       {
         id: "tuesday",
         label: "Вівторок",
-        entries: [{ id: "pm19-tue-kids-4-7", time: "17:30", group: "Діти 4–7" }],
+        entries: [
+          { id: "pm19-tue-kids-8-11-morning", time: "09:15", group: "Діти 8–11" },
+          { id: "pm19-tue-kids-8-11", time: "16:00", group: "Діти 8–11" },
+          { id: "pm19-tue-kids-4-7", time: "17:30", group: "Діти 4–7" },
+        ],
       },
       {
         id: "wednesday",
         label: "Середа",
-        entries: [{ id: "pm19-wed-kids-8-11", time: "16:00", group: "Діти 8–11" }],
+        entries: [
+          { id: "pm19-wed-kids-8-11", time: "16:30", group: "Діти 8–11" },
+          { id: "pm19-wed-veterans", time: "18:30", group: "Ветерани" },
+        ],
       },
       {
         id: "thursday",
         label: "Четвер",
-        entries: [{ id: "pm19-thu-kids-4-7", time: "17:30", group: "Діти 4–7" }],
+        entries: [
+          { id: "pm19-thu-kids-8-11-morning", time: "09:15", group: "Діти 8–11" },
+          { id: "pm19-thu-kids-8-11", time: "16:00", group: "Діти 8–11" },
+          { id: "pm19-thu-kids-4-7", time: "17:30", group: "Діти 4–7" },
+        ],
       },
       {
         id: "friday",
@@ -60,6 +74,7 @@ export const scheduleLocationSchedules: ScheduleLocationSchedule[] = [
         entries: [
           { id: "pm19-sat-kids-4-7", time: "10:30", group: "Діти 4–7" },
           { id: "pm19-sat-kids-8-11", time: "12:00", group: "Діти 8–11" },
+          { id: "pm19-sat-veterans", time: "14:00", group: "Ветерани" },
         ],
       },
     ],
@@ -80,6 +95,7 @@ export const scheduleLocationSchedules: ScheduleLocationSchedule[] = [
         id: "tuesday",
         label: "Вівторок",
         entries: [
+          { id: "v37-tue-kids-8-11-morning", time: "09:15", group: "Діти 8–11" },
           { id: "v37-tue-kids-8-11", time: "16:00", group: "Діти 8–11" },
           { id: "v37-tue-kids-4-7", time: "17:30", group: "Діти 4–7" },
           { id: "v37-tue-adults", time: "19:30", group: "Дорослі" },
@@ -97,6 +113,7 @@ export const scheduleLocationSchedules: ScheduleLocationSchedule[] = [
         id: "thursday",
         label: "Четвер",
         entries: [
+          { id: "v37-thu-kids-8-11-morning", time: "09:15", group: "Діти 8–11" },
           { id: "v37-thu-kids-8-11", time: "16:00", group: "Діти 8–11" },
           { id: "v37-thu-kids-4-7", time: "17:30", group: "Діти 4–7" },
           { id: "v37-thu-adults", time: "19:30", group: "Дорослі" },
