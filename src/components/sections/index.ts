@@ -6,3 +6,4 @@ export * from "@/components/sections/FAQSection";
 export * from "@/components/sections/GallerySection";
 export * from "@/components/sections/HeroSection";
 export * from "@/components/sections/SchedulePreviewSection";
+export * from "@/components/sections/VeteransPageSection";

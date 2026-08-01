@@ -2,6 +2,7 @@ export type RouteKey =
   | "home"
   | "about"
   | "coaches"
+  | "veterans"
   | "schedule"
   | "pricing"
   | "gallery"
@@ -182,4 +183,53 @@ export type LocationSectionContent = {
   mapButtonLabel: string;
   backgroundImageSrc: string;
   locations: LocationItem[];
+};
+
+export type VeteransHeroContent = {
+  label: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  videoSrc: string;
+  posterSrc: string;
+};
+
+export type VeteransBenefit = {
+  title: string;
+  description: string;
+};
+
+export type VeteransProgramContent = {
+  label: string;
+  title: string;
+  paragraphs: string[];
+  benefits: VeteransBenefit[];
+};
+
+export type VeteransPhotoStatementContent = {
+  label: string;
+  title: string;
+  paragraphs: string[];
+  imageSrc: string;
+  imageAlt: string;
+};
+
+export type VeteransFinalCtaContent = {
+  title: string;
+  ctaLabel: string;
+  ctaHref: string;
+  imageSrc: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+};
+
+export type VeteransPageContent = {
+  hero: VeteransHeroContent;
+  program: VeteransProgramContent;
+  tmsHub: VeteransPhotoStatementContent;
+  faqIntro: SectionIntro;
+  faqNote: string;
+  finalCta: VeteransFinalCtaContent;
 };
