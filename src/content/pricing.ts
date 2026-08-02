@@ -24,7 +24,8 @@ export const pricingPageContent: PricingPageContent = {
     },
     {
       id: "personal-kids-two",
-      title: "Дитяче тренування для двох дітей",
+      title: "Дитяче тренування",
+      summary: "Для двох дітей",
       priceLabel: "800 грн",
     },
   ],
@@ -35,26 +36,27 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "adults",
     name: "Доросла група",
-    priceLabel: "1400 грн",
+    priceLabel: "1400 грн/м",
     features: [],
   },
   {
     id: "kids-and-teens",
     name: "Дитячі та підліткові групи",
-    priceLabel: "1300 грн",
+    priceLabel: "1300 грн/м",
     features: [],
   },
   {
     id: "military",
-    name: "Військовослужбовці",
-    priceLabel: "700 грн",
+    name: "Доросла група",
+    priceLabel: "700 грн/м",
+    summary: "Для військовослужбовців",
     features: [],
   },
   {
     id: "family",
     name: "Сімейна група",
-    priceLabel: "2300 грн",
-    summary: "Абонемент для дорослого і дитини або для двох дітей із сімʼї.",
+    priceLabel: "2300 грн/м",
+    summary: "Абонемент для дорослого і дитини або для двох дітей із сім’ї.",
     features: [],
   },
   {

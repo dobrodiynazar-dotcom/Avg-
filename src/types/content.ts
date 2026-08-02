@@ -112,6 +112,7 @@ export type PricingPlan = {
 export type PricingSimpleItem = {
   id: string;
   title: string;
+  summary?: string;
   priceLabel: string;
 };
 
