@@ -100,13 +100,19 @@ export type PricingPlan = {
   id: string;
   name: string;
   priceLabel: string;
-  periodLabel: string;
-  summary: string;
+  periodLabel?: string;
+  summary?: string;
   features: string[];
   isFeatured?: boolean;
   badgeLabel?: string;
   ctaLabel?: string;
   note?: string;
+};
+
+export type PricingSimpleItem = {
+  id: string;
+  title: string;
+  priceLabel: string;
 };
 
 export type PricingPageContent = {
@@ -115,6 +121,10 @@ export type PricingPageContent = {
   ctaLabel: string;
   ctaHref: string;
   ctaExternal?: boolean;
+  oneTimeTraining: PricingSimpleItem;
+  personalTrainingTitle: string;
+  personalTraining: PricingSimpleItem[];
+  trialText: string;
 };
 
 export type SchedulePreviewGroup = {
