@@ -12,8 +12,10 @@ export const veteransPageContent: VeteransPageContent = {
       "Програма для військових і ветеранів, яка поєднує адаптовані тренування, підтримку команди та поступове повернення до активного життя.",
     ctaLabel: "Долучитися до тренувань",
     ctaHref: "#veterans-join",
-    videoSrc: "/media/veterans/veterans-hero.mp4",
-    posterSrc: "/media/veterans/veterans-hero-poster.jpg",
+    videoSrc: "/media/veterans/veterans-hero-desktop.mp4",
+    mobileVideoSrc: "/media/veterans/veterans-hero-mobile.mp4",
+    desktopVideoSrc: "/media/veterans/veterans-hero-desktop.mp4",
+    posterSrc: "/media/veterans/veterans-hero-poster.webp",
   },
   program: {
     label: "Програма",
@@ -52,7 +54,7 @@ export const veteransPageContent: VeteransPageContent = {
     paragraphs: [
       "TMS HUB — об’єднання ветеранських спортивних просторів, метою якого є популяризація та організація тренувань з адаптивного джиу-джитсу як способу фізичної та психосоціальної реабілітації ветеранів війни та військовослужбовців.",
     ],
-    imageSrc: "/media/veterans/tms-hub-branch.jpg",
+    imageSrc: "/media/veterans/tms-hub-branch.webp",
     imageAlt:
       "Ветеран у кімоно виходить на татамі під час турніру TMS HUB",
   },
@@ -67,11 +69,11 @@ export const veteransPageContent: VeteransPageContent = {
     title: "Зробіть перший крок. Ми пройдемо цей шлях разом.",
     ctaLabel: "Долучитися до тренувань",
     ctaHref: primaryContact.href,
-    imageSrc: "/media/veterans/veterans-final-background.png",
+    imageSrc: "/media/veterans/veterans-final-background.webp",
     imageAlt:
       "Тренер підтримує ветерана після поєдинку на татамі TMS HUB",
-    imageWidth: 1536,
-    imageHeight: 1024,
+    imageWidth: 1440,
+    imageHeight: 960,
   },
 };
 

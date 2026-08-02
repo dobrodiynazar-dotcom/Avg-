@@ -40,7 +40,10 @@ export function VeteransPageSection({
           poster={hero.posterSrc}
           preload="metadata"
         >
-          <source src={hero.videoSrc} type="video/mp4" />
+          {hero.mobileVideoSrc ? (
+            <source media="(max-width: 767px)" src={hero.mobileVideoSrc} type="video/mp4" />
+          ) : null}
+          <source src={hero.desktopVideoSrc ?? hero.videoSrc} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0_/_0.64),rgb(0_0_0_/_0.38)_42%,rgb(0_0_0_/_0.78))]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgb(216_239_154_/_0.12),transparent_34%)]" />

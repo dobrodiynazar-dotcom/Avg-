@@ -202,6 +202,8 @@ export type VeteransHeroContent = {
   ctaLabel: string;
   ctaHref: string;
   videoSrc: string;
+  mobileVideoSrc?: string;
+  desktopVideoSrc?: string;
   posterSrc: string;
 };
 
