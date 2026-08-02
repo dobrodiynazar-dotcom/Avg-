@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import { Button } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
 import { contactChannels } from "@/content/site";
 
@@ -88,41 +87,32 @@ export function MobileNav() {
       </button>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 z-[100] md:hidden">
-          <button
-            type="button"
-            aria-label="Close menu"
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute inset-0 bg-black/70"
-          />
-
+        <div className="fixed inset-0 z-[999] bg-neutral-950 text-white md:hidden">
           <nav
             aria-label="Розділи сайту"
             aria-modal="true"
-            className="absolute inset-x-0 top-[72px] max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-white/10 bg-neutral-950 px-5 py-6 text-white shadow-2xl"
+            className="flex h-dvh flex-col items-center justify-center overflow-y-auto px-5 py-10"
             id="mobile-navigation-drawer"
             ref={drawerRef}
             role="dialog"
           >
-            <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56">
-                Навігація
-              </p>
-              <button
-                aria-label="Закрити меню"
-                className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-white/14 bg-white/[0.02] text-white/72 transition-colors hover:border-white/28 hover:bg-white/[0.05] hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-                type="button"
-              >
-                X
-              </button>
-            </div>
+            <button
+              aria-label="Закрити меню"
+              className="absolute right-5 top-5 flex min-h-11 min-w-11 items-center justify-center text-white transition-colors hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] active:text-[var(--color-primary)]"
+              onClick={() => setIsMenuOpen(false)}
+              type="button"
+            >
+              <span aria-hidden="true" className="relative h-7 w-7">
+                <span className="absolute left-1/2 top-1/2 h-[2px] w-8 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-current" />
+                <span className="absolute left-1/2 top-1/2 h-[2px] w-8 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-current" />
+              </span>
+            </button>
 
-            <div className="mt-6 flex flex-col border-b border-white/10 pb-6">
+            <div className="flex flex-col items-center gap-7 text-center">
               {primaryNavigation.map((item) => (
                 <Link
                   key={item.key}
-                  className="border-t border-white/10 py-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white first:border-t-0"
+                  className="text-[clamp(1.1rem,5vw,1.55rem)] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:text-[var(--color-primary)]"
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -131,21 +121,17 @@ export function MobileNav() {
               ))}
             </div>
 
-            <div className="space-y-3 pt-6">
-              {contactChannels.slice(0, 3).map((channel) => (
-                <Button
-                  key={channel.key}
-                  className="w-full"
-                  href={channel.href}
-                  rel={channel.external ? "noreferrer" : undefined}
-                  size="md"
-                  target={channel.external ? "_blank" : undefined}
-                  variant={channel.variant}
-                >
-                  {channel.ctaLabel ?? channel.label}
-                </Button>
-              ))}
-            </div>
+            {contactChannels[0] ? (
+              <Link
+                className="mt-10 inline-flex min-h-14 w-full max-w-sm items-center justify-center border border-red-600 px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+                href={contactChannels[0].href}
+                onClick={() => setIsMenuOpen(false)}
+                rel={contactChannels[0].external ? "noreferrer" : undefined}
+                target={contactChannels[0].external ? "_blank" : undefined}
+              >
+                Записатись на пробне тренування
+              </Link>
+            ) : null}
           </nav>
         </div>
       )}
