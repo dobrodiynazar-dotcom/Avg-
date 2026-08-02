@@ -201,6 +201,7 @@ export type VeteransHeroContent = {
   description: string;
   ctaLabel: string;
   ctaHref: string;
+  ctaExternal?: boolean;
   videoSrc: string;
   mobileVideoSrc?: string;
   desktopVideoSrc?: string;
@@ -231,6 +232,7 @@ export type VeteransFinalCtaContent = {
   title: string;
   ctaLabel: string;
   ctaHref: string;
+  ctaExternal?: boolean;
   imageSrc: string;
   imageAlt: string;
   imageWidth: number;

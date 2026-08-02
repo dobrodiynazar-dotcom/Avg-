@@ -11,7 +11,8 @@ export const veteransPageContent: VeteransPageContent = {
     description:
       "Програма для військових і ветеранів, яка поєднує адаптовані тренування, підтримку команди та поступове повернення до активного життя.",
     ctaLabel: "Долучитися до тренувань",
-    ctaHref: "#veterans-join",
+    ctaHref: primaryContact.href,
+    ctaExternal: primaryContact.external,
     videoSrc: "/media/veterans/veterans-hero-desktop.mp4",
     mobileVideoSrc: "/media/veterans/veterans-hero-mobile.mp4",
     desktopVideoSrc: "/media/veterans/veterans-hero-desktop.mp4",
@@ -69,6 +70,7 @@ export const veteransPageContent: VeteransPageContent = {
     title: "Зробіть перший крок. Ми пройдемо цей шлях разом.",
     ctaLabel: "Долучитися до тренувань",
     ctaHref: primaryContact.href,
+    ctaExternal: primaryContact.external,
     imageSrc: "/media/veterans/veterans-final-background.webp",
     imageAlt:
       "Тренер підтримує ветерана після поєдинку на татамі TMS HUB",
