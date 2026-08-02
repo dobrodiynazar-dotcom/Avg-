@@ -1,13 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { primaryNavigation } from "@/content/navigation";
 import { contactChannels } from "@/content/site";
 
 export function MobileNav() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [pendingPathname, setPendingPathname] = useState<string | null>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const shouldRestoreFocusRef = useRef(false);
@@ -56,6 +60,26 @@ export function MobileNav() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (pendingPathname && pathname !== pendingPathname) {
+      const closeTimer = window.setTimeout(() => {
+        setIsMenuOpen(false);
+        setPendingPathname(null);
+      }, 0);
+
+      return () => window.clearTimeout(closeTimer);
+    }
+  }, [pathname, pendingPathname]);
+
+  const handleNavigationClick = (href: string) => {
+    if (href === pathname) {
+      setIsMenuOpen(false);
+      return;
+    }
+
+    setPendingPathname(pathname);
+  };
+
   return (
     <>
       <button
@@ -86,7 +110,8 @@ export function MobileNav() {
         </span>
       </button>
 
-      {isMenuOpen && (
+      {isMenuOpen && typeof document !== "undefined"
+        ? createPortal(
         <div className="fixed inset-0 z-[999] bg-neutral-950 text-white md:hidden">
           <nav
             aria-label="Розділи сайту"
@@ -114,7 +139,7 @@ export function MobileNav() {
                   key={item.key}
                   className="text-[clamp(1.1rem,5vw,1.55rem)] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:text-[var(--color-primary)] focus-visible:outline-none focus-visible:text-[var(--color-primary)]"
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavigationClick(item.href)}
                 >
                   {item.label}
                 </Link>
@@ -123,7 +148,7 @@ export function MobileNav() {
 
             {contactChannels[0] ? (
               <Link
-                className="mt-10 inline-flex min-h-14 w-full max-w-sm items-center justify-center border border-red-600 px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+                className="mt-10 inline-flex min-h-14 w-full max-w-sm items-center justify-center rounded-[var(--radius-button)] border border-red-600 bg-neutral-950 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-focus)]"
                 href={contactChannels[0].href}
                 onClick={() => setIsMenuOpen(false)}
                 rel={contactChannels[0].external ? "noreferrer" : undefined}
@@ -133,8 +158,10 @@ export function MobileNav() {
               </Link>
             ) : null}
           </nav>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )
+        : null}
     </>
   );
 }
