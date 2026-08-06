@@ -32,13 +32,13 @@ function ProfileList({
 
   return (
     <section className="space-y-3">
-      <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white/58">
+      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/58">
         {title}
       </h3>
-      <ul className="space-y-2.5">
+      <ul className="space-y-3">
         {items.map((item) => (
           <li
-            className="border-l border-[var(--color-primary)] pl-3 text-[0.88rem] leading-[1.65] text-white/74"
+            className="border-l border-[var(--color-primary)] pl-3 text-[0.88rem] leading-[1.75] tracking-[0.003em] text-white/74"
             key={item}
           >
             {item}
@@ -81,10 +81,10 @@ function CoachPreviewCard({
       </span>
 
       <span className="mt-5 block space-y-2">
-        <span className="block text-[1.22rem] font-bold leading-tight tracking-[-0.01em] text-white">
+        <span className="block text-[1.22rem] font-semibold leading-[1.18] tracking-normal text-white">
           {coach.name}
         </span>
-        <span className="block text-[0.84rem] font-medium leading-[1.55] text-white/70">
+        <span className="block text-[0.84rem] font-medium leading-[1.65] tracking-[0.004em] text-white/70">
           {coach.rank}
         </span>
         <span className="mx-auto block h-px w-10 bg-[var(--color-primary)] transition-all duration-300 group-hover:w-16 motion-reduce:transition-none" />
@@ -171,52 +171,53 @@ function CoachModal({
         aria-describedby={biographyId}
         aria-labelledby={titleId}
         aria-modal="true"
-        className="relative grid max-h-[calc(100dvh-1.5rem)] w-full max-w-6xl overflow-hidden rounded-[1.05rem] border border-white/12 bg-[rgb(9_10_12_/_0.96)] shadow-[0_34px_120px_rgb(0_0_0_/_0.58)] outline-none motion-safe:animate-[coach-modal-in_280ms_ease-out] md:max-h-[calc(100dvh-3rem)] md:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)]"
+        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-6xl overflow-hidden rounded-[1.05rem] border border-white/12 bg-[rgb(9_10_12_/_0.96)] shadow-[0_34px_120px_rgb(0_0_0_/_0.58)] outline-none motion-safe:animate-[coach-modal-in_280ms_ease-out] md:max-h-[calc(100dvh-3rem)]"
         ref={modalRef}
         role="dialog"
       >
-        <div className="relative min-h-[18rem] overflow-hidden bg-[var(--color-surface-2)] md:min-h-0">
-          {imageSrc ? (
-            <Image
-              alt={coach.profileImageAlt ?? coach.imageAlt ?? `${coach.name}, тренер Avangard Jiu-Jitsu`}
-              className="object-cover"
-              fill
-              sizes="(min-width: 1024px) 44vw, 100vw"
-              src={imageSrc}
-              style={{ objectPosition: coach.profileImageObjectPosition ?? coach.imageObjectPosition ?? "center center" }}
-            />
-          ) : null}
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgb(0_0_0_/_0.52))]" />
-        </div>
+        <button
+          aria-label="Закрити профіль"
+          className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-black/76 text-2xl leading-none text-white/82 transition hover:border-[var(--color-primary)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)] sm:right-4 sm:top-4"
+          onClick={onClose}
+          ref={closeButtonRef}
+          type="button"
+        >
+          ×
+        </button>
 
-        <div className="min-h-0 overflow-y-auto px-5 py-6 sm:px-7 sm:py-8 lg:px-9">
-          <button
-            aria-label="Закрити профіль"
-            className="sticky top-0 z-10 ml-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-black/72 text-2xl leading-none text-white/82 transition hover:border-[var(--color-primary)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)]"
-            onClick={onClose}
-            ref={closeButtonRef}
-            type="button"
-          >
-            ×
-          </button>
+        <div className="grid max-h-[calc(100dvh-1.5rem)] overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] md:max-h-[calc(100dvh-3rem)] md:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] md:overflow-hidden">
+          <div className="relative h-[min(52dvh,24rem)] overflow-hidden bg-[var(--color-surface-2)] md:h-auto md:min-h-0">
+            {imageSrc ? (
+              <Image
+                alt={coach.profileImageAlt ?? coach.imageAlt ?? `${coach.name}, тренер Avangard Jiu-Jitsu`}
+                className="object-cover"
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                src={imageSrc}
+                style={{ objectPosition: coach.profileImageObjectPosition ?? coach.imageObjectPosition ?? "center center" }}
+              />
+            ) : null}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgb(0_0_0_/_0.52))]" />
+          </div>
 
-          <div className="-mt-7 space-y-7">
+          <div className="min-h-0 px-5 py-7 sm:px-7 sm:py-8 md:overflow-y-auto md:[-webkit-overflow-scrolling:touch] lg:px-9">
+          <div className="space-y-8 md:pr-1">
             <header className="space-y-4">
-              <p className="text-[0.78rem] font-bold uppercase tracking-[0.22em] text-[var(--color-primary)]">
+              <p className="text-[0.78rem] font-semibold uppercase leading-[1.55] tracking-[0.22em] text-[var(--color-primary)]">
                 {coach.role}
               </p>
               <h2
-                className="text-balance text-[clamp(2rem,5vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.045em] text-white"
+                className="text-balance text-[clamp(2rem,5vw,4.25rem)] font-medium leading-[1.06] tracking-[-0.025em] text-white sm:leading-[1.02]"
                 id={titleId}
               >
                 {coach.name}
               </h2>
-              <div className="space-y-2 text-[0.94rem] leading-[1.65] text-white/68">
+              <div className="space-y-2.5 text-[0.94rem] leading-[1.75] tracking-[0.003em] text-white/68">
                 {coach.experience ? <p>{coach.experience}</p> : null}
                 {coach.coaching ? <p>{coach.coaching}</p> : null}
               </div>
               <div className="inline-flex flex-col gap-2 pt-1">
-                <p className="text-[1.28rem] font-bold leading-tight tracking-[-0.01em] text-white">
+                <p className="text-[1.28rem] font-semibold leading-[1.22] tracking-normal text-white">
                   {coach.rank}
                 </p>
                 <div className="h-px w-full bg-[var(--color-primary)]" />
@@ -227,11 +228,11 @@ function CoachModal({
             <ProfileList items={coach.militaryBackground} title="Військовий досвід" />
 
             {coach.biography?.length ? (
-              <section className="space-y-4" id={biographyId}>
-                <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white/58">
+              <section className="space-y-[1.125rem]" id={biographyId}>
+                <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/58">
                   Особисто
                 </h3>
-                <div className="space-y-4 text-[0.94rem] leading-[1.75] text-white/72">
+                <div className="space-y-5 text-[0.94rem] leading-[1.85] tracking-[0.003em] text-white/72">
                   {coach.biography.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
@@ -241,13 +242,13 @@ function CoachModal({
 
             {coach.socialLinks?.length ? (
               <section className="space-y-3 border-t border-white/10 pt-6">
-                <h3 className="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white/58">
+                <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-white/58">
                   Соціальні мережі
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {coach.socialLinks.map((link) => (
                     <a
-                      className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-button)] border border-white/14 px-4 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-white transition hover:border-[var(--color-primary)] hover:bg-[rgb(218_41_28_/_0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)]"
+                      className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-button)] border border-white/14 px-4 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white transition hover:border-[var(--color-primary)] hover:bg-[rgb(218_41_28_/_0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)]"
                       href={link.href}
                       key={link.href}
                       rel="noopener noreferrer"
@@ -259,6 +260,7 @@ function CoachModal({
                 </div>
               </section>
             ) : null}
+          </div>
           </div>
         </div>
       </div>
@@ -323,14 +325,14 @@ export function CoachesPageSection({
       `}</style>
       <section className="border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)] py-20 text-white sm:py-24 lg:py-28">
         <Container size="wide">
-          <div className="max-w-[48rem] space-y-5">
-            <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-primary)]">
+          <div className="max-w-[48rem] space-y-5 lg:max-w-[42rem] xl:max-w-[40rem]">
+            <p className="text-xs font-semibold uppercase leading-[1.6] tracking-[0.24em] text-[var(--color-primary)]">
               {intro.eyebrow}
             </p>
-            <h1 className="text-balance text-[clamp(2.45rem,6vw,5.25rem)] font-medium leading-[0.98] tracking-[-0.055em] text-white sm:leading-[0.94]">
+            <h1 className="text-balance text-[clamp(2.45rem,6vw,5.25rem)] font-medium leading-[1.04] tracking-[-0.035em] text-white sm:leading-[1] sm:tracking-[-0.045em]">
               {intro.title}
             </h1>
-            <p className="max-w-[41rem] text-[clamp(0.98rem,1.6vw,1.15rem)] leading-[1.75] tracking-[0.004em] text-[var(--color-ink-muted)]">
+            <p className="max-w-[41rem] text-[clamp(0.98rem,1.6vw,1.15rem)] leading-[1.8] tracking-[0.006em] text-[var(--color-ink-muted)] lg:max-w-[36rem]">
               {intro.description}
             </p>
           </div>
