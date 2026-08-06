@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/lib/seo/metadata";
-import { RoutePlaceholder } from "@/components/site/RoutePlaceholder";
+import { CoachesPageSection } from "@/components/sections/CoachesPageSection";
+import { coaches, coachesPageBackground, coachesPageIntro } from "@/content/coaches";
 
 export const metadata = buildMetadata({
   title: "Тренери",
@@ -7,5 +8,11 @@ export const metadata = buildMetadata({
 });
 
 export default function CoachesPage() {
-  return <RoutePlaceholder route="coaches" />;
+  return (
+    <CoachesPageSection
+      background={coachesPageBackground}
+      coaches={coaches}
+      intro={coachesPageIntro}
+    />
+  );
 }

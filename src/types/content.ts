@@ -60,11 +60,24 @@ export type CoachProfile = {
   summary: string;
   supportingInfo?: string[];
   achievements: string[];
+  experience?: string;
+  coaching?: string;
+  biography?: string[];
+  militaryBackground?: string[];
+  socialLinks?: SocialLink[];
   focusAreas: string[];
   imageLabel: string;
   imageSrc?: string;
   imageAlt?: string;
   imageObjectPosition?: string;
+  profileImageSrc?: string;
+  profileImageAlt?: string;
+  profileImageObjectPosition?: string;
+};
+
+export type SocialLink = {
+  label: "Instagram" | "TikTok" | "Telegram";
+  href: string;
 };
 
 export type HighlightItem = {
