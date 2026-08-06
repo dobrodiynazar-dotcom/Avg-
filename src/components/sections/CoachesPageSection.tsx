@@ -105,6 +105,8 @@ function CoachModal({
 }) {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const modalBodyRef = useRef<HTMLDivElement | null>(null);
+  const profileScrollRef = useRef<HTMLDivElement | null>(null);
   const biographyId = `${coach.id}-bio`;
   const titleId = `${coach.id}-title`;
   const imageSrc = coach.profileImageSrc ?? coach.imageSrc;
@@ -118,6 +120,23 @@ function CoachModal({
       if (event.key === "Escape") {
         event.preventDefault();
         onClose();
+        return;
+      }
+
+      if (event.key === "PageDown" || event.key === "PageUp") {
+        const scrollTarget =
+          window.matchMedia("(min-width: 768px)").matches
+            ? profileScrollRef.current
+            : modalBodyRef.current;
+
+        if (scrollTarget) {
+          event.preventDefault();
+          scrollTarget.scrollBy({
+            behavior: "auto",
+            top: event.key === "PageDown" ? scrollTarget.clientHeight * 0.82 : -scrollTarget.clientHeight * 0.82,
+          });
+        }
+
         return;
       }
 
@@ -171,7 +190,7 @@ function CoachModal({
         aria-describedby={biographyId}
         aria-labelledby={titleId}
         aria-modal="true"
-        className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-6xl overflow-hidden rounded-[1.05rem] border border-white/12 bg-[rgb(9_10_12_/_0.96)] shadow-[0_34px_120px_rgb(0_0_0_/_0.58)] outline-none motion-safe:animate-[coach-modal-in_280ms_ease-out] md:max-h-[calc(100dvh-3rem)]"
+        className="relative h-[min(90dvh,54rem)] max-h-[90dvh] w-full max-w-6xl overflow-hidden rounded-[1.05rem] border border-white/12 bg-[rgb(9_10_12_/_0.96)] shadow-[0_34px_120px_rgb(0_0_0_/_0.58)] outline-none motion-safe:animate-[coach-modal-in_280ms_ease-out]"
         ref={modalRef}
         role="dialog"
       >
@@ -185,7 +204,11 @@ function CoachModal({
           ×
         </button>
 
-        <div className="grid max-h-[calc(100dvh-1.5rem)] overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] md:max-h-[calc(100dvh-3rem)] md:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] md:overflow-hidden">
+        <div
+          className="grid h-full overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] md:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] md:overflow-hidden"
+          data-modal-scroll=""
+          ref={modalBodyRef}
+        >
           <div className="relative h-[min(52dvh,24rem)] overflow-hidden bg-[var(--color-surface-2)] md:h-auto md:min-h-0">
             {imageSrc ? (
               <Image
@@ -200,8 +223,12 @@ function CoachModal({
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgb(0_0_0_/_0.52))]" />
           </div>
 
-          <div className="min-h-0 px-5 py-7 sm:px-7 sm:py-8 md:overflow-y-auto md:[-webkit-overflow-scrolling:touch] lg:px-9">
-          <div className="space-y-8 md:pr-1">
+          <div
+            className="min-h-0 px-5 py-7 sm:px-7 sm:py-8 md:h-full md:overflow-y-auto md:overscroll-contain md:[-webkit-overflow-scrolling:touch] lg:px-9"
+            data-profile-scroll=""
+            ref={profileScrollRef}
+          >
+          <div className="space-y-8 pb-3 md:pr-1">
             <header className="space-y-4">
               <p className="text-[0.78rem] font-semibold uppercase leading-[1.55] tracking-[0.22em] text-[var(--color-primary)]">
                 {coach.role}
@@ -304,7 +331,7 @@ export function CoachesPageSection({
 
     window.requestAnimationFrame(() => {
       if (activeId) {
-        triggerRefs.current[activeId]?.focus();
+        triggerRefs.current[activeId]?.focus({ preventScroll: true });
       }
     });
   }, [activeCoachId]);
@@ -323,16 +350,16 @@ export function CoachesPageSection({
           }
         }
       `}</style>
-      <section className="border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)] py-20 text-white sm:py-24 lg:py-28">
+      <section className="border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)] py-20 text-white sm:py-24 lg:py-14 xl:py-12">
         <Container size="wide">
-          <div className="max-w-[48rem] space-y-5 lg:max-w-[42rem] xl:max-w-[40rem]">
+          <div className="max-w-[48rem] space-y-5 lg:max-w-[34rem] lg:space-y-3.5 xl:max-w-[31rem]">
             <p className="text-xs font-semibold uppercase leading-[1.6] tracking-[0.24em] text-[var(--color-primary)]">
               {intro.eyebrow}
             </p>
-            <h1 className="text-balance text-[clamp(2.45rem,6vw,5.25rem)] font-medium leading-[1.04] tracking-[-0.035em] text-white sm:leading-[1] sm:tracking-[-0.045em]">
+            <h1 className="text-balance text-[clamp(2.45rem,6vw,5.25rem)] font-medium leading-[1.04] tracking-[-0.035em] text-white sm:leading-[1] sm:tracking-[-0.045em] lg:text-[clamp(2.2rem,3.8vw,3.7rem)] lg:leading-[1.03] lg:tracking-[-0.035em]">
               {intro.title}
             </h1>
-            <p className="max-w-[41rem] text-[clamp(0.98rem,1.6vw,1.15rem)] leading-[1.8] tracking-[0.006em] text-[var(--color-ink-muted)] lg:max-w-[36rem]">
+            <p className="max-w-[41rem] text-[clamp(0.98rem,1.6vw,1.15rem)] leading-[1.8] tracking-[0.006em] text-[var(--color-ink-muted)] lg:max-w-[30rem] lg:text-[1rem] lg:leading-[1.62]">
               {intro.description}
             </p>
           </div>
