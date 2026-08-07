@@ -32,14 +32,14 @@ export const mediaAssets: MediaAsset[] = [
   },
   {
     id: "academy-competition",
-    title: "Очікування перед сутичкою",
+    title: "Перемога на татамі",
     kind: "photo",
-    summary: "Спортсмен Avangard Jiu-Jitsu перед виходом на татамі.",
+    summary: "Спортсменка Avangard Jiu-Jitsu після завершення сутички.",
     aspectRatio: "landscape",
     status: "selected",
     statusLabel: "Реальне фото",
-    imageSrc: "/media/gallery/academy-collage-competition.webp",
-    objectPosition: "center 44%",
+    imageSrc: "/media/gallery/academy-collage-award.webp",
+    objectPosition: "center center",
   },
   {
     id: "academy-team",

@@ -17,7 +17,7 @@ export function SiteHeader() {
           <Link className="min-w-0 text-[var(--color-ink)]" href="/">
             <span className="flex items-center gap-3">
               <BrandMark className="inline-flex h-7 w-7 shrink-0 items-center justify-center" />
-              <span className="truncate text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-ink)]">
+              <span className="truncate text-[14px] font-semibold uppercase tracking-[0.08em] text-[var(--color-ink)] md:text-[12px] md:tracking-[0.12em]">
                 {academyInfo.shortName}
               </span>
             </span>
