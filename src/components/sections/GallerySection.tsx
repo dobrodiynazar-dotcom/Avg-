@@ -10,10 +10,10 @@ type GallerySectionProps = {
 };
 
 const collageItemClassMap: Record<string, string> = {
-  "academy-training": "col-span-2 md:col-span-8 md:h-[21rem]",
-  "academy-throw": "md:col-span-4 md:h-[21rem]",
-  "academy-competition": "md:col-span-5 md:h-[19rem]",
-  "academy-team": "col-span-2 md:col-span-7 md:h-[19rem]",
+  "academy-training": "col-span-2 md:col-span-8 md:h-[21.5rem]",
+  "academy-throw": "md:col-span-4 md:h-[21.5rem]",
+  "academy-competition": "md:col-span-5 md:h-[20rem]",
+  "academy-team": "col-span-2 md:col-span-7 md:h-[20rem]",
 };
 
 const collageAspectClassMap: Record<string, string> = {
@@ -47,12 +47,12 @@ export function GallerySection({ intro, assets }: GallerySectionProps) {
               <div
                 className={`${
                   collageAspectClassMap[asset.id] ?? "aspect-[4/3]"
-                } group relative w-full overflow-hidden rounded-[0.65rem] bg-[rgb(238_238_238)] md:h-full`}
+                } group relative w-full overflow-hidden rounded-[0.6rem] md:h-full`}
               >
                 {asset.imageSrc ? (
                   <Image
                     alt={asset.title}
-                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    className="rounded-[0.6rem] object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     fill
                     sizes={
                       asset.id === "academy-training"
