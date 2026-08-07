@@ -26,6 +26,15 @@ import {
 export default function HomePage() {
   const heroChannels = contactChannels.slice(0, 1);
   const utilityChannels = contactChannels.slice(0, 1);
+  const homepageCoaches = coaches.map((coach) =>
+    coach.id === "olena-lisnichuk"
+      ? {
+          ...coach,
+          imageSrc: "/media/coaches/olena-lisnichuk.jpg",
+          imageObjectPosition: "center 28%",
+        }
+      : coach,
+  );
 
   return (
     <div>
@@ -39,7 +48,7 @@ export default function HomePage() {
         statement={academyStatement}
       />
       <AboutCoachesTransition image={aboutCoachesTransitionImage} />
-      <CoachesSection intro={coachesIntro} coaches={coaches} />
+      <CoachesSection intro={coachesIntro} coaches={homepageCoaches} />
       <SchedulePreviewSection
         content={schedulePreviewContent}
         groups={schedulePreviewGroups}

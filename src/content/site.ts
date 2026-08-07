@@ -80,7 +80,7 @@ export const heroContent = {
     "Джиу-джитсу — спортивне єдиноборство, яке підходить дорослим, підліткам і дітям.",
   supportingText:
     "Попередній досвід, вік і фізична підготовка не є перешкодою для старту.",
-  ctaLabel: "Записатися на тренування",
+  ctaLabel: "Записатись на пробне тренування",
 };
 
 export const heroHighlights: HighlightItem[] = [
@@ -138,10 +138,10 @@ export const aboutFeatureMedia: FeatureMediaPanel = {
 };
 
 export const aboutCoachesTransitionImage: TransitionImageContent = {
-  src: "/media/gym/about-coaches-transition-competition.jpg",
+  src: "/media/gym/about-coaches-transition-full.webp",
   alt: "Двоє спортсменів Avangard Jiu-Jitsu борються у стійці на змагальному татамі",
   width: 1280,
-  height: 852,
+  height: 627,
 };
 
 export const academyStatement: AcademyStatementContent = {
