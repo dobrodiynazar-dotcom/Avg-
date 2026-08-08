@@ -8,10 +8,22 @@ export const metadata = buildMetadata({
 });
 
 export default function CoachesPage() {
+  const pageCoaches = coaches.map((coach) =>
+    coach.id === "andrii-lisnichuk"
+      ? {
+          ...coach,
+          imageSrc: "/media/coaches/IMG_1582.JPG",
+          imageObjectPosition: "center 34%",
+          profileImageSrc: "/media/coaches/IMG_1582.JPG",
+          profileImageObjectPosition: "center 32%",
+        }
+      : coach,
+  );
+
   return (
     <CoachesPageSection
       background={coachesPageBackground}
-      coaches={coaches}
+      coaches={pageCoaches}
       intro={coachesPageIntro}
     />
   );
