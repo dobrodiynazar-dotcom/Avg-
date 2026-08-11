@@ -107,7 +107,7 @@ function CarouselButton({
   return (
     <button
       aria-label={isPrevious ? "Показати попередній абонемент" : "Показати наступний абонемент"}
-      className="group flex h-16 w-14 shrink-0 items-center justify-center text-white/82 transition-colors hover:text-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)] sm:h-20 sm:w-16"
+      className="group flex h-16 w-11 shrink-0 items-center justify-center text-white/82 transition-colors hover:text-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)] sm:h-20 sm:w-14"
       onClick={onClick}
       type="button"
     >
@@ -206,7 +206,7 @@ export function PricingPageSection({
               role="region"
               tabIndex={0}
             >
-              <div className="grid grid-cols-[3.25rem_minmax(0,1fr)_3.25rem] items-center gap-1 sm:grid-cols-[4rem_minmax(0,1fr)_4rem] sm:gap-4">
+              <div className="grid grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] items-center gap-4 sm:grid-cols-[3.5rem_minmax(0,1fr)_3.5rem] sm:gap-6">
                 <CarouselButton direction="previous" onClick={() => move("previous")} />
                 <div className="min-w-0 overflow-hidden">
                   <MembershipCard key={activePlan.id} plan={activePlan} />
@@ -248,7 +248,7 @@ export function PricingPageSection({
               {content.trialText}
             </p>
             <Button
-              className="mt-8 w-full max-w-[21rem] border-2 border-[var(--color-primary)] bg-transparent px-8 py-4 text-center text-[0.82rem] leading-[1.45] !text-white hover:border-[var(--color-primary-hover)] hover:bg-[rgb(218_41_28_/_0.12)] focus-visible:outline-[var(--color-primary-focus)] sm:w-auto"
+              className="mt-8 w-full max-w-[27rem] border-[var(--color-primary)] bg-transparent px-4 py-4 text-center text-[clamp(0.72rem,3vw,0.82rem)] leading-[1.45] !text-white hover:border-[var(--color-primary-hover)] hover:bg-[rgb(218_41_28_/_0.12)] focus-visible:outline-[var(--color-primary-focus)] sm:w-auto sm:px-8"
               href={content.ctaHref}
               rel={content.ctaExternal ? "noopener noreferrer" : undefined}
               size="lg"
