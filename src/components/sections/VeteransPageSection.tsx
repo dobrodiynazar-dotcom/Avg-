@@ -17,6 +17,7 @@ export function VeteransPageSection({
   const accentText = "text-[#d8ef9a]";
   const ctaButtonClassName =
     "w-full max-w-[18.5rem] shrink-0 border-[#d8ef9a] bg-[rgb(0_0_0_/_0.14)] !text-white hover:border-[#ecffb3] hover:bg-[rgb(216_239_154_/_0.14)] focus-visible:outline-[#ecffb3] sm:w-auto sm:max-w-none";
+  const finalCtaButtonClassName = `${ctaButtonClassName} !min-h-14 !px-8 !py-4 !text-[0.9rem] sm:!px-9`;
 
   return (
     <div className="overflow-hidden bg-[var(--color-canvas)]">
@@ -92,17 +93,11 @@ export function VeteransPageSection({
           />
 
           <div className="grid gap-4 sm:grid-cols-2 lg:content-start">
-            {program.benefits.map((benefit, index) => (
+            {program.benefits.map((benefit) => (
               <article
                 className="group min-w-0 rounded-[var(--radius-card-md)] border border-[rgb(111_126_72_/_0.22)] bg-[rgb(255_255_255_/_0.52)] p-5 shadow-[0_14px_42px_rgb(21_24_16_/_0.06)] transition-colors duration-200 hover:border-[rgb(111_126_72_/_0.42)] hover:bg-white"
                 key={benefit.title}
               >
-                <div
-                  aria-hidden="true"
-                  className="mb-5 flex h-8 w-8 items-center justify-center rounded-[var(--radius-badge)] border border-[rgb(111_126_72_/_0.28)] text-[0.72rem] font-bold text-[#6f7e48]"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </div>
                 <h3 className="break-words text-[1.02rem] font-semibold leading-7 tracking-[-0.005em] text-[var(--color-inverse-ink)]">
                   {benefit.title}
                 </h3>
@@ -206,7 +201,7 @@ export function VeteransPageSection({
             </h2>
             <Button
               aria-label="Зв’язатися щодо участі у ветеранській програмі"
-              className={ctaButtonClassName}
+              className={finalCtaButtonClassName}
               href={finalCta.ctaHref}
               rel={finalCta.ctaExternal ? "noopener noreferrer" : undefined}
               size="lg"

@@ -113,7 +113,7 @@ function CarouselButton({
     >
       <span
         aria-hidden="true"
-        className={`relative block h-10 w-7 ${isPrevious ? "" : "rotate-180"}`}
+        className={`relative block h-10 w-7 ${isPrevious ? "rotate-180" : ""}`}
       >
         <span className="absolute left-2 top-1/2 h-[3px] w-8 origin-left -translate-y-1/2 rotate-[132deg] rounded-full bg-current transition-colors motion-reduce:transition-none" />
         <span className="absolute left-2 top-1/2 h-[3px] w-8 origin-left -translate-y-1/2 -rotate-[132deg] rounded-full bg-current transition-colors motion-reduce:transition-none" />

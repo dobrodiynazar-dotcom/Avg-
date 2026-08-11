@@ -7,7 +7,7 @@ const primaryChannel = contactChannels[0];
 export const pricingPageContent: PricingPageContent = {
   title: "Абонементи",
   backgroundImageSrc: "/media/pricing/pricing-background.jpg",
-  ctaLabel: "Записатися на тренування",
+  ctaLabel: "Записатись на пробне тренування",
   ctaHref: primaryChannel?.href ?? "/contact",
   ctaExternal: primaryChannel?.external ?? false,
   oneTimeTraining: {
