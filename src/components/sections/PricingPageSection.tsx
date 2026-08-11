@@ -248,7 +248,7 @@ export function PricingPageSection({
               {content.trialText}
             </p>
             <Button
-              className="mt-8 w-full max-w-[21rem] border-[var(--color-primary)] bg-transparent px-8 py-4 text-center text-[0.82rem] leading-[1.45] !text-white hover:border-[var(--color-primary-hover)] hover:bg-[rgb(218_41_28_/_0.12)] focus-visible:outline-[var(--color-primary-focus)] sm:w-auto"
+              className="mt-8 w-full max-w-[21rem] border-2 border-[var(--color-primary)] bg-transparent px-8 py-4 text-center text-[0.82rem] leading-[1.45] !text-white hover:border-[var(--color-primary-hover)] hover:bg-[rgb(218_41_28_/_0.12)] focus-visible:outline-[var(--color-primary-focus)] sm:w-auto"
               href={content.ctaHref}
               rel={content.ctaExternal ? "noopener noreferrer" : undefined}
               size="lg"

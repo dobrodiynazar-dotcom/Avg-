@@ -18,7 +18,7 @@ export function HeroCopy({
         <p className="mx-auto max-w-[28ch] text-balance text-[clamp(1rem,2.1vw,1.5rem)] font-medium leading-[1.25] text-[rgb(255_255_255_/_0.92)]">
           {subtitle}
         </p>
-        <p className="mx-auto max-w-[36ch] text-balance text-[0.95rem] leading-7 text-[var(--color-ink-muted)] sm:text-[1rem]">
+        <p className="mx-auto max-w-[36ch] text-balance text-[0.95rem] leading-6 text-[var(--color-ink-muted)] sm:text-[1rem]">
           {supportingText}
         </p>
       </div>
