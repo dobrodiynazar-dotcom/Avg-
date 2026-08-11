@@ -88,8 +88,10 @@ const accentColorMap: Partial<Record<MediaCategoryKey, string>> = {
   veterans: "rgb(143 150 98 / 0.62)",
 };
 
-const instagramHref =
+const avangardInstagramHref =
   "https://www.instagram.com/avangard_jiu_jitsu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+const veteransInstagramHref =
+  "https://www.instagram.com/tms.hub.rv?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
 const contentBackgroundImage = "/media/gallery/media-content-background.jpg";
 
@@ -322,6 +324,11 @@ export function MediaPageSection({
   if (!activeCategory?.heroImage) {
     return null;
   }
+
+  const instagramHref =
+    activeCategory.key === "veterans"
+      ? veteransInstagramHref
+      : avangardInstagramHref;
 
   return (
     <div className="overflow-hidden bg-[var(--color-canvas)] text-white">
