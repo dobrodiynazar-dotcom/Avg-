@@ -9,7 +9,7 @@ import type {
   MediaGalleryImage,
 } from "@/content/gallery";
 
-import { Container } from "@/components/ui";
+import { Button, Container } from "@/components/ui";
 import { cn } from "@/lib/utils/cn";
 
 type MediaPageSectionProps = {
@@ -72,8 +72,8 @@ const wideImageIds = new Set([
 
 const mobileHeroClassMap: Partial<Record<MediaCategoryKey, string>> = {
   competitions: "object-cover",
-  training: "object-contain sm:object-cover",
-  veterans: "object-contain sm:object-cover",
+  training: "object-cover",
+  veterans: "object-cover",
 };
 
 const heroSectionClassMap: Partial<Record<MediaCategoryKey, string>> = {
@@ -83,25 +83,22 @@ const heroSectionClassMap: Partial<Record<MediaCategoryKey, string>> = {
 };
 
 const accentColorMap: Partial<Record<MediaCategoryKey, string>> = {
+  competitions: "var(--color-primary)",
+  training: "var(--color-primary)",
   veterans: "rgb(143 150 98 / 0.62)",
 };
 
-const indicatorColorMap: Partial<Record<MediaCategoryKey, string>> = {
-  veterans: "rgb(162 170 112 / 0.78)",
-};
+const instagramHref =
+  "https://www.instagram.com/avangard_jiu_jitsu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
-const arrowAccentColorMap: Partial<Record<MediaCategoryKey, string>> = {
-  veterans: "rgb(162 170 112 / 0.82)",
-};
+const contentBackgroundImage = "/media/gallery/media-content-background.jpg";
 
 function CategoryArrow({
-  categoryKey,
   direction,
   href,
   label,
   onClick,
 }: {
-  categoryKey: MediaCategoryKey;
   direction: "previous" | "next";
   href: string;
   label: string;
@@ -125,11 +122,6 @@ function CategoryArrow({
             ? "border-b-2 border-l-2"
             : "border-r-2 border-t-2",
         )}
-        style={
-          arrowAccentColorMap[categoryKey]
-            ? { borderColor: arrowAccentColorMap[categoryKey] }
-            : undefined
-        }
       />
     </a>
   );
@@ -355,8 +347,21 @@ export function MediaPageSection({
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(8_8_8_/_0.18)_0%,transparent_48%,rgb(8_8_8_/_0.14)_100%)] sm:bg-[linear-gradient(90deg,rgb(8_8_8_/_0.32)_0%,transparent_48%,rgb(8_8_8_/_0.24)_100%)]" />
       </section>
 
-      <section className="border-b border-white/10 bg-[var(--color-surface-2)] py-8 sm:py-10 lg:py-12">
-        <Container className="space-y-8 sm:space-y-9 lg:space-y-10" size="wide">
+      <section className="relative isolate overflow-hidden border-b border-white/10 bg-[var(--color-surface-2)] py-8 sm:py-10 lg:py-12">
+        <Image
+          alt=""
+          aria-hidden="true"
+          className="object-cover opacity-[0.16]"
+          fill
+          loading="eager"
+          sizes="100vw"
+          src={contentBackgroundImage}
+          style={{ objectPosition: "center 42%" }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(5_5_5_/_0.9)_0%,rgb(8_8_8_/_0.84)_42%,rgb(5_5_5_/_0.92)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_8%,rgb(255_255_255_/_0.06),transparent_42%)]" />
+
+        <Container className="relative z-10 space-y-8 sm:space-y-9 lg:space-y-10" size="wide">
           <div
             className="h-px w-full bg-white/18"
             style={
@@ -370,7 +375,6 @@ export function MediaPageSection({
           <div className="mx-auto flex max-w-[76rem] flex-col items-center gap-4 text-center">
             <div className="grid w-full grid-cols-[3rem_minmax(0,1fr)_3rem] items-center gap-2 sm:grid-cols-[4rem_minmax(0,1fr)_4rem] sm:gap-6 lg:gap-10">
               <CategoryArrow
-                categoryKey={activeCategory.key}
                 direction="previous"
                 href={getSiblingHref(-1)}
                 label="Попередня категорія медіа"
@@ -380,7 +384,6 @@ export function MediaPageSection({
                 {activeCategory.title}
               </h1>
               <CategoryArrow
-                categoryKey={activeCategory.key}
                 direction="next"
                 href={getSiblingHref(1)}
                 label="Наступна категорія медіа"
@@ -389,11 +392,6 @@ export function MediaPageSection({
             </div>
             <p
               className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-white/48"
-              style={
-                indicatorColorMap[activeCategory.key]
-                  ? { color: indicatorColorMap[activeCategory.key] }
-                  : undefined
-              }
             >
               {activeIndex + 1} / {categories.length}
             </p>
@@ -410,6 +408,32 @@ export function MediaPageSection({
           />
 
           <GalleryLayout category={activeCategory} images={activeCategory.gallery} />
+
+          <div
+            className="h-px w-full bg-white/18"
+            style={
+              accentColorMap[activeCategory.key]
+                ? { backgroundColor: accentColorMap[activeCategory.key] }
+                : undefined
+            }
+            aria-hidden="true"
+          />
+
+          <div className="flex justify-center">
+            <Button
+              className={cn(
+                "border-[var(--color-primary)] bg-transparent !text-white visited:!text-white hover:border-[var(--color-primary-hover)] hover:bg-[rgb(218_41_28_/_0.08)] hover:!text-white focus:!text-white active:!text-white",
+                activeCategory.key === "veterans" &&
+                  "!border-[rgb(143_150_98_/_0.86)] !bg-transparent hover:!border-[rgb(162_170_112_/_0.92)] hover:!bg-[rgb(143_150_98_/_0.1)]",
+              )}
+              href={instagramHref}
+              rel="noopener noreferrer"
+              target="_blank"
+              variant="secondary"
+            >
+              Більше в нашому Instagram
+            </Button>
+          </div>
         </Container>
       </section>
     </div>
