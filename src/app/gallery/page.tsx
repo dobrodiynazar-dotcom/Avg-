@@ -1,11 +1,38 @@
+import { MediaPageSection } from "@/components/sections/MediaPageSection";
+import {
+  mediaPageCategories,
+  type MediaCategoryKey,
+} from "@/content/gallery";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { RoutePlaceholder } from "@/components/site/RoutePlaceholder";
 
 export const metadata = buildMetadata({
   title: "Медіа",
   path: "/gallery",
 });
 
-export default function GalleryPage() {
-  return <RoutePlaceholder route="gallery" />;
+type GalleryPageProps = {
+  searchParams?: Promise<{
+    category?: string;
+  }>;
+};
+
+const mediaCategoryKeys: MediaCategoryKey[] = [
+  "competitions",
+  "training",
+  "veterans",
+];
+
+function toMediaCategoryKey(category?: string): MediaCategoryKey | undefined {
+  return mediaCategoryKeys.find((key) => key === category);
+}
+
+export default async function GalleryPage({ searchParams }: GalleryPageProps) {
+  const params = await searchParams;
+
+  return (
+    <MediaPageSection
+      categories={mediaPageCategories}
+      initialCategoryKey={toMediaCategoryKey(params?.category)}
+    />
+  );
 }
