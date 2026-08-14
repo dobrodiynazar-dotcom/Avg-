@@ -20,8 +20,7 @@
 ## 3. Current Repository Map
 - `src/app`
   - homepage in `src/app/page.tsx`
-  - real routes in `src/app/schedule/page.tsx` and `src/app/pricing/page.tsx`
-  - placeholder routes for `about`, `coaches`, `gallery`, `contact`, `faq`
+  - real routes in `src/app/coaches`, `src/app/gallery`, `src/app/schedule`, `src/app/pricing`, and `src/app/veterans`
 - `src/components/layout`
   - `SiteHeader`, `MobileNav`, `SiteFooter`
 - `src/components/ui`
@@ -32,8 +31,6 @@
   - homepage sections
   - schedule page section
   - pricing page section
-- `src/components/site`
-  - shared route placeholder shell for unfinished routes
 - `src/content`
   - business content source of truth
 - `src/styles`
@@ -44,15 +41,11 @@
 ## 4. Current Route Model
 ### Real routes
 - `/`
-- `/schedule`
-- `/pricing`
-
-### Placeholder routes
-- `/about`
 - `/coaches`
 - `/gallery`
-- `/contact`
-- `/faq`
+- `/schedule`
+- `/pricing`
+- `/veterans`
 
 ## 5. Homepage Structure
 Current homepage order:
@@ -67,14 +60,12 @@ Current homepage order:
 ## 6. Content Architecture
 Primary content source files:
 - `src/content/site.ts`
-- `src/content/about.ts`
 - `src/content/navigation.ts`
 - `src/content/coaches.ts`
 - `src/content/schedule.ts`
 - `src/content/pricing.ts`
 - `src/content/media.ts`
 - `src/content/faq.ts`
-- `src/content/placeholders.ts`
 
 Rule:
 - edit business content in `src/content/*`, not directly in UI components.
@@ -98,7 +89,6 @@ Rule:
 
 ## 10. Known Technical Constraints
 - `src/lib/design/site.ts` still contains `https://example.com` as `metadataBaseUrl`.
-- Unfinished routes intentionally still use `RoutePlaceholder`.
 - Some content modules for coaches, media, and FAQ still carry provisional copy even though their homepage sections are implemented.
 
 ## 11. Safe Change Rules

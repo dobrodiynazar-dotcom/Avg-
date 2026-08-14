@@ -24,7 +24,6 @@ Already implemented:
 - typed content architecture in `src/content/*`.
 
 Still incomplete:
-- dedicated content pages for `/about`, `/coaches`, `/gallery`, `/contact`, `/faq`;
 - final approved coach biographies;
 - final production domain / canonical URL replacement;
 - final SEO polish and launch hardening.
@@ -53,7 +52,7 @@ Still incomplete:
 - Typed local content files as the business-content source.
 - Reusable UI/domain/section architecture.
 - Mobile-first responsive behavior.
-- Route placeholders for unfinished secondary pages.
+- Only final, actually used routes should exist in `src/app`.
 
 ## 7. Out of Scope
 - CMS / admin panel.
@@ -79,13 +78,14 @@ Still incomplete:
 ## 10. Current Route Baseline
 Implemented:
 - `/`
-- `/schedule`
-- `/pricing`
-
-Placeholder:
-- `/about`
 - `/coaches`
 - `/gallery`
+- `/schedule`
+- `/pricing`
+- `/veterans`
+
+Removed placeholder routes:
+- `/about`
 - `/contact`
 - `/faq`
 
@@ -99,6 +99,5 @@ Placeholder:
 - Soft-premium radius system is approved.
 
 ## 12. Recommended Next Product Work
-1. Turn `/about` into a real academy page.
-2. Finalize coach biographies and then replace the `/coaches` placeholder route.
-3. Replace `https://example.com` metadata base with the production domain when known.
+1. Finalize coach biographies.
+2. Replace `https://example.com` metadata base with the production domain when known.

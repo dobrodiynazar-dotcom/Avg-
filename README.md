@@ -26,15 +26,11 @@ Before making changes, read these files in order:
 ## Routes
 Implemented routes:
 - `/`
-- `/schedule`
-- `/pricing`
-
-Placeholder routes:
-- `/about`
 - `/coaches`
 - `/gallery`
-- `/contact`
-- `/faq`
+- `/schedule`
+- `/pricing`
+- `/veterans`
 
 ## Primary Navigation
 Visible primary navigation is limited to:
@@ -49,7 +45,6 @@ Business content lives in `src/content/*`.
 
 Important content modules:
 - `src/content/site.ts`
-- `src/content/about.ts`
 - `src/content/schedule.ts`
 - `src/content/pricing.ts`
 - `src/content/coaches.ts`

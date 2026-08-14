@@ -1,13 +1,10 @@
 export type RouteKey =
   | "home"
-  | "about"
   | "coaches"
   | "veterans"
   | "schedule"
   | "pricing"
-  | "gallery"
-  | "contact"
-  | "faq";
+  | "gallery";
 
 export type CtaVariant = "primary" | "secondary" | "tertiary";
 
@@ -42,14 +39,6 @@ export type AcademyInfo = {
   placeholderDescription: string;
   locationLabel: string;
   heroLabel: string;
-};
-
-export type PagePlaceholder = {
-  key: "about" | "coaches" | "gallery" | "contact" | "faq";
-  title: string;
-  eyebrow: string;
-  summary: string;
-  status: "placeholder" | "foundation-ready";
 };
 
 export type CoachProfile = {

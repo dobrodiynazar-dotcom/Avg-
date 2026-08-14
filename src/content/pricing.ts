@@ -8,7 +8,7 @@ export const pricingPageContent: PricingPageContent = {
   title: "Абонементи",
   backgroundImageSrc: "/media/pricing/pricing-background.jpg",
   ctaLabel: "Записатись на пробне тренування",
-  ctaHref: primaryChannel?.href ?? "/contact",
+  ctaHref: primaryChannel?.href ?? "",
   ctaExternal: primaryChannel?.external ?? false,
   oneTimeTraining: {
     id: "single-group",

@@ -57,19 +57,12 @@ It is no longer a foundation-only or preview-only codebase.
 - Real location data and real contact channels are integrated.
 - Real homepage media and branding assets are integrated.
 
-## 3. Placeholder / Incomplete Areas
-Still placeholder routes:
-- `/about`
-- `/coaches`
-- `/gallery`
-- `/contact`
-- `/faq`
-
-These routes intentionally still use `src/components/site/RoutePlaceholder.tsx`.
+## 3. Removed Placeholder Routes
+The unused placeholder-only routes `/about`, `/contact`, and `/faq` have been removed from the final site.
+They should fall through to the normal 404 behavior.
 
 ## 4. Current Content Architecture
 Business-content source of truth:
-- `src/content/about.ts`
 - `src/content/site.ts`
 - `src/content/navigation.ts`
 - `src/content/coaches.ts`
@@ -77,7 +70,6 @@ Business-content source of truth:
 - `src/content/pricing.ts`
 - `src/content/media.ts`
 - `src/content/faq.ts`
-- `src/content/placeholders.ts`
 
 Rule:
 - do not hardcode business content inside UI components when content belongs in `src/content/*`.
@@ -91,10 +83,10 @@ Visible primary navigation is intentionally limited to these five items:
 5. `Медіа`
 
 Destinations:
-- `Академія` -> `/about`
 - `Тренери` -> `/coaches`
 - `Розклад` -> `/schedule`
 - `Ціни` -> `/pricing`
+- `Ветерани` -> `/veterans`
 - `Медіа` -> `/gallery`
 
 ## 6. Current Design Decisions
@@ -105,7 +97,6 @@ Destinations:
 - Preserve current schedule and pricing page structures.
 
 ## 7. Still Pending / Known Issues
-- `/about`, `/coaches`, `/gallery`, `/contact`, `/faq` still need real page implementations.
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
 - `https://example.com` still remains in `src/lib/design/site.ts` as `metadataBaseUrl`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
@@ -148,13 +139,9 @@ Known environment limitation:
 - Homepage: implemented and content-driven
 - Schedule page: implemented
 - Pricing page: implemented
-- Secondary routes: partially placeholder
-
-### Recommended next task
-- Build the real `/about` page first, then replace the `/coaches` placeholder after final trainer biographies are approved.
+- Secondary routes: unused placeholders removed
 
 ### Known technical debt
-- placeholder secondary routes still exist;
 - metadata base URL still uses `example.com`;
 - no CI workflow;
 - some content modules still hold provisional copy even though the sections themselves are real.

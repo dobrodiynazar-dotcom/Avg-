@@ -26,9 +26,9 @@ Read these files before editing:
 - Do not reintroduce outdated placeholder copy into already implemented homepage sections.
 
 ## Route Rules
-- Real routes currently are `/`, `/schedule`, and `/pricing`.
-- Placeholder routes currently are `/about`, `/coaches`, `/gallery`, `/contact`, and `/faq`.
-- Do not remove placeholder routes unless they are being intentionally replaced with real implementations.
+- Real routes currently are `/`, `/coaches`, `/gallery`, `/schedule`, `/pricing`, and `/veterans`.
+- The unused placeholder-only routes `/about`, `/contact`, and `/faq` are not part of the final website.
+- Do not reintroduce placeholder-only routes.
 
 ## Navigation Rules
 Primary navigation must remain:
@@ -61,6 +61,5 @@ If Turbopack cannot build inside the sandbox, rerun the build outside the sandbo
 - Do not revert unrelated user changes.
 
 ## Recommended Next Work
-1. Build the real `/about` page.
-2. Finalize coach biographies and replace the `/coaches` placeholder route.
-3. Replace `https://example.com` metadata base when the real production domain is known.
+1. Finalize coach biographies.
+2. Replace `https://example.com` metadata base when the real production domain is known.
