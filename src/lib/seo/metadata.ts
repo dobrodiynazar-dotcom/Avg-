@@ -17,6 +17,12 @@ export function buildMetadata({
   const description = siteConfig.description;
   const metadataBase = new URL(siteConfig.metadataBaseUrl);
   const url = `${siteConfig.metadataBaseUrl}${path}`;
+  const socialPreviewImage = {
+    url: `${siteConfig.metadataBaseUrl}/seo/og-image.png`,
+    width: 1536,
+    height: 1024,
+    alt: "Avangard Jiu-Jitsu Academy",
+  };
 
   return {
     title: resolvedTitle,
@@ -71,11 +77,13 @@ export function buildMetadata({
       locale: academyInfo.locale,
       url,
       siteName,
+      images: [socialPreviewImage],
     },
     twitter: {
       card: "summary_large_image",
       title: resolvedTitle,
       description,
+      images: [socialPreviewImage],
     },
   };
 }
