@@ -88,7 +88,7 @@ Rule:
 - It still deserves careful regression checking whenever edited because it is easy to break small-screen layout and readability.
 
 ## 10. Known Technical Constraints
-- `src/lib/design/site.ts` still contains `https://example.com` as `metadataBaseUrl`.
+- `src/lib/design/site.ts` contains the production `metadataBaseUrl` for canonical, robots, sitemap, and Open Graph URL generation.
 - Some content modules for coaches, media, and FAQ still carry provisional copy even though their homepage sections are implemented.
 
 ## 11. Safe Change Rules

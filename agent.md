@@ -62,4 +62,4 @@ If Turbopack cannot build inside the sandbox, rerun the build outside the sandbo
 
 ## Recommended Next Work
 1. Finalize coach biographies.
-2. Replace `https://example.com` metadata base when the real production domain is known.
+2. Continue SEO launch hardening around social preview assets and final copy.

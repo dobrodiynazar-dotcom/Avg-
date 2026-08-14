@@ -98,7 +98,7 @@ Destinations:
 
 ## 7. Still Pending / Known Issues
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
-- `https://example.com` still remains in `src/lib/design/site.ts` as `metadataBaseUrl`.
+- Production `metadataBaseUrl` is configured in `src/lib/design/site.ts`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
 - Media/logo optimization may still be worth revisiting later if the asset set changes again.
 - No CI workflow is currently present.
@@ -142,6 +142,6 @@ Known environment limitation:
 - Secondary routes: unused placeholders removed
 
 ### Known technical debt
-- metadata base URL still uses `example.com`;
+- production metadata base URL is configured;
 - no CI workflow;
 - some content modules still hold provisional copy even though the sections themselves are real.

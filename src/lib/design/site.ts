@@ -5,7 +5,7 @@ export const siteConfig = {
   shortName: "Avangard",
   locale: "uk-UA",
   locationLabel: "Рівне, Україна",
-  metadataBaseUrl: "https://example.com",
+  metadataBaseUrl: "https://avangardjiujitsu.com.ua",
   defaultTitle: "Avangard Jiu-Jitsu Academy | Джиу-джитсу в Рівному",
   titleTemplate: "%s | Avangard Jiu-Jitsu Academy",
   description:

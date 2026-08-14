@@ -25,7 +25,6 @@ Already implemented:
 
 Still incomplete:
 - final approved coach biographies;
-- final production domain / canonical URL replacement;
 - final SEO polish and launch hardening.
 
 ## 3. Target Audience
@@ -100,4 +99,4 @@ Removed placeholder routes:
 
 ## 12. Recommended Next Product Work
 1. Finalize coach biographies.
-2. Replace `https://example.com` metadata base with the production domain when known.
+2. Continue SEO launch hardening around social preview assets and final copy.
