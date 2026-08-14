@@ -151,7 +151,7 @@ function GalleryImage({
             "transition-transform duration-500 ease-out group-hover:scale-[1.015] motion-reduce:transition-none motion-reduce:group-hover:scale-100",
           )}
           fill
-          loading="eager"
+          loading="lazy"
           sizes={
             wideImageIds.has(image.id)
               ? "(min-width: 1280px) 44vw, (min-width: 768px) 52vw, 58vw"
@@ -360,7 +360,7 @@ export function MediaPageSection({
           aria-hidden="true"
           className="object-cover opacity-[0.16]"
           fill
-          loading="eager"
+          loading="lazy"
           sizes="100vw"
           src={contentBackgroundImage}
           style={{ objectPosition: "center 42%" }}
