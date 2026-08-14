@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { siteConfig } from "@/lib/design/site";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 import "./globals.css";
@@ -10,6 +11,13 @@ import "./globals.css";
 export const metadata: Metadata = buildMetadata({
   title: "Avangard Jiu-Jitsu Academy",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: siteConfig.themeColor,
+  colorScheme: "dark",
+};
 
 export default function RootLayout({
   children,
