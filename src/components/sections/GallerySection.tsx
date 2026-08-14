@@ -36,7 +36,7 @@ const collageImageFitClassMap: Record<string, string> = {
 
 export function GallerySection({ intro, assets }: GallerySectionProps) {
   return (
-    <section className="border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-surface-2)] py-14 text-white sm:py-16 lg:py-20">
+    <section className="border-b border-[rgb(255_255_255_/_0.08)] bg-[var(--color-canvas)] py-14 text-white sm:py-16 lg:py-20">
       <Container className="space-y-8 sm:space-y-10" size="wide">
         <div className="max-w-[52rem] space-y-4">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--color-primary)]">
