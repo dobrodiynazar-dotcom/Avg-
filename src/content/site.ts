@@ -18,7 +18,7 @@ export const academyInfo: AcademyInfo = {
   discipline: "Brazilian Jiu-Jitsu",
   titleTemplate: "%s | Avangard Jiu-Jitsu Academy",
   placeholderDescription:
-    "Avangard Jiu-Jitsu Academy у Рівному: актуальний розклад, ціни, контакти та перший крок до тренувань.",
+    "Тренування з джиу-джитсу для дітей, підлітків, дорослих та ветеранів. Професійні тренери та дві локації у Рівному.",
   locationLabel: "Рівне, Україна",
   heroLabel: "Бразильське джиу-джитсу",
 };

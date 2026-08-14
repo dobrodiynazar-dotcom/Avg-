@@ -6,10 +6,10 @@ export const siteConfig = {
   locale: "uk-UA",
   locationLabel: "Рівне, Україна",
   metadataBaseUrl: "https://example.com",
-  defaultTitle: "Avangard Jiu-Jitsu Academy",
+  defaultTitle: "Avangard Jiu-Jitsu Academy | Джиу-джитсу в Рівному",
   titleTemplate: "%s | Avangard Jiu-Jitsu Academy",
   description:
-    "Avangard Jiu-Jitsu Academy у Рівному: актуальний розклад, ціни, контакти та перший крок до тренувань.",
+    "Тренування з джиу-джитсу для дітей, підлітків, дорослих та ветеранів. Професійні тренери та дві локації у Рівному.",
   themeColor: designTokens.colors.canvas,
   container: {
     maxWidth: designTokens.layout.containerMax,

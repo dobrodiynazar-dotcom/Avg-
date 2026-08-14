@@ -10,13 +10,11 @@ type MetadataInput = {
 };
 
 export function buildMetadata({
-  title,
-  description = academyInfo.placeholderDescription,
   path = "/",
 }: MetadataInput): Metadata {
   const siteName = academyInfo.name;
-  const resolvedTitle =
-    title === siteConfig.defaultTitle ? title : `${title} | ${siteName}`;
+  const resolvedTitle = siteConfig.defaultTitle;
+  const description = siteConfig.description;
   const metadataBase = new URL(siteConfig.metadataBaseUrl);
   const url = `${siteConfig.metadataBaseUrl}${path}`;
 
