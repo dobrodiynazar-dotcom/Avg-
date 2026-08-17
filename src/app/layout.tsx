@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { siteConfig } from "@/lib/design/site";
@@ -40,6 +41,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <GoogleAnalytics />
       </body>
     </html>
   );
