@@ -64,6 +64,10 @@ export function VeteransPageSection({
                 href={hero.ctaHref}
                 rel={hero.ctaExternal ? "noopener noreferrer" : undefined}
                 size="lg"
+                signupTracking={{
+                  ctaLocation: "veterans_hero",
+                  ctaText: hero.ctaLabel,
+                }}
                 target={hero.ctaExternal ? "_blank" : undefined}
                 variant="secondary"
               >
@@ -205,6 +209,10 @@ export function VeteransPageSection({
               href={finalCta.ctaHref}
               rel={finalCta.ctaExternal ? "noopener noreferrer" : undefined}
               size="lg"
+              signupTracking={{
+                ctaLocation: "veterans_final_cta",
+                ctaText: finalCta.ctaLabel,
+              }}
               target={finalCta.ctaExternal ? "_blank" : undefined}
               variant="secondary"
             >

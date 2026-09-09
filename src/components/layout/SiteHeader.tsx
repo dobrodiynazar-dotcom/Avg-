@@ -45,6 +45,10 @@ export function SiteHeader() {
                 href={primaryChannel.href}
                 rel={primaryChannel.external ? "noreferrer" : undefined}
                 size="sm"
+                signupTracking={{
+                  ctaLocation: "site_header_mobile_telegram",
+                  ctaText: primaryChannel.label,
+                }}
                 target={primaryChannel.external ? "_blank" : undefined}
               >
                 {primaryChannel.label}
@@ -68,6 +72,10 @@ export function SiteHeader() {
                   href={primaryChannel.href}
                   rel={primaryChannel.external ? "noreferrer" : undefined}
                   size="md"
+                  signupTracking={{
+                    ctaLocation: "site_header_desktop_telegram",
+                    ctaText: primaryChannel.label,
+                  }}
                   target={primaryChannel.external ? "_blank" : undefined}
                 >
                   {primaryChannel.label}

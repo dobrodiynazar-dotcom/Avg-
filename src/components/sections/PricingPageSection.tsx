@@ -252,6 +252,10 @@ export function PricingPageSection({
               href={content.ctaHref}
               rel={content.ctaExternal ? "noopener noreferrer" : undefined}
               size="lg"
+              signupTracking={{
+                ctaLocation: "pricing_trial_cta",
+                ctaText: content.ctaLabel,
+              }}
               target={content.ctaExternal ? "_blank" : undefined}
               variant="secondary"
             >

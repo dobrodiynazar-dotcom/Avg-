@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { TrackedSignupLink } from "@/components/analytics/TrackedSignupLink";
 import { primaryNavigation } from "@/content/navigation";
 import { contactChannels } from "@/content/site";
 
@@ -147,15 +148,17 @@ export function MobileNav() {
             </div>
 
             {contactChannels[0] ? (
-              <Link
+              <TrackedSignupLink
                 className="mt-10 inline-flex min-h-14 w-full max-w-sm items-center justify-center rounded-[var(--radius-button)] border border-red-600 bg-neutral-950 px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-red-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary-focus)]"
+                ctaLocation="mobile_navigation_signup"
+                ctaText="Записатись на пробне тренування"
                 href={contactChannels[0].href}
                 onClick={() => setIsMenuOpen(false)}
                 rel={contactChannels[0].external ? "noreferrer" : undefined}
                 target={contactChannels[0].external ? "_blank" : undefined}
               >
                 Записатись на пробне тренування
-              </Link>
+              </TrackedSignupLink>
             ) : null}
           </nav>
         </div>,

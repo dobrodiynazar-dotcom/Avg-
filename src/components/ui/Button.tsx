@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
+import { TrackedSignupLink } from "@/components/analytics/TrackedSignupLink";
 import { cn } from "@/lib/utils/cn";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary" | "inverse";
@@ -8,6 +9,10 @@ type ButtonSize = "sm" | "md" | "lg";
 type SharedProps = {
   children: ReactNode;
   className?: string;
+  signupTracking?: {
+    ctaLocation: string;
+    ctaText: string;
+  };
   variant?: ButtonVariant;
   size?: ButtonSize;
 };
@@ -48,6 +53,7 @@ export function Button(props: ButtonProps) {
   const {
     children,
     className,
+    signupTracking,
     size = "md",
     variant = "primary",
     ...rest
@@ -62,6 +68,20 @@ export function Button(props: ButtonProps) {
 
   if ("href" in props && props.href) {
     const { href, ...linkProps } = rest as Omit<LinkProps, keyof SharedProps>;
+
+    if (signupTracking) {
+      return (
+        <TrackedSignupLink
+          className={composedClassName}
+          ctaLocation={signupTracking.ctaLocation}
+          ctaText={signupTracking.ctaText}
+          href={href}
+          {...linkProps}
+        >
+          {children}
+        </TrackedSignupLink>
+      );
+    }
 
     return (
       <a className={composedClassName} href={href} {...linkProps}>

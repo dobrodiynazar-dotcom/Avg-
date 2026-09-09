@@ -51,6 +51,7 @@ export function HeroSection({
             <HeroActions
               className="justify-center [&>a]:border-[var(--color-primary)] [&>a]:bg-transparent [&>a]:!text-white [&>a]:shadow-none [&>a]:visited:!text-white [&>a]:hover:border-[var(--color-primary-hover)] [&>a]:hover:bg-[rgb(255_255_255_/_0.04)] [&>a]:hover:!text-white [&>a]:focus:!text-white [&>a]:active:!text-white"
               contactChannels={primaryChannel}
+              signupTrackingLocation="homepage_hero"
             />
           </div>
         </Container>

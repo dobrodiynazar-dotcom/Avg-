@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { TrackedSignupLink } from "@/components/analytics/TrackedSignupLink";
 import { BrandMark } from "@/components/brand/BrandMark";
 import { Container } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
@@ -92,18 +93,35 @@ export function SiteFooter() {
           </nav>
 
           <div className="flex items-center justify-center gap-3 lg:justify-end">
-            {footerContacts.map((channel) => (
-              <a
-                key={channel.key}
-                aria-label={channel.label}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.1)] bg-[rgb(255_255_255_/_0.02)] text-[var(--color-ink-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-                href={channel.href}
-                rel={channel.external ? "noreferrer" : undefined}
-                target={channel.external ? "_blank" : undefined}
-              >
-                <ContactIcon channelKey={channel.key as (typeof footerContactKeys)[number]} />
-              </a>
-            ))}
+            {footerContacts.map((channel) => {
+              const sharedProps = {
+                "aria-label": channel.label,
+                className:
+                  "inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-button)] border border-[rgb(255_255_255_/_0.1)] bg-[rgb(255_255_255_/_0.02)] text-[var(--color-ink-muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]",
+                href: channel.href,
+                rel: channel.external ? "noreferrer" : undefined,
+                target: channel.external ? "_blank" : undefined,
+              };
+
+              if (channel.key === "telegram") {
+                return (
+                  <TrackedSignupLink
+                    key={channel.key}
+                    {...sharedProps}
+                    ctaLocation="site_footer_telegram"
+                    ctaText={channel.label}
+                  >
+                    <ContactIcon channelKey={channel.key} />
+                  </TrackedSignupLink>
+                );
+              }
+
+              return (
+                <a key={channel.key} {...sharedProps}>
+                  <ContactIcon channelKey={channel.key as (typeof footerContactKeys)[number]} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </Container>

@@ -4,14 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
-const GA_MEASUREMENT_ID = "G-0260GZ0ES8";
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+import { GA_MEASUREMENT_ID } from "@/lib/analytics/ga4";
 
 function GoogleAnalyticsPageView({ isReady }: { isReady: boolean }) {
   const pathname = usePathname();

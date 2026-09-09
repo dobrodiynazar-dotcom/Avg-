@@ -55,7 +55,7 @@ export default function HomePage() {
       />
       <GallerySection intro={mediaIntro} assets={mediaAssets} />
       <FAQSection
-        actions={<CTAGroup items={utilityChannels} />}
+        actions={<CTAGroup items={utilityChannels} signupTrackingLocation="homepage_faq" />}
         intro={faqIntro}
         items={faqItems}
       />
