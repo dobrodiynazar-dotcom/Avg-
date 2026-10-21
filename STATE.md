@@ -3,12 +3,12 @@
 ## Meta
 - Last updated: 2026-10-21
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: payload-foundation-local-verified
+- Current phase: payload-preview-verified
 - Canonical branch: `main`
 - CMS prototype branch: `cms-prototype`
 
 ## 1. Current Project State
-This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`; one administrator can log in, and all six public routes still load. The initial migration is generated but has not been applied to a Preview deployment.
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Its initial migration is applied, one administrator can access `/admin`, and all six public routes load. Production remains on `main` and was not changed.
 
 It is no longer a foundation-only or preview-only codebase.
 
@@ -98,13 +98,13 @@ Destinations:
 - Preserve current schedule and pricing page structures.
 
 ## 7. Still Pending / Known Issues
-- Neon is connected to Vercel Preview only with Preview Branching enabled. The isolated local branch `cms-prototype-local` is connected and has one administrator. Before accepting a Preview deployment, apply the initial Payload migration to its own isolated Preview database and verify `/admin` there. Production remains untouched.
+- Neon is connected to Vercel Preview only with Preview Branching enabled. The Preview branch `preview/cms-prototype` has one migration and one administrator; the local branch `cms-prototype-local` remains separate.
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
 - Production `metadataBaseUrl` is configured in `src/lib/design/site.ts`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
 - Media/logo optimization may still be worth revisiting later if the asset set changes again.
 - No CI workflow is currently present.
-- `npm audit --omit=dev` should be rerun whenever dependencies change.
+- `npm audit --omit=dev --audit-level=high` reports four high and five moderate advisories in Payload's transitive dependencies; the current audit output offers no upstream fix. Recheck when dependencies change.
 
 ## 8. Verification Reality
 Required checks for change work:
@@ -142,7 +142,7 @@ Known environment limitation:
 - Schedule page: implemented
 - Pricing page: implemented
 - Secondary routes: unused placeholders removed
-- Payload foundation: locally verified against `cms-prototype-local`; Preview deployment pending
+- Payload foundation: locally verified against `cms-prototype-local` and deployed to Vercel Preview against `preview/cms-prototype`
 
 ### Known technical debt
 - production metadata base URL is configured;
