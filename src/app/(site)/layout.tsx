@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { siteConfig } from "@/lib/design/site";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = buildMetadata({
   title: "Avangard Jiu-Jitsu Academy",

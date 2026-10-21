@@ -11,16 +11,17 @@
 - Canonical branch: `main`.
 
 ## 2. Exact Stack
-- Next.js `16.2.0`
-- React `19.2.0`
+- Next.js `16.4.2`
+- React `19.2.6`
 - TypeScript `5.9.3`
 - Tailwind CSS `4.1.x`
 - ESLint `9.x`
+- Payload `3.91.0` with PostgreSQL adapter (foundation in progress)
 
 ## 3. Current Repository Map
 - `src/app`
-  - homepage in `src/app/page.tsx`
-  - real routes in `src/app/coaches`, `src/app/gallery`, `src/app/schedule`, `src/app/pricing`, and `src/app/veterans`
+  - public layout and pages in `src/app/(site)`; route URLs are unchanged
+  - CMS admin and REST routes in `src/app/(payload)`
 - `src/components/layout`
   - `SiteHeader`, `MobileNav`, `SiteFooter`
 - `src/components/ui`

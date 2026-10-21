@@ -1,19 +1,20 @@
 # STATE.md
 
 ## Meta
-- Last updated: 2026-07-17
+- Last updated: 2026-10-21
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: repository-stabilized-for-handoff
+- Current phase: payload-foundation-local-verified
 - Canonical branch: `main`
+- CMS prototype branch: `cms-prototype`
 
 ## 1. Current Project State
-This repository is the active source of truth for continuing the Avangard website in a new Codex chat.
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`; one administrator can log in, and all six public routes still load. The initial migration is generated but has not been applied to a Preview deployment.
 
 It is no longer a foundation-only or preview-only codebase.
 
 ## 2. Implemented
 ### Homepage
-- Real homepage is implemented in `src/app/page.tsx`.
+- Real homepage is implemented in `src/app/(site)/page.tsx`.
 - Homepage sections are:
   1. hero video
   2. academy/about
@@ -97,6 +98,7 @@ Destinations:
 - Preserve current schedule and pricing page structures.
 
 ## 7. Still Pending / Known Issues
+- Neon is connected to Vercel Preview only with Preview Branching enabled. The isolated local branch `cms-prototype-local` is connected and has one administrator. Before accepting a Preview deployment, apply the initial Payload migration to its own isolated Preview database and verify `/admin` there. Production remains untouched.
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
 - Production `metadataBaseUrl` is configured in `src/lib/design/site.ts`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
@@ -140,6 +142,7 @@ Known environment limitation:
 - Schedule page: implemented
 - Pricing page: implemented
 - Secondary routes: unused placeholders removed
+- Payload foundation: locally verified against `cms-prototype-local`; Preview deployment pending
 
 ### Known technical debt
 - production metadata base URL is configured;

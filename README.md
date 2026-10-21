@@ -43,6 +43,15 @@ Visible primary navigation is limited to:
 ## Content Architecture
 Business content lives in `src/content/*`.
 
+## Payload CMS foundation
+Payload lives in `src/app/(payload)` and serves `/admin` and `/api` using a separate layout from the public site in `src/app/(site)`. Route groups do not change public URLs. The public pages still use `src/content/*`; CMS prices are a later step.
+
+The CMS prototype uses Neon in Vercel Preview only, with Preview Branching enabled for isolated deployments. Keep CMS environment variables out of Production until a separate launch decision. Local development uses the Neon branch `cms-prototype-local`: put its pooled connection string in the ignored `.env.local` as `DATABASE_URL`, and add a random secret of at least 32 bytes as `PAYLOAD_SECRET`. The `cms-prototype` Preview deployment also needs `PAYLOAD_SECRET`. Never commit or share either value.
+
+`src/collections/Admins.ts` blocks ordinary account creation. On a clean Preview database, Payload's built-in `/admin/create-first-user` flow creates the first administrator; Payload disables that route after a user exists. The local prototype administrator was created with `npm run cms:bootstrap` and its generated password is held in the ignored `.env.admin.local` until it is moved to a password manager. The script refuses to run if an administrator already exists.
+
+The initial migration is in `src/migrations`. Payload synced the local development schema automatically, so do not reapply the migration to that database. `vercel.json` runs `payload migrate` before the build only for `cms-prototype` Preview deployments; a failed migration fails the deployment. Neon Preview Branching supplies an isolated database branch. Production migrations are deferred. The public site does not use the CMS database yet.
+
 Important content modules:
 - `src/content/site.ts`
 - `src/content/schedule.ts`

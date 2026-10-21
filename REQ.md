@@ -52,9 +52,10 @@ Still incomplete:
 - Reusable UI/domain/section architecture.
 - Mobile-first responsive behavior.
 - Only final, actually used routes should exist in `src/app`.
+- Payload CMS foundation with a private administrator and separate PostgreSQL database; prices will be its first managed content.
 
 ## 7. Out of Scope
-- CMS / admin panel.
+- CRM, public accounts, and visitor authentication.
 - Multilingual architecture.
 - Online payments or booking flows.
 - Full redesign away from the current approved direction.
