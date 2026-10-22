@@ -5,6 +5,7 @@ import { postgresAdapter } from "@payloadcms/db-postgres";
 import { buildConfig } from "payload";
 
 import { Admins } from "./collections/Admins";
+import { Prices } from "./collections/Prices";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -13,7 +14,7 @@ export default buildConfig({
     user: Admins.slug,
     importMap: { baseDir: dirname },
   },
-  collections: [Admins],
+  collections: [Admins, Prices],
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || "" },
   }),

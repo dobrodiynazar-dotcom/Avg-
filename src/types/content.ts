@@ -118,15 +118,22 @@ export type PricingSimpleItem = {
   priceLabel: string;
 };
 
+export type PriceCard = {
+  id: number;
+  key: string;
+  kind: "subscription" | "single" | "personal";
+  sortOrder: number;
+  title: string;
+  priceLabel: string;
+};
+
 export type PricingPageContent = {
   title: string;
   backgroundImageSrc: string;
   ctaLabel: string;
   ctaHref: string;
   ctaExternal?: boolean;
-  oneTimeTraining: PricingSimpleItem;
   personalTrainingTitle: string;
-  personalTraining: PricingSimpleItem[];
   trialText: string;
 };
 

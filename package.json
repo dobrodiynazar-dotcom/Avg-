@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test:cms": "node --experimental-strip-types --test test/cms-admin.test.mjs",
+    "test:cms": "node --experimental-strip-types --test test/cms-admin.test.mjs test/cms-prices.test.mjs",
     "cms:bootstrap": "payload run src/scripts/bootstrap-admin.ts",
     "cms:migrate": "payload migrate",
     "cms:migrate:create": "payload migrate:create",

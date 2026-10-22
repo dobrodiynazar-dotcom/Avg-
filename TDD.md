@@ -13,7 +13,7 @@
   - `npm run lint`
   - `npm run typecheck`
   - `npm run test:cms`
-- A focused Node test covers CMS administrator access. No e2e test runner is configured.
+- Focused Node tests cover CMS administrator and Prices access. No e2e test runner is configured.
 
 ## 2. Testing Strategy
 - Use practical, risk-based quality gates.
@@ -40,7 +40,7 @@
 - Placeholder replacement should not require layout rewrites.
 
 ## 4. Current Gaps
-- CMS administrator access has one focused automated test; broader unit coverage is still absent.
+- CMS administrator and Prices access have focused automated tests; broader unit coverage is still absent.
 - No automated end-to-end smoke suite exists yet.
 - No CI workflow is present in the current checked-out implementation.
 - The synchronized post-merge branch must still be verified after dependencies are installed.
