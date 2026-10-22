@@ -1,14 +1,14 @@
 # STATE.md
 
 ## Meta
-- Last updated: 2026-10-21
+- Last updated: 2026-10-22
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: payload-preview-verified
+- Current phase: prices-inline-preview
 - Canonical branch: `main`
 - CMS prototype branch: `cms-prototype`
 
 ## 1. Current Project State
-This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Its initial migration is applied, one administrator can access `/admin`, and all six public routes load. Production remains on `main` and was not changed.
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Both migrations are applied; the Prices migration seeded eight existing cards once. One administrator exists, and all public routes load. This work was pushed only to `cms-prototype`; Production remains sourced from `main`.
 
 It is no longer a foundation-only or preview-only codebase.
 
@@ -36,7 +36,9 @@ It is no longer a foundation-only or preview-only codebase.
 
 ### Pricing / Subscriptions
 - `/pricing` is a real implemented route.
-- It renders three subscription plans from `src/content/pricing.ts`.
+- It renders five subscription cards in a carousel, one single-training card, and two personal-training cards from Payload/PostgreSQL.
+- The administrator signs in at the unlinked `/cms/login` route through Payload authentication, then edits one card at a time in place using the pencil. Save and Delete use Payload access control; visitors see no editing or login controls.
+- `src/content/pricing.ts` retains static page copy and card summaries. The migration contains the original eight titles and prices; builds do not refill deleted cards.
 
 ### Locations / Maps
 - Homepage location section is real and content-driven.
@@ -68,12 +70,12 @@ Business-content source of truth:
 - `src/content/navigation.ts`
 - `src/content/coaches.ts`
 - `src/content/schedule.ts`
-- `src/content/pricing.ts`
+- Payload `prices` collection for card titles and prices; `src/content/pricing.ts` for static page copy and summaries
 - `src/content/media.ts`
 - `src/content/faq.ts`
 
 Rule:
-- do not hardcode business content inside UI components when content belongs in `src/content/*`.
+- do not hardcode business content inside UI components; Prices titles and prices belong in Payload, while other approved content stays in `src/content/*`.
 
 ## 5. Current Navigation
 Visible primary navigation is intentionally limited to these five items:
@@ -98,7 +100,7 @@ Destinations:
 - Preserve current schedule and pricing page structures.
 
 ## 7. Still Pending / Known Issues
-- Neon is connected to Vercel Preview only with Preview Branching enabled. The Preview branch `preview/cms-prototype` has one migration and one administrator; the local branch `cms-prototype-local` remains separate.
+- Neon is connected to Vercel Preview only with Preview Branching enabled. The Preview branch `preview/cms-prototype` has both migrations, eight initial Prices cards, and one administrator; the local branch `cms-prototype-local` remains separate.
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
 - Production `metadataBaseUrl` is configured in `src/lib/design/site.ts`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
@@ -140,9 +142,9 @@ Known environment limitation:
 ### Current maturity
 - Homepage: implemented and content-driven
 - Schedule page: implemented
-- Pricing page: implemented
+- Pricing page: database-driven, with inline administrator editing and public layout preserved
 - Secondary routes: unused placeholders removed
-- Payload foundation: locally verified against `cms-prototype-local` and deployed to Vercel Preview against `preview/cms-prototype`
+- Payload foundation and Prices migration: locally verified against `cms-prototype-local` and deployed to Vercel Preview against `preview/cms-prototype`
 
 ### Known technical debt
 - production metadata base URL is configured;
