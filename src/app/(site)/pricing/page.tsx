@@ -20,19 +20,19 @@ export default async function PricingPage() {
   const result = await payload.find({
     collection: "prices",
     depth: 0,
-    limit: 100,
+    limit: 0,
     pagination: false,
-    sort: "sortOrder",
+    sort: ["sortOrder", "id"],
     overrideAccess: false,
     user,
   });
-  const cards: PriceCard[] = result.docs.map(({ id, key, kind, sortOrder, title, priceLabel }) => ({
+  const cards: PriceCard[] = result.docs.map(({ id, key, kind, sortOrder, title, price }) => ({
     id: Number(id),
     key: String(key),
     kind: kind as PriceCard["kind"],
     sortOrder: Number(sortOrder),
     title: String(title),
-    priceLabel: String(priceLabel),
+    price: Number(price),
   }));
 
   return (

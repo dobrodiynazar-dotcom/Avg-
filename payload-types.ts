@@ -153,7 +153,7 @@ export interface Price {
   kind: 'subscription' | 'single' | 'personal';
   sortOrder: number;
   title: string;
-  priceLabel: string;
+  price: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -263,7 +263,7 @@ export interface PricesSelect<T extends boolean = true> {
   kind?: T;
   sortOrder?: T;
   title?: T;
-  priceLabel?: T;
+  price?: T;
   updatedAt?: T;
   createdAt?: T;
 }

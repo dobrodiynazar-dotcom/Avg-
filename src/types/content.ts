@@ -124,7 +124,7 @@ export type PriceCard = {
   kind: "subscription" | "single" | "personal";
   sortOrder: number;
   title: string;
-  priceLabel: string;
+  price: number;
 };
 
 export type PricingPageContent = {

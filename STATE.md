@@ -3,12 +3,12 @@
 ## Meta
 - Last updated: 2026-10-22
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: prices-inline-preview
+- Current phase: prices-inline-create-preview
 - Canonical branch: `main`
 - CMS prototype branch: `cms-prototype`
 
 ## 1. Current Project State
-This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Both migrations are applied; the Prices migration seeded eight existing cards once. One administrator exists, and all public routes load. This work was pushed only to `cms-prototype`; Production remains sourced from `main`.
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Preview builds run pending migrations before build; the original Prices migration seeded eight existing cards once, and the numeric-price migration converts those records without reseeding. One administrator exists, and all public routes load. This work is scoped to `cms-prototype`; Production remains sourced from `main`.
 
 It is no longer a foundation-only or preview-only codebase.
 
@@ -38,6 +38,8 @@ It is no longer a foundation-only or preview-only codebase.
 - `/pricing` is a real implemented route.
 - It renders five subscription cards in a carousel, one single-training card, and two personal-training cards from Payload/PostgreSQL.
 - The administrator signs in at the unlinked `/cms/login` route through Payload authentication, then edits one card at a time in place using the pencil. Save and Delete use Payload access control; visitors see no editing or login controls.
+- Edit mode adds a `+` to each of the three sections. New cards use the shared editor, server-generated keys, and section ordering. Clicking outside discards local edits without confirmation; only saved-card deletion asks for confirmation. Save/Delete exits edit mode after success.
+- Card prices are numeric, with strict positive values and at most two decimal places; currency/period units are display-only. The existing free veterans card keeps its fixed zero price and editable title. A controlled migration converts existing labels while preserving IDs, names and order; it does not reseed data.
 - `src/content/pricing.ts` retains static page copy and card summaries. The migration contains the original eight titles and prices; builds do not refill deleted cards.
 
 ### Locations / Maps
@@ -100,7 +102,7 @@ Destinations:
 - Preserve current schedule and pricing page structures.
 
 ## 7. Still Pending / Known Issues
-- Neon is connected to Vercel Preview only with Preview Branching enabled. The Preview branch `preview/cms-prototype` has both migrations, eight initial Prices cards, and one administrator; the local branch `cms-prototype-local` remains separate.
+- Neon is connected to Vercel Preview only with Preview Branching enabled. The Preview branch `preview/cms-prototype` retains the eight initial Prices cards and one administrator; the local branch `cms-prototype-local` remains separate.
 - Coaches homepage section still uses provisional coach profiles until final biographies are approved.
 - Production `metadataBaseUrl` is configured in `src/lib/design/site.ts`.
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
@@ -114,6 +116,8 @@ Required checks for change work:
 - `npm run typecheck`
 - `npm run build`
 - `npm audit --omit=dev`
+
+Prices CREATE/numeric-price refinement (2026-10-22): ESLint, TypeScript, seven CMS tests and webpack build passed. Local API integration verified public reads, unauthorized CREATE/UPDATE/DELETE rejection, strict numeric validation, CREATE in all three sections, UPDATE persistence in a fresh public request, and QA fixture deletion. The migration was checked on a temporary database copy for preserved data, rollback on invalid legacy labels, down migration, and an empty collection without reseeding. Browser checks covered desktop and 320px mobile editors, normalized dirty state, outside discard, section transitions and the fixed free-card display. No e2e test runner was added.
 
 Known environment limitation:
 - `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.
