@@ -159,9 +159,8 @@ function PriceCardEditor({
         </div>
       ) : (
         <label className={styles.field} htmlFor={`price-amount-${card.id}`}>
-          <span>Ціна <span className="font-normal text-white/40">({card.kind === "subscription" ? "грн/місяць" : "грн"})</span></span>
+          <span>Ціна</span>
           <input
-            aria-describedby={`price-hint-${card.id}`}
             className={styles.input}
             disabled={busy}
             id={`price-amount-${card.id}`}
@@ -176,7 +175,6 @@ function PriceCardEditor({
             type="text"
             value={draft.price}
           />
-          <span className="text-[0.7rem] font-normal leading-relaxed text-white/45" id={`price-hint-${card.id}`}>Додатне число, до 2 знаків після коми.</span>
         </label>
       )}
       {error ? <p aria-live="polite" className="text-xs text-red-300">{error}</p> : null}
@@ -415,11 +413,15 @@ export function PricingPageSection({ content, initialCards, canEdit }: PricingPa
     <button
       aria-label={`Додати картку: ${label}`}
       data-price-control
-      className={`${styles.control} flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 text-2xl font-light text-white/85 backdrop-blur-md transition-colors hover:border-[var(--color-primary)] hover:text-white disabled:opacity-40`}
+      className={`${styles.control} flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white/85 backdrop-blur-md transition-colors hover:border-[var(--color-primary)] hover:text-white disabled:opacity-40`}
       disabled={busy}
       onClick={() => createCard(kind)}
       type="button"
-    >+</button>
+    >
+      <svg aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" />
+      </svg>
+    </button>
   ) : null;
 
   return (
