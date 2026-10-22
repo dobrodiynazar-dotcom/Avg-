@@ -26,7 +26,7 @@ export async function up({ db }: MigrateUpArgs): Promise<void> {
       ('adults', 'subscription', 0, 'Доросла група', '1400 грн/м'),
       ('kids-and-teens', 'subscription', 1, 'Дитячі та підліткові групи', '1300 грн/м'),
       ('military', 'subscription', 2, 'Доросла група', '700 грн/м'),
-      ('family', 'subscription', 3, 'Сімейна група', '2300 грн/м'),
+      ('family', 'subscription', 3, 'Сімейна група', '2400 грн/м'),
       ('veterans', 'subscription', 4, 'Група ветеранів TMS HUB', 'Безкоштовно'),
       ('single-group', 'single', 0, 'Разове групове тренування', '300 грн'),
       ('personal-adult', 'personal', 0, 'Дорослий', '500 грн'),
