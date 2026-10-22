@@ -55,7 +55,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: "family",
     name: "Сімейна група",
-    priceLabel: "2300 грн/м",
+    priceLabel: "2400 грн/м",
     summary: "Абонемент для дорослого і дитини або для двох дітей із сім’ї.",
     features: [],
   },
