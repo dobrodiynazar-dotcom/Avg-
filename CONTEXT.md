@@ -16,7 +16,7 @@
 - TypeScript `5.9.3`
 - Tailwind CSS `4.1.x`
 - ESLint `9.x`
-- Payload `3.91.0` with PostgreSQL adapter, Preview database and inline Prices editing
+- Payload `3.91.0` with PostgreSQL adapter, Preview database and inline Prices/Schedule editing
 
 ## 3. Current Repository Map
 - `src/app`
@@ -33,7 +33,7 @@
   - schedule page section
   - pricing page section
 - `src/content`
-  - business content source of truth except Prices names and prices
+  - business content source of truth except Prices cards and Schedule training entries
 - `src/styles`
   - split CSS layers (`tokens.css`, `base.css`, `typography.css`, `utilities.css`, `components.css`)
 - `public/`
@@ -69,7 +69,7 @@ Primary content source files:
 - `src/content/faq.ts`
 
 Rule:
-- edit business content in `src/content/*`, not directly in UI components; Prices names and prices come from Payload/PostgreSQL.
+- edit business content in `src/content/*`, not directly in UI components; Prices cards and Schedule training entries come from Payload/PostgreSQL.
 
 ## 7. Design / UX Reality
 - Ferrari-inspired cinematic direction is approved.

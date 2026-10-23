@@ -3,7 +3,7 @@
 ## Meta
 - Last updated: 2026-10-22
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
-- Current phase: prices-inline-create-preview
+- Current phase: schedule-inline-cms
 - Canonical branch: `main`
 - CMS prototype branch: `cms-prototype`
 
@@ -32,7 +32,8 @@ It is no longer a foundation-only or preview-only codebase.
 ### Schedule
 - `/schedule` is a real implemented route.
 - It uses location switching between `Проспект Миру 19` and `Вишиванка 37`.
-- It renders weekday-based schedule cards and mobile day blocks from `src/content/schedule.ts`.
+- It renders the approved weekday layout from `src/content/schedule.ts`; training entries come from the Payload `schedule-entries` collection.
+- The administrator can add, edit, and delete individual training entries inline. The existing 33 entries are seeded once by migration; deleted entries are not restored by later builds.
 
 ### Pricing / Subscriptions
 - `/pricing` is a real implemented route.
@@ -71,13 +72,13 @@ Business-content source of truth:
 - `src/content/site.ts`
 - `src/content/navigation.ts`
 - `src/content/coaches.ts`
-- `src/content/schedule.ts`
+- `src/content/schedule.ts` for Schedule page copy, locations, weekdays and homepage preview; Payload `schedule-entries` for training times and groups
 - Payload `prices` collection for card titles and prices; `src/content/pricing.ts` for static page copy and summaries
 - `src/content/media.ts`
 - `src/content/faq.ts`
 
 Rule:
-- do not hardcode business content inside UI components; Prices titles and prices belong in Payload, while other approved content stays in `src/content/*`.
+- do not hardcode business content inside UI components; Prices cards and Schedule training entries belong in Payload, while other approved content stays in `src/content/*`.
 
 ## 5. Current Navigation
 Visible primary navigation is intentionally limited to these five items:
@@ -119,6 +120,8 @@ Required checks for change work:
 
 Prices CREATE/numeric-price refinement (2026-10-22): ESLint, TypeScript, seven CMS tests and webpack build passed. Local API integration verified public reads, unauthorized CREATE/UPDATE/DELETE rejection, strict numeric validation, CREATE in all three sections, UPDATE persistence in a fresh public request, and QA fixture deletion. The migration was checked on a temporary database copy for preserved data, rollback on invalid legacy labels, down migration, and an empty collection without reseeding. Browser checks covered desktop and 320px mobile editors, normalized dirty state, outside discard, section transitions and the fixed free-card display. No e2e test runner was added.
 
+Schedule inline CMS (2026-10-23): ESLint, TypeScript, nine CMS tests and webpack build passed. The one-time SQL migration was tested inside a rollback-only transaction against `cms-prototype-local`; it seeded the 33 existing entries and left the database unchanged. The local Neon database has a Payload `dev` migration marker, so the normal migration prompted about potential data loss and was not confirmed. API persistence and browser checks remain pending until the Preview migration runs. `npm audit --omit=dev --audit-level=high` still reports four high and five moderate transitive advisories without an upstream fix.
+
 Known environment limitation:
 - `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.
 - In that case, rerun the build outside the sandbox and report that honestly.
@@ -145,7 +148,7 @@ Known environment limitation:
 
 ### Current maturity
 - Homepage: implemented and content-driven
-- Schedule page: implemented
+- Schedule page: database-driven training entries with inline administrator editing; Preview rollout pending
 - Pricing page: database-driven, with inline administrator editing and public layout preserved
 - Secondary routes: unused placeholders removed
 - Payload foundation and Prices migration: locally verified against `cms-prototype-local` and deployed to Vercel Preview against `preview/cms-prototype`

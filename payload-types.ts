@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     admins: Admin;
     prices: Price;
+    'schedule-entries': ScheduleEntry;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     admins: AdminsSelect<false> | AdminsSelect<true>;
     prices: PricesSelect<false> | PricesSelect<true>;
+    'schedule-entries': ScheduleEntriesSelect<false> | ScheduleEntriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -159,6 +161,21 @@ export interface Price {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "schedule-entries".
+ */
+export interface ScheduleEntry {
+  id: number;
+  key: string;
+  locationId: string;
+  dayId: string;
+  sortOrder: number;
+  time: string;
+  group: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -188,6 +205,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'prices';
         value: number | Price;
+      } | null)
+    | ({
+        relationTo: 'schedule-entries';
+        value: number | ScheduleEntry;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -264,6 +285,20 @@ export interface PricesSelect<T extends boolean = true> {
   sortOrder?: T;
   title?: T;
   price?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "schedule-entries_select".
+ */
+export interface ScheduleEntriesSelect<T extends boolean = true> {
+  key?: T;
+  locationId?: T;
+  dayId?: T;
+  sortOrder?: T;
+  time?: T;
+  group?: T;
   updatedAt?: T;
   createdAt?: T;
 }

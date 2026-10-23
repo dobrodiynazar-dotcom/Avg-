@@ -48,11 +48,11 @@ Still incomplete:
 - Next.js App Router website.
 - TypeScript + Tailwind CSS.
 - Ferrari-inspired cinematic design adapted to a premium sports-academy look.
-- Typed local content files as the business-content source.
+- Typed local content files as the business-content source except Payload-managed Prices cards and Schedule training entries.
 - Reusable UI/domain/section architecture.
 - Mobile-first responsive behavior.
 - Only final, actually used routes should exist in `src/app`.
-- Payload CMS with a private administrator and separate PostgreSQL database; Prices are its first managed content.
+- Payload CMS with a private administrator and separate PostgreSQL database; Prices cards and Schedule training entries are managed content.
 
 ## 7. Out of Scope
 - CRM, public accounts, and visitor authentication.
@@ -64,7 +64,7 @@ Still incomplete:
 ## 8. Functional Requirements
 1. Homepage must remain the primary conversion and orientation surface.
 2. The site must keep `/schedule` and `/pricing` as real implemented routes.
-3. The site must keep business content editable through `src/content/*`, except Prices names and prices, which are stored in Payload.
+3. The site must keep business content editable through `src/content/*`, except Prices cards and Schedule training entries, which are stored in Payload.
 4. Navigation must remain limited to the current five approved primary items.
 5. The site must preserve mobile usability as a first-class requirement.
 6. The repository memory documents must reflect actual implementation state.

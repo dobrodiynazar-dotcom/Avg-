@@ -6,6 +6,7 @@ import { buildConfig } from "payload";
 
 import { Admins } from "./collections/Admins";
 import { Prices } from "./collections/Prices";
+import { ScheduleEntries } from "./collections/ScheduleEntries";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -14,7 +15,7 @@ export default buildConfig({
     user: Admins.slug,
     importMap: { baseDir: dirname },
   },
-  collections: [Admins, Prices],
+  collections: [Admins, Prices, ScheduleEntries],
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URL || "" },
   }),

@@ -143,7 +143,11 @@ export type SchedulePreviewGroup = {
 };
 
 export type ScheduleEntry = {
-  id: string;
+  id: number;
+  key: string;
+  locationId: string;
+  dayId: string;
+  sortOrder: number;
   time: string;
   group: string;
 };
@@ -151,7 +155,6 @@ export type ScheduleEntry = {
 export type ScheduleDay = {
   id: string;
   label: string;
-  entries: ScheduleEntry[];
 };
 
 export type ScheduleLocationSchedule = {

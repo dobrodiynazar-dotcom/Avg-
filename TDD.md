@@ -13,7 +13,7 @@
   - `npm run lint`
   - `npm run typecheck`
   - `npm run test:cms`
-- Focused Node tests cover CMS administrator and Prices access, numeric-price validation, the fixed free-card exception, and server-generated card metadata. No e2e test runner is configured.
+- Focused Node tests cover CMS administrator, Prices and Schedule access, validation, and server-generated metadata. No e2e test runner is configured.
 
 ## 2. Testing Strategy
 - Use practical, risk-based quality gates.
