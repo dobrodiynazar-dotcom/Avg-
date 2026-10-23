@@ -21,3 +21,17 @@
   background: rgb(0 0 0 / 0.7);
   backdrop-filter: blur(10px);
 }
+
+.dialog:focus-visible,
+.dialog :focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.dialog input:focus,
+.dialog input:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(218 41 28 / 0.2);
+}

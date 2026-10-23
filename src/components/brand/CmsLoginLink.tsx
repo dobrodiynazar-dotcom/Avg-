@@ -83,7 +83,7 @@ export function CmsLoginLink({ children, className }: { children: ReactNode; cla
       {open ? <dialog aria-label="Вхід редактора" className={styles.dialog} ref={dialogRef}
         onCancel={() => setOpen(false)}
         onClick={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
-        <button aria-label="Закрити вхід" className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded text-xl text-white/70 focus-visible:outline-2 focus-visible:outline-white" onClick={() => setOpen(false)} type="button">×</button>
+        <button aria-label="Закрити вхід" className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded text-xl text-white/70" onClick={() => setOpen(false)} type="button">×</button>
         <CmsLoginForm onSuccess={() => setOpen(false)} />
       </dialog> : null}
     </>

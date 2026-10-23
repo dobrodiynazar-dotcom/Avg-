@@ -17,6 +17,7 @@ It is no longer a foundation-only or preview-only codebase.
 - Holding the header or footer brand link for one second opens a compact native login dialog over the current page. A short click retains normal home navigation; Space hold supports keyboard entry.
 - The dialog reuses `CmsLoginForm` and the existing `/api/admins/login` Payload cookie flow. Login success closes it and fully navigates to `/`; no token storage or extra authentication system is added.
 - `/api/admins/me` checks the existing session only on deliberate hold; authenticated administrators stay on the current page. The existing `/cms/login` route remains available for compatibility.
+- Focus styling inside the hidden dialog is scoped to Avangard red: inputs match the inline editor focus border/glow, while buttons retain a visible red keyboard outline. The global yellow focus token is unchanged outside the dialog.
 
 ### Homepage
 - Real homepage is implemented in `src/app/(site)/page.tsx`.
