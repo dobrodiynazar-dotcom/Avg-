@@ -1,0 +1,33 @@
+.day,
+.training {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.training {
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .day:hover {
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 0.24);
+  }
+
+  .training:not([data-editing="true"]):not(:disabled):hover {
+    transform: translateY(-2px);
+    border-color: rgb(255 255 255 / 0.3);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.16);
+  }
+
+  .day:has([data-editing="true"]):hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day,
+  .training {
+    transition: none;
+    transform: none !important;
+  }
+}

@@ -1,7 +1,7 @@
 # STATE.md
 
 ## Meta
-- Last updated: 2026-10-22
+- Last updated: 2026-10-23
 - Owner: Avangard Jiu-Jitsu Academy / Nazar Dobrodij
 - Current phase: schedule-inline-cms
 - Canonical branch: `main`
@@ -34,6 +34,7 @@ It is no longer a foundation-only or preview-only codebase.
 - It uses location switching between `Проспект Миру 19` and `Вишиванка 37`.
 - It renders the approved weekday layout from `src/content/schedule.ts`; training entries come from the Payload `schedule-entries` collection.
 - The administrator can add, edit, and delete individual training entries inline. The existing 33 entries are seeded once by migration; deleted entries are not restored by later builds.
+- Each weekday has a training-shaped add card below its saved entries in edit mode. It becomes a local draft until Save. Refreshed server entries replace stale client data; weekday/training hover effects apply only to devices with a fine pointer and respect reduced motion.
 
 ### Pricing / Subscriptions
 - `/pricing` is a real implemented route.
@@ -121,6 +122,8 @@ Required checks for change work:
 Prices CREATE/numeric-price refinement (2026-10-22): ESLint, TypeScript, seven CMS tests and webpack build passed. Local API integration verified public reads, unauthorized CREATE/UPDATE/DELETE rejection, strict numeric validation, CREATE in all three sections, UPDATE persistence in a fresh public request, and QA fixture deletion. The migration was checked on a temporary database copy for preserved data, rollback on invalid legacy labels, down migration, and an empty collection without reseeding. Browser checks covered desktop and 320px mobile editors, normalized dirty state, outside discard, section transitions and the fixed free-card display. No e2e test runner was added.
 
 Schedule inline CMS (2026-10-23): ESLint, TypeScript, nine CMS tests and webpack build passed. The one-time SQL migration was tested inside a rollback-only transaction against `cms-prototype-local`; it seeded the 33 existing entries and left the database unchanged. The local Neon database has a Payload `dev` migration marker, so the normal migration prompted about potential data loss and was not confirmed. Vercel reported the Preview deployment successful; its public API returned 33 entries and mobile browser checks confirmed both location timetables. Authenticated inline editing and write persistence have not yet been checked in Preview. `npm audit --omit=dev --audit-level=high` still reports four high and five moderate transitive advisories without an upstream fix.
+
+Schedule follow-up (2026-10-23): the reported empty weekday regression did not reproduce on a fresh Preview reload. Inspection confirmed matching migration/location/day keys and public READ; a stale-state defect was fixed so refreshed server props update the rendered records. The schema and migrations remain unchanged. Ten CMS tests cover permissions, isolated order lookup, all 33 migrated keys, and duplicate times. Independent focused reviews checked the data path, Prices reference, and final Schedule diff.
 
 Known environment limitation:
 - `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.

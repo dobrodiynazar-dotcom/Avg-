@@ -9,6 +9,7 @@ import type { ScheduleEntry, ScheduleLocationSchedule, SchedulePageContent } fro
 import { Container } from "@/components/ui";
 import { cn } from "@/lib/utils/cn";
 import styles from "./PricingPageSection.module.css";
+import scheduleStyles from "./SchedulePageSection.module.css";
 
 type SchedulePageSectionProps = {
   content: SchedulePageContent;
@@ -37,6 +38,11 @@ export function SchedulePageSection({
   );
 
   const [entries, setEntries] = useState(initialEntries);
+  const [previousEntries, setPreviousEntries] = useState(initialEntries);
+  if (previousEntries !== initialEntries) {
+    setPreviousEntries(initialEntries);
+    setEntries(initialEntries);
+  }
   const [editMode, setEditMode] = useState(false);
   const [activeEntry, setActiveEntry] = useState<ScheduleEntry | null>(null);
   const [draft, setDraft] = useState({ time: "", group: "" });
@@ -175,6 +181,7 @@ export function SchedulePageSection({
                 return (
                   <button
                     key={location.id}
+                    disabled={busy}
                     aria-selected={isActive}
                     className={cn(
                       "min-h-12 rounded-[var(--radius-button)] border px-5 py-3 text-sm font-semibold tracking-[0.08em] text-white transition-colors duration-200",
@@ -182,7 +189,7 @@ export function SchedulePageSection({
                         ? "border-[var(--color-primary)] bg-[rgb(218_41_28_/_0.22)] shadow-[0_0_0_1px_rgb(218_41_28_/_0.25)]"
                         : "border-[rgb(255_255_255_/_0.18)] bg-[rgb(255_255_255_/_0.04)] hover:border-[rgb(255_255_255_/_0.34)] hover:bg-[rgb(255_255_255_/_0.08)]",
                     )}
-                    onClick={() => { setActiveLocationId(location.id); setActiveEntry(null); setError(""); setConfirmation(false); }}
+                    onClick={() => { if (pendingRef.current) return; setActiveLocationId(location.id); setActiveEntry(null); setError(""); setConfirmation(false); }}
                     role="tab"
                     type="button"
                   >
@@ -211,13 +218,10 @@ export function SchedulePageSection({
                   <section
                     key={day.id}
                     aria-labelledby={`schedule-day-${day.id}`}
-                    className="flex min-h-full flex-col rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.12)] bg-[linear-gradient(180deg,rgb(255_255_255_/_0.08),rgb(255_255_255_/_0.03))] p-3 shadow-[0_10px_30px_rgb(0_0_0_/_0.14)] backdrop-blur-md"
+                    className={`${scheduleStyles.day} flex min-h-full min-w-0 flex-col rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.12)] bg-[linear-gradient(180deg,rgb(255_255_255_/_0.08),rgb(255_255_255_/_0.03))] p-3 shadow-[0_10px_30px_rgb(0_0_0_/_0.14)] backdrop-blur-md`}
                   >
                     <div className="flex items-center justify-between gap-2 border-b border-[rgb(255_255_255_/_0.08)] pb-2">
                       <h3 id={`schedule-day-${day.id}`} className="text-sm font-semibold tracking-[0.08em] text-white/72">{day.label}</h3>
-                      {canEdit && editMode ? <button aria-label={`Додати тренування: ${day.label}`} data-schedule-control
-                        className={`${styles.control} flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white/85 hover:border-[var(--color-primary)]`}
-                        disabled={busy} onClick={() => createEntry(activeLocation.id, day.id)} type="button">+</button> : null}
                     </div>
 
                     <div className="mt-3 flex flex-1 flex-col gap-2.5">
@@ -227,8 +231,9 @@ export function SchedulePageSection({
                         <article
                           key={entry.id}
                           ref={activeEntry?.id === entry.id ? editorRef : undefined}
+                          data-editing={activeEntry?.id === entry.id}
                           data-schedule-control={canEdit && editMode && activeEntry?.id !== entry.id ? true : undefined}
-                          className={cn("rounded-[var(--radius-card-sm)] border border-[rgb(255_255_255_/_0.14)] bg-[rgb(255_255_255_/_0.08)] px-3 py-3 backdrop-blur-md", canEdit && editMode && activeEntry?.id !== entry.id && `cursor-pointer hover:border-white/35 ${styles.control}`)}
+                          className={cn(scheduleStyles.training, "min-w-0 rounded-[var(--radius-card-sm)] border border-[rgb(255_255_255_/_0.14)] bg-[rgb(255_255_255_/_0.08)] px-3 py-3 backdrop-blur-md", canEdit && editMode && activeEntry?.id !== entry.id && `cursor-pointer hover:border-white/35 ${styles.control}`)}
                           onClick={canEdit && editMode && activeEntry?.id !== entry.id ? () => openEntry(entry) : undefined}
                           onKeyDown={canEdit && editMode && activeEntry?.id !== entry.id ? (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openEntry(entry); } } : undefined}
                           role={canEdit && editMode && activeEntry?.id !== entry.id ? "button" : undefined}
@@ -238,11 +243,11 @@ export function SchedulePageSection({
                             <form className="space-y-3" onSubmit={save}>
                               <label className={styles.field}>Час
                                 <input className={styles.input} disabled={busy} inputMode="numeric" maxLength={5} pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="16:30" required
-                                  value={draft.time} onChange={(event) => setDraft({ ...draft, time: event.target.value })} />
+                                  value={draft.time} onChange={(event) => { setDraft({ ...draft, time: event.target.value }); setConfirmation(false); }} />
                               </label>
                               <label className={styles.field}>Група
                                 <input className={styles.input} disabled={busy} maxLength={100} required value={draft.group}
-                                  onChange={(event) => setDraft({ ...draft, group: event.target.value })} />
+                                  onChange={(event) => { setDraft({ ...draft, group: event.target.value }); setConfirmation(false); }} />
                               </label>
                               {error ? <p aria-live="polite" className="text-xs text-red-300">{error}</p> : null}
                               {confirmation ? <div aria-label="Підтвердження дії" aria-live="polite" className="space-y-2 text-xs" role="group">
@@ -261,6 +266,13 @@ export function SchedulePageSection({
                             <p className="mt-2 text-sm leading-[1.25] text-white/78">{entry.group}</p></>}
                         </article>
                       ))}
+                      {canEdit && editMode && !(isNew && activeEntry?.locationId === activeLocation.id && activeEntry.dayId === day.id) ? (
+                        <button aria-label={`Додати тренування: ${day.label}`} data-schedule-control
+                          className={`${scheduleStyles.training} ${styles.control} flex min-h-16 w-full items-center justify-center rounded-[var(--radius-card-sm)] border border-white/14 bg-white/8 px-3 py-3 text-white/85 backdrop-blur-md disabled:opacity-40`}
+                          disabled={busy} onClick={() => createEntry(activeLocation.id, day.id)} type="button">
+                          <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+                        </button>
+                      ) : null}
                     </div>
                   </section>
                 ))}
