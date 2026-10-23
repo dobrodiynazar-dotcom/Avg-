@@ -45,7 +45,7 @@ It is no longer a foundation-only or preview-only codebase.
 ### Pricing / Subscriptions
 - `/pricing` is a real implemented route.
 - It renders five subscription cards in a carousel, one single-training card, and two personal-training cards from Payload/PostgreSQL.
-- The administrator signs in at the unlinked `/cms/login` route through Payload authentication, then edits one card at a time in place using the pencil. Save and Delete use Payload access control; visitors see no editing or login controls.
+- The administrator signs in through the hidden logo-hold dialog (or the unlinked `/cms/login` route), then edits one card at a time in place using the pencil. Save and Delete use Payload access control; visitors see no editing or login controls.
 - Edit mode adds a `+` to each of the three sections. New cards use the shared editor, server-generated keys, and section ordering. Clicking outside discards local edits without confirmation; only saved-card deletion asks for confirmation. Save/Delete exits edit mode after success.
 - Card prices are numeric, with strict positive values and at most two decimal places; currency/period units are display-only. The existing free veterans card keeps its fixed zero price and editable title. A controlled migration converts existing labels while preserving IDs, names and order; it does not reseed data.
 - `src/content/pricing.ts` retains static page copy and card summaries. The migration contains the original eight titles and prices; builds do not refill deleted cards.
@@ -116,7 +116,7 @@ Destinations:
 - Mobile navigation should still be treated as a regression-sensitive area whenever touched.
 - Media/logo optimization may still be worth revisiting later if the asset set changes again.
 - No CI workflow is currently present.
-- `npm audit --omit=dev --audit-level=high` reports four high and five moderate advisories in Payload's transitive dependencies; the current audit output offers no upstream fix. Recheck when dependencies change.
+- Latest `npm audit --omit=dev --audit-level=high` (2026-10-23, hidden login work) reports five moderate advisories in Payload's transitive dependencies and no high advisories; no upstream fix is offered. Dependencies were not changed.
 
 ## 8. Verification Reality
 Required checks for change work:
@@ -136,6 +136,8 @@ Preview follow-up verification: Vercel deployment `85d8580` succeeded. Public br
 Known environment limitation:
 - `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.
 - In that case, rerun the build outside the sandbox and report that honestly.
+
+Hidden login entry (2026-10-23): ESLint, TypeScript, eleven existing CMS tests, production build and diff checks passed. Browser checks/assertions covered mouse hold, Space hold, short-click home navigation, Escape, backdrop close, focus restoration, invalid-credential errors, and a 320px dialog without horizontal overflow. The user completed login with current Preview credentials; the authenticated Prices pencil and Schedule pencil after full reload were verified. Holding the logo while authenticated kept the current page and did not show a login dialog. The successful form path closes the overlay and assigns `/`. Local bootstrap credentials were not accepted by Preview; do not assume they share a password. A physical phone touch gesture was not independently exercised. No authentication schema, access rules, dependencies or migrations changed.
 
 ## 9. New Codex Chat Handoff
 ### Read order
