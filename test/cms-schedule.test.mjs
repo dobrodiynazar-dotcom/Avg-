@@ -1,12 +1,34 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readFileSync } from "node:fs";
+import { buildConfig, getPayload } from "payload";
+import { postgresAdapter } from "@payloadcms/db-postgres";
 
 import { ScheduleEntries } from "../src/collections/ScheduleEntries.ts";
 import { scheduleLocationSchedules } from "../src/content/schedule.ts";
 
 const admin = { collection: "admins" };
 const field = (name) => ScheduleEntries.fields.find((item) => item.name === name);
+
+test("Payload rejects anonymous Schedule mutations before touching the database", async () => {
+  const config = buildConfig({
+    secret: "schedule-permissions-test-only-secret",
+    collections: [ScheduleEntries],
+    db: postgresAdapter({ pool: { connectionString: "" } }),
+    typescript: { autoGenerate: false },
+  });
+  const payload = await getPayload({ config, disableDBConnect: true, disableOnInit: true });
+  try {
+    const options = { collection: "schedule-entries", overrideAccess: false, disableTransaction: true };
+    for (const action of [
+      () => payload.create({ ...options, data: { locationId: "prospekt-myru-19", dayId: "monday", time: "16:30", group: "QA" } }),
+      () => payload.update({ ...options, id: 1, data: { group: "QA" } }),
+      () => payload.delete({ ...options, id: 1 }),
+    ]) await assert.rejects(action, (error) => error.status === 403);
+  } finally {
+    await payload.destroy();
+  }
+});
 
 test("Schedule mutations require a Payload administrator and cannot move existing entries", () => {
   for (const action of ["create", "update", "delete"]) {
