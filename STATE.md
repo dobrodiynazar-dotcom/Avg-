@@ -8,7 +8,7 @@
 - CMS prototype branch: `cms-prototype`
 
 ## 1. Current Project State
-This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Preview builds run pending migrations before build; the original Prices migration seeded eight existing cards once, and the numeric-price migration converts those records without reseeding. One administrator exists, and all public routes load. This work is scoped to `cms-prototype`; Production remains sourced from `main`.
+This repository is the active source of truth for continuing the Avangard website in a new Codex chat. Payload runs locally against the isolated Neon branch `cms-prototype-local`. The `cms-prototype` Vercel Preview at `https://avg-git-cms-prototype-avangard-s-projects.vercel.app/` uses the separate Neon branch `preview/cms-prototype` (`br-winter-pine-b9b01uwx`). Preview builds run pending migrations before build; Prices was seeded with eight cards, and Schedule was seeded with 33 training entries. One administrator exists, and all public routes load. This work is scoped to `cms-prototype`; Production remains sourced from `main`.
 
 It is no longer a foundation-only or preview-only codebase.
 
@@ -120,7 +120,7 @@ Required checks for change work:
 
 Prices CREATE/numeric-price refinement (2026-10-22): ESLint, TypeScript, seven CMS tests and webpack build passed. Local API integration verified public reads, unauthorized CREATE/UPDATE/DELETE rejection, strict numeric validation, CREATE in all three sections, UPDATE persistence in a fresh public request, and QA fixture deletion. The migration was checked on a temporary database copy for preserved data, rollback on invalid legacy labels, down migration, and an empty collection without reseeding. Browser checks covered desktop and 320px mobile editors, normalized dirty state, outside discard, section transitions and the fixed free-card display. No e2e test runner was added.
 
-Schedule inline CMS (2026-10-23): ESLint, TypeScript, nine CMS tests and webpack build passed. The one-time SQL migration was tested inside a rollback-only transaction against `cms-prototype-local`; it seeded the 33 existing entries and left the database unchanged. The local Neon database has a Payload `dev` migration marker, so the normal migration prompted about potential data loss and was not confirmed. API persistence and browser checks remain pending until the Preview migration runs. `npm audit --omit=dev --audit-level=high` still reports four high and five moderate transitive advisories without an upstream fix.
+Schedule inline CMS (2026-10-23): ESLint, TypeScript, nine CMS tests and webpack build passed. The one-time SQL migration was tested inside a rollback-only transaction against `cms-prototype-local`; it seeded the 33 existing entries and left the database unchanged. The local Neon database has a Payload `dev` migration marker, so the normal migration prompted about potential data loss and was not confirmed. Vercel reported the Preview deployment successful; its public API returned 33 entries and mobile browser checks confirmed both location timetables. Authenticated inline editing and write persistence have not yet been checked in Preview. `npm audit --omit=dev --audit-level=high` still reports four high and five moderate transitive advisories without an upstream fix.
 
 Known environment limitation:
 - `next build` may fail inside the sandbox because Turbopack cannot spawn worker processes there.
@@ -148,7 +148,7 @@ Known environment limitation:
 
 ### Current maturity
 - Homepage: implemented and content-driven
-- Schedule page: database-driven training entries with inline administrator editing; Preview rollout pending
+- Schedule page: database-driven training entries with inline administrator editing; public Preview read verified
 - Pricing page: database-driven, with inline administrator editing and public layout preserved
 - Secondary routes: unused placeholders removed
 - Payload foundation and Prices migration: locally verified against `cms-prototype-local` and deployed to Vercel Preview against `preview/cms-prototype`
