@@ -164,7 +164,7 @@ export function SchedulePageSection({
       ) : null}
 
       <Container className="relative z-10 flex min-h-screen items-start py-28 sm:py-32 lg:py-36" size="wide">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 lg:gap-10">
+        <div className="mx-auto flex w-full flex-col gap-8 lg:gap-10">
           <div className="space-y-6 text-center">
             <h1 className="text-balance text-[clamp(2.8rem,7vw,5.6rem)] font-medium leading-[0.92] tracking-[-0.075em] text-white">
               {content.title}
@@ -257,7 +257,7 @@ export function SchedulePageSection({
                                   <button className={`${styles.action} ${styles.control}`} disabled={busy} onClick={() => { void removeConfirmed(); }} type="button">Так</button>
                                 </div>
                               </div> : null}
-                              <div className="grid grid-cols-2 gap-2">
+                              <div className={`${scheduleStyles.actions} grid grid-cols-2 gap-1`}>
                                 <button className={`${styles.action} ${styles.control}`} disabled={busy} onClick={() => { if (isNew) { setActiveEntry(null); setEditMode(false); } else setConfirmation(true); }} type="button">Видалити</button>
                                 <button className={`${styles.action} ${styles.save} ${styles.control}`} disabled={!dirty || !valid || busy} type="submit">{busy ? "Зачекайте…" : "Зберегти"}</button>
                               </div>
@@ -268,7 +268,7 @@ export function SchedulePageSection({
                       ))}
                       {canEdit && editMode && !(isNew && activeEntry?.locationId === activeLocation.id && activeEntry.dayId === day.id) ? (
                         <button aria-label={`Додати тренування: ${day.label}`} data-schedule-control
-                          className={`${scheduleStyles.training} ${styles.control} flex min-h-16 w-full items-center justify-center rounded-[var(--radius-card-sm)] border border-white/14 bg-white/8 px-3 py-3 text-white/85 backdrop-blur-md disabled:opacity-40`}
+                          className={`${scheduleStyles.training} ${styles.control} flex min-h-16 w-full items-center justify-center rounded-[var(--radius-card-sm)] border border-white/14 bg-white/[0.025] px-3 py-3 text-white/85 backdrop-blur-md disabled:opacity-40`}
                           disabled={busy} onClick={() => createEntry(activeLocation.id, day.id)} type="button">
                           <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.6" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
                         </button>

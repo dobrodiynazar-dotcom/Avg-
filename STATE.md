@@ -35,6 +35,7 @@ It is no longer a foundation-only or preview-only codebase.
 - It renders the approved weekday layout from `src/content/schedule.ts`; training entries come from the Payload `schedule-entries` collection.
 - The administrator can add, edit, and delete individual training entries inline. The existing 33 entries are seeded once by migration; deleted entries are not restored by later builds.
 - Each weekday has a training-shaped add card below its saved entries in edit mode. It becomes a local draft until Save. Refreshed server entries replace stale client data; weekday/training hover effects apply only to devices with a fine pointer and respect reduced motion.
+- Schedule add cards use a translucent blurred fill with the existing gray border. The composition uses the available wide container, and editor action labels stay on one line.
 
 ### Pricing / Subscriptions
 - `/pricing` is a real implemented route.
