@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { TrackedSignupLink } from "@/components/analytics/TrackedSignupLink";
 import { BrandMark } from "@/components/brand/BrandMark";
+import { CmsLoginLink } from "@/components/brand/CmsLoginLink";
 import { Container } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
 import { academyInfo, contactChannels } from "@/content/site";
@@ -68,13 +69,12 @@ export function SiteFooter() {
       <Container className="py-10 sm:py-12">
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-6">
           <div className="flex justify-center lg:justify-start">
-            <Link
+            <CmsLoginLink
               className="inline-flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.15em] text-white transition-colors duration-200 hover:text-[var(--color-primary)]"
-              href="/"
             >
               <BrandMark className="inline-flex h-7 w-7 shrink-0 items-center justify-center" />
               <span className="text-white">{academyInfo.shortName.toUpperCase()}</span>
-            </Link>
+            </CmsLoginLink>
           </div>
 
           <nav

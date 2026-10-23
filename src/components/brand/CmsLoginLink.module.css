@@ -1,0 +1,23 @@
+.logo {
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: min(24rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 1rem;
+  background: #111315;
+  color: white;
+}
+
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(10px);
+}

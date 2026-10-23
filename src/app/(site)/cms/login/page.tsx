@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function CmsLoginPage() {
-  return <CmsLoginForm />;
+  return <section className="flex min-h-[70vh] items-center justify-center bg-[var(--color-canvas)] px-5 py-20 text-white"><CmsLoginForm /></section>;
 }
