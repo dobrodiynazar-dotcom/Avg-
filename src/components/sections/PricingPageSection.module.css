@@ -49,15 +49,6 @@
   opacity: 0.55;
 }
 
-.input[type="time"] {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  max-width: 100%;
-  box-sizing: border-box;
-  color-scheme: dark;
-}
-
 .action {
   min-width: 0;
   padding: 0.625rem 0.375rem;

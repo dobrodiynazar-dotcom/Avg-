@@ -7,6 +7,34 @@
   overflow-wrap: anywhere;
 }
 
+.timeInputFrame:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgb(218 41 28 / 0.2);
+}
+
+.timeInput {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  color-scheme: dark;
+  font: inherit;
+}
+
+.timeInput:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.timeInput:disabled {
+  opacity: 0.55;
+}
+
 .actions > button {
   padding-inline: 0.125rem;
   white-space: nowrap;

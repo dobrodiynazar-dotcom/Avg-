@@ -242,8 +242,10 @@ export function SchedulePageSection({
                           {activeEntry?.id === entry.id ? (
                             <form className="w-full min-w-0 space-y-3" onSubmit={save}>
                               <label className={`${styles.field} w-full min-w-0`}>Час
-                                <input className={styles.input} disabled={busy} required step={60} type="time"
-                                  value={draft.time} onChange={(event) => { setDraft({ ...draft, time: event.target.value }); setConfirmation(false); }} />
+                                <span className={`${styles.input} ${scheduleStyles.timeInputFrame}`}>
+                                  <input className={scheduleStyles.timeInput} disabled={busy} required step={60} type="time"
+                                    value={draft.time} onChange={(event) => { setDraft({ ...draft, time: event.target.value }); setConfirmation(false); }} />
+                                </span>
                               </label>
                               <label className={styles.field}>Група
                                 <input className={styles.input} disabled={busy} maxLength={100} required value={draft.group}
