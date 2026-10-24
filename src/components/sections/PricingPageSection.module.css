@@ -51,6 +51,9 @@
 
 .input[type="time"] {
   color-scheme: dark;
+  max-width: 100%;
+  overflow: hidden;
+  padding-inline: 0.5rem;
 }
 
 .action {
