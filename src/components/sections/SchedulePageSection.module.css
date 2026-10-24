@@ -30,6 +30,21 @@
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .day,
+  .training {
+    transition-duration: 160ms;
+  }
+
+  .day:active:not(:has(.training:active)) {
+    transform: translateY(-1px) scale(1.005);
+  }
+
+  .training:not([data-editing="true"]):not(:disabled):active {
+    transform: scale(1.01);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .day,
   .training {

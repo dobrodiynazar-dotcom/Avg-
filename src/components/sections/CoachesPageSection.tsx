@@ -61,7 +61,7 @@ function CoachPreviewCard({
   return (
     <button
       aria-label={`Відкрити профіль тренера ${coach.name}`}
-      className="group flex w-full flex-col items-center rounded-[var(--radius-card-md)] border border-white/12 bg-[rgb(10_12_15_/_0.62)] p-4 text-center shadow-[0_24px_80px_rgb(0_0_0_/_0.28)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-[rgb(218_41_28_/_0.5)] hover:bg-[rgb(16_18_21_/_0.72)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)] motion-reduce:transition-none"
+      className="group flex w-full flex-col items-center rounded-[var(--radius-card-md)] border border-white/12 bg-[rgb(10_12_15_/_0.62)] p-4 text-center shadow-[0_24px_80px_rgb(0_0_0_/_0.28)] backdrop-blur-md transition duration-150 hover:-translate-y-1 hover:border-[rgb(218_41_28_/_0.5)] hover:bg-[rgb(16_18_21_/_0.72)] active:scale-[1.01] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary-focus)] motion-reduce:transform-none motion-reduce:transition-none"
       onClick={onOpen}
       ref={(element) => registerTrigger(coach.id, element)}
       type="button"

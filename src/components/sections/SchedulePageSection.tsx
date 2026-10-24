@@ -213,12 +213,12 @@ export function SchedulePageSection({
                 </div>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-6">
+              <div className="grid items-start gap-3 md:grid-cols-2 md:items-stretch xl:grid-cols-6">
                 {activeLocation.days.map((day) => (
                   <section
                     key={day.id}
                     aria-labelledby={`schedule-day-${day.id}`}
-                    className={`${scheduleStyles.day} flex min-h-full min-w-0 flex-col rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.12)] bg-[linear-gradient(180deg,rgb(255_255_255_/_0.08),rgb(255_255_255_/_0.03))] p-3 shadow-[0_10px_30px_rgb(0_0_0_/_0.14)] backdrop-blur-md`}
+                    className={`${scheduleStyles.day} flex min-w-0 flex-col rounded-[var(--radius-card-md)] border border-[rgb(255_255_255_/_0.12)] bg-[linear-gradient(180deg,rgb(255_255_255_/_0.08),rgb(255_255_255_/_0.03))] p-3 shadow-[0_10px_30px_rgb(0_0_0_/_0.14)] backdrop-blur-md`}
                   >
                     <div className="flex items-center justify-between gap-2 border-b border-[rgb(255_255_255_/_0.08)] pb-2">
                       <h3 id={`schedule-day-${day.id}`} className="text-sm font-semibold tracking-[0.08em] text-white/72">{day.label}</h3>
@@ -242,7 +242,7 @@ export function SchedulePageSection({
                           {activeEntry?.id === entry.id ? (
                             <form className="space-y-3" onSubmit={save}>
                               <label className={styles.field}>Час
-                                <input className={styles.input} disabled={busy} inputMode="numeric" maxLength={5} pattern="([01][0-9]|2[0-3]):[0-5][0-9]" placeholder="16:30" required
+                                <input className={styles.input} disabled={busy} required step={60} type="time"
                                   value={draft.time} onChange={(event) => { setDraft({ ...draft, time: event.target.value }); setConfirmation(false); }} />
                               </label>
                               <label className={styles.field}>Група
