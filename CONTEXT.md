@@ -11,16 +11,17 @@
 - Canonical branch: `main`.
 
 ## 2. Exact Stack
-- Next.js `16.2.0`
-- React `19.2.0`
+- Next.js `16.4.2`
+- React `19.2.6`
 - TypeScript `5.9.3`
 - Tailwind CSS `4.1.x`
 - ESLint `9.x`
+- Payload `3.91.0` with PostgreSQL adapter, Preview database and inline Prices/Schedule editing
 
 ## 3. Current Repository Map
 - `src/app`
-  - homepage in `src/app/page.tsx`
-  - real routes in `src/app/coaches`, `src/app/gallery`, `src/app/schedule`, `src/app/pricing`, and `src/app/veterans`
+  - public layout and pages in `src/app/(site)`; route URLs are unchanged
+  - CMS admin and REST routes in `src/app/(payload)`
 - `src/components/layout`
   - `SiteHeader`, `MobileNav`, `SiteFooter`
 - `src/components/ui`
@@ -32,7 +33,7 @@
   - schedule page section
   - pricing page section
 - `src/content`
-  - business content source of truth
+  - business content source of truth except Prices cards and Schedule training entries
 - `src/styles`
   - split CSS layers (`tokens.css`, `base.css`, `typography.css`, `utilities.css`, `components.css`)
 - `public/`
@@ -68,7 +69,7 @@ Primary content source files:
 - `src/content/faq.ts`
 
 Rule:
-- edit business content in `src/content/*`, not directly in UI components.
+- edit business content in `src/content/*`, not directly in UI components; Prices cards and Schedule training entries come from Payload/PostgreSQL.
 
 ## 7. Design / UX Reality
 - Ferrari-inspired cinematic direction is approved.

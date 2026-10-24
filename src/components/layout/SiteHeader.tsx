@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { BrandMark } from "@/components/brand/BrandMark";
+import { CmsLoginLink } from "@/components/brand/CmsLoginLink";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { Button, Container } from "@/components/ui";
 import { primaryNavigation } from "@/content/navigation";
@@ -14,14 +15,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-[rgb(255_255_255_/_0.08)] bg-[rgb(24_24_24_/_0.82)] backdrop-blur-xl">
       <Container>
         <div className="flex min-h-18 items-center justify-between gap-4 py-3">
-          <Link className="min-w-0 text-[var(--color-ink)]" href="/">
+          <CmsLoginLink className="min-w-0 text-[var(--color-ink)]">
             <span className="flex items-center gap-3">
               <BrandMark className="inline-flex h-7 w-7 shrink-0 items-center justify-center" />
               <span className="truncate text-[14px] font-semibold uppercase tracking-[0.08em] text-[var(--color-ink)] md:text-[12px] md:tracking-[0.12em]">
                 {academyInfo.shortName}
               </span>
             </span>
-          </Link>
+          </CmsLoginLink>
 
           <nav
             aria-label="Основна навігація"

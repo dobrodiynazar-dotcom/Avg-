@@ -12,7 +12,8 @@
   - `npm run build`
   - `npm run lint`
   - `npm run typecheck`
-- No dedicated unit-test or e2e test runner is currently configured in the checked-out codebase.
+  - `npm run test:cms`
+- Focused Node tests cover CMS administrator, Prices and Schedule access, validation, and server-generated metadata. No e2e test runner is configured.
 
 ## 2. Testing Strategy
 - Use practical, risk-based quality gates.
@@ -39,7 +40,7 @@
 - Placeholder replacement should not require layout rewrites.
 
 ## 4. Current Gaps
-- No automated unit test suite exists yet.
+- CMS administrator and Prices access have focused automated tests; broader unit coverage is still absent.
 - No automated end-to-end smoke suite exists yet.
 - No CI workflow is present in the current checked-out implementation.
 - The synchronized post-merge branch must still be verified after dependencies are installed.

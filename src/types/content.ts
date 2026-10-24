@@ -118,15 +118,22 @@ export type PricingSimpleItem = {
   priceLabel: string;
 };
 
+export type PriceCard = {
+  id: number;
+  key: string;
+  kind: "subscription" | "single" | "personal";
+  sortOrder: number;
+  title: string;
+  price: number;
+};
+
 export type PricingPageContent = {
   title: string;
   backgroundImageSrc: string;
   ctaLabel: string;
   ctaHref: string;
   ctaExternal?: boolean;
-  oneTimeTraining: PricingSimpleItem;
   personalTrainingTitle: string;
-  personalTraining: PricingSimpleItem[];
   trialText: string;
 };
 
@@ -136,7 +143,11 @@ export type SchedulePreviewGroup = {
 };
 
 export type ScheduleEntry = {
-  id: string;
+  id: number;
+  key: string;
+  locationId: string;
+  dayId: string;
+  sortOrder: number;
   time: string;
   group: string;
 };
@@ -144,7 +155,6 @@ export type ScheduleEntry = {
 export type ScheduleDay = {
   id: string;
   label: string;
-  entries: ScheduleEntry[];
 };
 
 export type ScheduleLocationSchedule = {

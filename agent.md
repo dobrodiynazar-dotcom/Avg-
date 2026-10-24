@@ -21,7 +21,7 @@ Read these files before editing:
 - Preserve the existing route structure unless explicitly asked to change it.
 
 ## Content Rules
-- Treat `src/content/*` as the business-content source of truth.
+- Treat `src/content/*` as the business-content source of truth except Prices cards and Schedule training entries, which are stored in Payload/PostgreSQL on `cms-prototype`.
 - Prefer editing typed content modules over hard-coding strings in components.
 - Do not reintroduce outdated placeholder copy into already implemented homepage sections.
 
