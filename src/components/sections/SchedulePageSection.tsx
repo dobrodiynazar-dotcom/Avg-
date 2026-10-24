@@ -224,7 +224,7 @@ export function SchedulePageSection({
                       <h3 id={`schedule-day-${day.id}`} className="text-sm font-semibold tracking-[0.08em] text-white/72">{day.label}</h3>
                     </div>
 
-                    <div className="mt-3 flex flex-1 flex-col gap-2.5">
+                    <div className="mt-3 flex min-w-0 flex-1 flex-col gap-2.5">
                       {[...entries.filter((entry) => entry.locationId === activeLocation.id && entry.dayId === day.id),
                         ...(activeEntry?.id === -1 && activeEntry.locationId === activeLocation.id && activeEntry.dayId === day.id ? [activeEntry] : [])]
                         .sort((left, right) => left.sortOrder - right.sortOrder || left.id - right.id).map((entry) => (
@@ -240,8 +240,8 @@ export function SchedulePageSection({
                           tabIndex={canEdit && editMode && activeEntry?.id !== entry.id ? 0 : undefined}
                         >
                           {activeEntry?.id === entry.id ? (
-                            <form className="space-y-3" onSubmit={save}>
-                              <label className={styles.field}>Час
+                            <form className="w-full min-w-0 space-y-3" onSubmit={save}>
+                              <label className={`${styles.field} w-full min-w-0`}>Час
                                 <input className={styles.input} disabled={busy} required step={60} type="time"
                                   value={draft.time} onChange={(event) => { setDraft({ ...draft, time: event.target.value }); setConfirmation(false); }} />
                               </label>

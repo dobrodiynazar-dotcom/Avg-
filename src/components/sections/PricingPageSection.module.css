@@ -50,9 +50,12 @@
 }
 
 .input[type="time"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   box-sizing: border-box;
   color-scheme: dark;
-  max-width: 100%;
 }
 
 .action {
