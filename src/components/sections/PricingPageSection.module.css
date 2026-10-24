@@ -90,6 +90,16 @@
   }
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .card {
+    transition-duration: 160ms;
+  }
+
+  .card:not([data-editing="true"]):active {
+    transform: scale(1.01);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card,
   .input,
